@@ -50,7 +50,7 @@
             this.btnCategorias = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblregresarLogin = new System.Windows.Forms.Label();
             this.lblapellidousuario = new System.Windows.Forms.Label();
             this.lblnombreusuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -310,7 +310,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.lblregresarLogin);
             this.panel3.Controls.Add(this.lblapellidousuario);
             this.panel3.Controls.Add(this.lblnombreusuario);
             this.panel3.Controls.Add(this.pictureBox1);
@@ -320,16 +320,17 @@
             this.panel3.Size = new System.Drawing.Size(291, 109);
             this.panel3.TabIndex = 0;
             // 
-            // label8
+            // lblregresarLogin
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(102, 73);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 18);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Salir";
+            this.lblregresarLogin.AutoSize = true;
+            this.lblregresarLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblregresarLogin.ForeColor = System.Drawing.Color.White;
+            this.lblregresarLogin.Location = new System.Drawing.Point(102, 73);
+            this.lblregresarLogin.Name = "lblregresarLogin";
+            this.lblregresarLogin.Size = new System.Drawing.Size(37, 18);
+            this.lblregresarLogin.TabIndex = 4;
+            this.lblregresarLogin.Text = "Salir";
+            this.lblregresarLogin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblregresarLogin_MouseClick);
             // 
             // lblapellidousuario
             // 
@@ -1347,7 +1348,7 @@
         private System.Windows.Forms.TabPage tpUsuarios;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblregresarLogin;
         private System.Windows.Forms.Label lblapellidousuario;
         private System.Windows.Forms.Label lblnombreusuario;
         private System.Windows.Forms.Label btnMinimizar;

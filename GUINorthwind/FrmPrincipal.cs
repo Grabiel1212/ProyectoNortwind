@@ -22,7 +22,6 @@ namespace GUINorthwind
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int
         lparam);
 
-        // variantes para tares datos desde mi frm login
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Ocupacion { get; set; }
@@ -479,6 +478,13 @@ namespace GUINorthwind
         {
             FrmCRUProducto winCRUProducto = new FrmCRUProducto();
             winCRUProducto.ShowDialog();
+        }
+
+        private void lblregresarLogin_MouseClick(object sender, MouseEventArgs e)
+        {
+            FrmLogin abrir = new FrmLogin();
+            abrir.Visible = true;
+            this.Hide();
         }
     }
 }

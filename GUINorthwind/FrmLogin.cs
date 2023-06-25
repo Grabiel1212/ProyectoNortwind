@@ -91,17 +91,20 @@ namespace GUINorthwind
 
 
 
-            string nombre = lbeUsuario[0].Nombre;
-            string apellido = lbeUsuario[0].Apellido;
-            //string ocupacion = lbeUsuario[0].Ocupacion;
 
             if (bsUsuario.Count > 0)
             {
                 MessageBox.Show("Bienvenido");
                 FrmPrincipal winPrincipal = new FrmPrincipal();
-                winPrincipal.Nombre = nombre;
-                winPrincipal.Apellido = apellido;
-                //winPrincipal.Ocupacion = ocupacion;
+
+                string nombr = lbeUsuario[0].Nombre;
+                string apellid = lbeUsuario[0].Apellido;
+                string ocupacion = lbeUsuario[0].Ocupacion;
+
+
+                winPrincipal.Nombre = nombr;
+                winPrincipal.Apellido = apellid;
+                winPrincipal.Ocupacion = ocupacion;
 
                 winPrincipal.Show();
                 this.Hide();

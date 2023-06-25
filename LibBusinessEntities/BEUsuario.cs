@@ -17,7 +17,7 @@ namespace LibBusinessEntities
         private String apellido;
         private int estado;
         private String ocupacion;
-        
+
         public BEUsuario()
         {
         }
