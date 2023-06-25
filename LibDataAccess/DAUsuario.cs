@@ -28,6 +28,8 @@ namespace LibDataAccess
                 int posNombre = drd.GetOrdinal("FirstName");
                 int posApellido = drd.GetOrdinal("LastName");
                 int posEstado = drd.GetOrdinal("UserStatus");
+                int posOccupacion = drd.GetOrdinal("ocupacion");
+
                 BEUsuario obeUsuario;
                 while (drd.Read())
                 {
@@ -40,6 +42,8 @@ namespace LibDataAccess
                         withBlock.Nombre = drd.GetString(posNombre);
                         withBlock.Apellido = drd.GetString(posApellido);
                         withBlock.Estado = drd.GetInt32(posEstado);
+                        withBlock.Ocupacion = drd.GetString(posOccupacion);
+
                     }
                     lobeUsuario.Add(obeUsuario);
                 }
@@ -64,6 +68,8 @@ namespace LibDataAccess
                 int posNombre = drd.GetOrdinal("FirstName");
                 int posApellido = drd.GetOrdinal("LastName");
                 int posEstado = drd.GetOrdinal("UserStatus");
+                int posOccupacion = drd.GetOrdinal("ocupacion");
+
                 BEUsuario obeUsuario;
                 while (drd.Read())
                 {
@@ -76,6 +82,8 @@ namespace LibDataAccess
                         withBlock.Nombre = drd.GetString(posNombre);
                         withBlock.Apellido = drd.GetString(posApellido);
                         withBlock.Estado = drd.GetInt32(posEstado);
+                        withBlock.Ocupacion = drd.GetString(posOccupacion);
+
                     }
                     lobeUsuario.Add(obeUsuario);
                 }

@@ -89,10 +89,11 @@ namespace GUINorthwind
             bsUsuario.DataSource = lbeUsuario;
 
 
-           
-            
+
+
             string nombre = lbeUsuario[0].Nombre;
             string apellido = lbeUsuario[0].Apellido;
+            //string ocupacion = lbeUsuario[0].Ocupacion;
 
             if (bsUsuario.Count > 0)
             {
@@ -100,7 +101,8 @@ namespace GUINorthwind
                 FrmPrincipal winPrincipal = new FrmPrincipal();
                 winPrincipal.Nombre = nombre;
                 winPrincipal.Apellido = apellido;
-                
+                //winPrincipal.Ocupacion = ocupacion;
+
                 winPrincipal.Show();
                 this.Hide();
             }

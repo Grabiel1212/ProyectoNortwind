@@ -39,6 +39,9 @@
     <Reference Include="LibBusinessRules">
       <HintPath>..\LibBusinessRules\bin\Debug\LibBusinessRules.dll</HintPath>
     </Reference>
+    <Reference Include="LibDataAccess">
+      <HintPath>..\LibDataAccess\bin\Debug\LibDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

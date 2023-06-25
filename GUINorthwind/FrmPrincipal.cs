@@ -22,9 +22,12 @@ namespace GUINorthwind
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int
         lparam);
 
-
+        // variantes para tares datos desde mi frm login
         public string Nombre { get; set; }
         public string Apellido { get; set; }
+        public string Ocupacion { get; set; }
+
+
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -339,16 +342,11 @@ namespace GUINorthwind
         {
             cargaDatos(0);
 
-     
-        BRUsuario utUS = new BRUsuario();
-
-            
-
             lblnombreusuario.Text = "";
             lblapellidousuario.Text ="";
             
             lblnombreusuario.Text = Nombre + "  " + Apellido;
-            lblapellidousuario.Text = Apellido;
+            lblapellidousuario.Text = Ocupacion;
         }
 
 

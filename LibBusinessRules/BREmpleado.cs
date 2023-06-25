@@ -38,6 +38,10 @@ namespace LibBusinessRules
                     // Grabar el Log de error
                     lobeEmpleado = null;
                 }
+                finally
+                {
+                    con.Close();
+                }
             }
             return (lobeEmpleado);
         }
