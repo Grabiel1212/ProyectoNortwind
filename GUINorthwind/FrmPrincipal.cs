@@ -22,6 +22,7 @@ namespace GUINorthwind
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int
         lparam);
 
+       //  variantes para llamar el nombre , apellido , ocupaciuon desde login ami ventana principal
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Ocupacion { get; set; }
@@ -207,9 +208,10 @@ namespace GUINorthwind
         private List<BEProveedor> lbeProveedor;
         private List<BEUsuario> lbeUsuario;
 
-        private void cargaDatos(int identificador)
+        private void cargaDatos(int identificador) // el indentificador viene de tcventana cada ventana tiene su rango de inicio
         {
-            personalizaGrilla();
+            personalizaGrilla(); // llamo ami metodo de personalizar los data griew 
+
             switch (identificador) { 
                 case 0:
                     BRProducto obrProducto = new BRProducto();
@@ -236,6 +238,7 @@ namespace GUINorthwind
                     lbeUsuario = obrUsuario.Listar();
                     dgvUsuarios.DataSource = lbeUsuario;
                     break;
+               
             }
         }
 
@@ -244,44 +247,45 @@ namespace GUINorthwind
             switch(identificador)
             {
                 case 0:
-                    btnProductos.BackColor=Color.FromArgb(85, 159, 127);
-                    btnCategorias.BackColor=Color.FromArgb(33,53,73);
-                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
-                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
-                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProductos.BackColor=Color.FromArgb(85, 159, 127);
+                    //btnCategorias.BackColor=Color.FromArgb(33,53,73);
+                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     break;
                 case 1:
-                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
-                    btnCategorias.BackColor = Color.FromArgb(85, 159, 127);
-                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
-                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
-                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnCategorias.BackColor = Color.FromArgb(85, 159, 127);
+                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     break;
                 case 2:
-                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
-                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
-                    btnEmpleados.BackColor = Color.FromArgb(85, 159, 127);
-                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
-                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnEmpleados.BackColor = Color.FromArgb(85, 159, 127);
+                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     break;
                 case 3:
-                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
-                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
-                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
-                    btnProveedores.BackColor = Color.FromArgb(85, 159, 127);
-                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProveedores.BackColor = Color.FromArgb(85, 159, 127);
+                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     break;
                 case 4:
-                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
-                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
-                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
-                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
-                    btnUsuarios.BackColor = Color.FromArgb(85, 159, 127);
+                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnUsuarios.BackColor = Color.FromArgb(85, 159, 127);
                     break;
             }
         }
 
-        private void accedeProductos(object sender, EventArgs e)
+       
+        private void accedeProductos(object sender, EventArgs e)// btn acceder porductos
         {
             tcVentanas.SelectedIndex = 0;
             activaSeleccion(0);
@@ -289,7 +293,8 @@ namespace GUINorthwind
             cargaDatos(0);
         }
 
-        private void accedeCategorias(object sender, EventArgs e)
+      
+        private void accedeCategorias(object sender, EventArgs e)// brn aaceder categorias
         {
             tcVentanas.SelectedIndex = 1;
             activaSeleccion(1);
@@ -297,7 +302,7 @@ namespace GUINorthwind
             cargaDatos(1);
         }
 
-        private void accedeEmpleados(object sender, EventArgs e)
+        private void accedeEmpleados(object sender, EventArgs e)// btn acceder empleados
         {
             tcVentanas.SelectedIndex = 2;
             activaSeleccion(2);
@@ -305,7 +310,7 @@ namespace GUINorthwind
             cargaDatos(2);
         }
 
-        private void accedeProveedores(object sender, EventArgs e)
+        private void accedeProveedores(object sender, EventArgs e)// btn acceder proovedores
         {
             tcVentanas.SelectedIndex = 3;
             activaSeleccion(3);
@@ -313,7 +318,7 @@ namespace GUINorthwind
             cargaDatos(3);
         }
 
-        private void accedeUsuarios(object sender, EventArgs e)
+        private void accedeUsuarios(object sender, EventArgs e)// btn acceder usuarios
         {
             tcVentanas.SelectedIndex = 4;
             activaSeleccion(4);
@@ -321,23 +326,23 @@ namespace GUINorthwind
             cargaDatos(4);
         }
 
-        private void cerrarAplicacion(object sender, EventArgs e)
+        private void cerrarAplicacion(object sender, EventArgs e) // btn cerrar aplicacion
         {
             Application.Exit();
         }
 
-        private void minimizaVentana(object sender, EventArgs e)
+        private void minimizaVentana(object sender, EventArgs e)// btn minimizar
         {
             this.WindowState = FormWindowState.Minimized;    
         }
 
-        private void moverVentana(object sender, MouseEventArgs e)
+        private void moverVentana(object sender, MouseEventArgs e)// evento para mover la ventana libremente
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void carga(object sender, EventArgs e)
+        private void carga(object sender, EventArgs e) // para cargar datos al formulario directamente
         {
             cargaDatos(0);
 
@@ -348,7 +353,7 @@ namespace GUINorthwind
             lblapellidousuario.Text = Ocupacion;
         }
 
-
+        // para filtrar una busqueda 
         List<BEProducto> lbeFiltro01;
         List<BECategoria> lbeFiltro02;
         List<BEEmpleado> lbeFiltro03;
@@ -359,22 +364,23 @@ namespace GUINorthwind
             switch (identificador)
             {
                 case 0:
-                    lbeFiltro01 = new List<BEProducto>();
-                    BEProducto obeProducto;
+                    lbeFiltro01 = new List<BEProducto>();// llamo ami metodo con parametros donde estan mis encapsulados
 
-                    for (int I = 0; I <= lbeProducto.Count - 1; I++)
+                    BEProducto obeProducto; // llamo ami metodo vacio donde estan mis encapsulados
+
+                    for (int I = 0; I <= lbeProducto.Count - 1; I++)//lbe productos viene de listar amis encapsulado con parametros 
                     {
-                        if (lbeProducto[I].Nombre.ToUpper().Contains(txtFiltroProducto.Text.ToUpper()))
+                        if (lbeProducto[I].Nombre.ToUpper().Contains(txtFiltroProducto.Text.ToUpper())) // toYpper pone en mayusculas /// y el constrais va analizar si esa lista tiene esa letra y devolvera el resultadi
                         {
                             obeProducto = new BEProducto();
-                            obeProducto.Codigo = lbeProducto[I].Codigo;
+                            //obeProducto.Codigo = lbeProducto[I].Codigo;
                             obeProducto.Nombre = lbeProducto[I].Nombre;
-                            obeProducto.PrecioUni = lbeProducto[I].PrecioUni;
-                            obeProducto.Stock = lbeProducto[I].Stock;
+                            //obeProducto.PrecioUni = lbeProducto[I].PrecioUni;
+                            //obeProducto.Stock = lbeProducto[I].Stock;
                             lbeFiltro01.Add(obeProducto);
                         }
                     }
-                    dgvProductos.DataSource = lbeFiltro01;
+                    dgvProductos.DataSource = lbeFiltro01;// va a filtrar la vuslqueda es nuestra tabla
                     break;
                 case 1:
                     lbeFiltro02 = new List<BECategoria>();
@@ -485,6 +491,11 @@ namespace GUINorthwind
             FrmLogin abrir = new FrmLogin();
             abrir.Visible = true;
             this.Hide();
+        }
+
+        private void btnprovar_Click(object sender, EventArgs e)// no exite pee
+        {
+            
         }
     }
 }
