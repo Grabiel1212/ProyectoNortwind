@@ -102,8 +102,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCRUEmpleado.resx">
+      <DependentUpon>FrmCRUEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCRUProducto.resx">
       <DependentUpon>FrmCRUProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCRUProveedor.resx">
+      <DependentUpon>FrmCRUProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
