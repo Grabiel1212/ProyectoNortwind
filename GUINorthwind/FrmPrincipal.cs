@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using LibBusinessEntities;
 using LibBusinessRules;
 using System.Security.Policy;
+using System.Drawing.Text;
 
 namespace GUINorthwind
 {
@@ -35,6 +36,8 @@ namespace GUINorthwind
 
         Font fuente;
         DataGridView dgv;
+
+        // esto  sirve para persinalizar los datagriew
         private void personalizaGrilla()
         {
             dgvProductos.BackgroundColor = Color.FromArgb(45,66,91);
@@ -202,6 +205,7 @@ namespace GUINorthwind
             dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvUsuarios.ColumnHeadersVisible = true;
         }
+        // para lsitar mis encapsulados 
         private List<BEProducto> lbeProducto;
         private List<BECategoria> lbeCategoria;
         private List<BEEmpleado> lbeEmpleado;
@@ -372,11 +376,12 @@ namespace GUINorthwind
                     {
                         if (lbeProducto[I].Nombre.ToUpper().Contains(txtFiltroProducto.Text.ToUpper())) // toYpper pone en mayusculas /// y el constrais va analizar si esa lista tiene esa letra y devolvera el resultadi
                         {
+                            // esto es para que los datos se listes segun su rago y se guarden sus datos para que luego se muestre en la tabla de busqueda
                             obeProducto = new BEProducto();
-                            //obeProducto.Codigo = lbeProducto[I].Codigo;
+                            obeProducto.Codigo = lbeProducto[I].Codigo;
                             obeProducto.Nombre = lbeProducto[I].Nombre;
-                            //obeProducto.PrecioUni = lbeProducto[I].PrecioUni;
-                            //obeProducto.Stock = lbeProducto[I].Stock;
+                            obeProducto.PrecioUni = lbeProducto[I].PrecioUni;
+                            obeProducto.Stock = lbeProducto[I].Stock;
                             lbeFiltro01.Add(obeProducto);
                         }
                     }
@@ -455,47 +460,79 @@ namespace GUINorthwind
             }
         }
 
-        private void filtrarUsuarios(object sender, EventArgs e)
+        private void filtrarUsuarios(object sender, EventArgs e) //txtfiltrarUusuarios  con el evento TextChanget
         {
             filtro(4);
         }
 
-        private void filtrarProveedores(object sender, EventArgs e)
+        private void filtrarProveedores(object sender, EventArgs e)//txtfiltrarProovedores usuario con el evento TextChanget
         {
             filtro(3);
         }
 
-        private void filtrarProductos(object sender, EventArgs e)
+        private void filtrarProductos(object sender, EventArgs e)//txtfiltrarPorductos  con el evento TextChanget
         {
             filtro(0);
         }
 
-        private void filtrarCategorias(object sender, EventArgs e)
+        private void filtrarCategorias(object sender, EventArgs e)//txtfiltrar categorias con el evento TextChanget
         {
             filtro(1);
         }
 
-        private void filtrarEmpleados(object sender, EventArgs e)
+        private void filtrarEmpleados(object sender, EventArgs e)//txtfiltrar empleado con el evento TextChanget
         {
             filtro(2);
         }
 
-        private void informacionProducto(object sender, EventArgs e)
+     
+        private void informacionProducto(object sender, EventArgs e)// boton informacion del producto
         {
-            FrmCRUProducto winCRUProducto = new FrmCRUProducto();
-            winCRUProducto.ShowDialog();
+
+            BRCategoria objCategoria = new BRCategoria();
+            BRProveedor objProveedor = new BRProveedor();
+
+            // vreificamos se se seleciono una fila  en mi datagriew
+
+            if (dgvProductos.SelectedRows.Count > 0) // se ase el conteo
+            {
+                DataGridViewRow filaSeleccionada = dgvProductos.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEProducto productoSeleccionado = (BEProducto)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                // akim el metodo firnsorDefaul va aobtener el primer dato de la condicion , para eso usamos el c , que va  va analizar k el coidgo se encuentre en las lista de mis categroria}
+                // y los va a validar una ves , uan ves k se culpa no va aguarda el dato en categria si no nos bottara null
+                  BECategoria categoria = objCategoria.Listar().FirstOrDefault(c => c.Codigo == productoSeleccionado.IdCategoria);
+                BEProveedor proveedor = objProveedor.Listar().FirstOrDefault(p => p.Codigo==productoSeleccionado.IdProveedor);
+
+                  FrmCRUProducto abrir = new FrmCRUProducto(productoSeleccionado, categoria , proveedor);// enviamos los dtaos 
+                  abrir.ShowDialog();
+              
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor ");
+            }
+
+
+
         }
 
-        private void lblregresarLogin_MouseClick(object sender, MouseEventArgs e)
+        private void lblregresarLogin_MouseClick(object sender, MouseEventArgs e)// para regresar la login
         {
-            FrmLogin abrir = new FrmLogin();
-            abrir.Visible = true;
-            this.Hide();
+          
         }
 
         private void btnprovar_Click(object sender, EventArgs e)// no exite pee
         {
             
+        }
+
+        private void lblregresarLogin_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            FrmLogin abrir = new FrmLogin();
+            abrir.Visible = true;
+            this.Hide();
         }
     }
 }

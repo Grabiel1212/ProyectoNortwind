@@ -34,13 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LibBusinessEntities">
-      <HintPath>..\LibBusinessEntities\bin\Debug\LibBusinessEntities.dll</HintPath>
+      <HintPath>..\LibBusinessRules\bin\Debug\LibBusinessEntities.dll</HintPath>
     </Reference>
     <Reference Include="LibBusinessRules">
       <HintPath>..\LibBusinessRules\bin\Debug\LibBusinessRules.dll</HintPath>
     </Reference>
     <Reference Include="LibDataAccess">
-      <HintPath>..\LibDataAccess\bin\Debug\LibDataAccess.dll</HintPath>
+      <HintPath>..\LibBusinessRules\bin\Debug\LibDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
