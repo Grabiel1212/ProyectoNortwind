@@ -58,10 +58,10 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.tcVentanas = new System.Windows.Forms.TabControl();
             this.tpProductos = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
+            this.btneliminarProducto = new System.Windows.Forms.Button();
+            this.btnmodificarProducto = new System.Windows.Forms.Button();
+            this.btnregistrarproducto = new System.Windows.Forms.Button();
+            this.btnpoductDesacticadoss = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -400,10 +400,10 @@
             // 
             // tpProductos
             // 
-            this.tpProductos.Controls.Add(this.button3);
-            this.tpProductos.Controls.Add(this.button2);
-            this.tpProductos.Controls.Add(this.button1);
-            this.tpProductos.Controls.Add(this.button20);
+            this.tpProductos.Controls.Add(this.btneliminarProducto);
+            this.tpProductos.Controls.Add(this.btnmodificarProducto);
+            this.tpProductos.Controls.Add(this.btnregistrarproducto);
+            this.tpProductos.Controls.Add(this.btnpoductDesacticadoss);
             this.tpProductos.Controls.Add(this.btnLogin);
             this.tpProductos.Controls.Add(this.groupBox1);
             this.tpProductos.Controls.Add(this.dgvProductos);
@@ -415,69 +415,71 @@
             this.tpProductos.Text = "tabPage1";
             this.tpProductos.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btneliminarProducto
             // 
-            this.button3.BackColor = System.Drawing.Color.Teal;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.LightGray;
-            this.button3.Location = new System.Drawing.Point(758, 580);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(235, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "ELIMINAR PRODUCTO";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btneliminarProducto.BackColor = System.Drawing.Color.Teal;
+            this.btneliminarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btneliminarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btneliminarProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btneliminarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btneliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneliminarProducto.ForeColor = System.Drawing.Color.LightGray;
+            this.btneliminarProducto.Location = new System.Drawing.Point(758, 580);
+            this.btneliminarProducto.Name = "btneliminarProducto";
+            this.btneliminarProducto.Size = new System.Drawing.Size(235, 40);
+            this.btneliminarProducto.TabIndex = 2;
+            this.btneliminarProducto.Text = "ELIMINAR PRODUCTO";
+            this.btneliminarProducto.UseVisualStyleBackColor = false;
+            this.btneliminarProducto.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnmodificarProducto
             // 
-            this.button2.BackColor = System.Drawing.Color.DarkOrange;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.LightGray;
-            this.button2.Location = new System.Drawing.Point(517, 580);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(235, 40);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "EDITAR PRODUCTO";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnmodificarProducto.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnmodificarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnmodificarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnmodificarProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnmodificarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnmodificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmodificarProducto.ForeColor = System.Drawing.Color.LightGray;
+            this.btnmodificarProducto.Location = new System.Drawing.Point(517, 580);
+            this.btnmodificarProducto.Name = "btnmodificarProducto";
+            this.btnmodificarProducto.Size = new System.Drawing.Size(235, 40);
+            this.btnmodificarProducto.TabIndex = 2;
+            this.btnmodificarProducto.Text = "EDITAR PRODUCTO";
+            this.btnmodificarProducto.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnregistrarproducto
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.LightGray;
-            this.button1.Location = new System.Drawing.Point(276, 580);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "REGISTRA PRODUCTO";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnregistrarproducto.BackColor = System.Drawing.Color.Green;
+            this.btnregistrarproducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnregistrarproducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnregistrarproducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnregistrarproducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnregistrarproducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnregistrarproducto.ForeColor = System.Drawing.Color.LightGray;
+            this.btnregistrarproducto.Location = new System.Drawing.Point(276, 580);
+            this.btnregistrarproducto.Name = "btnregistrarproducto";
+            this.btnregistrarproducto.Size = new System.Drawing.Size(235, 40);
+            this.btnregistrarproducto.TabIndex = 2;
+            this.btnregistrarproducto.Text = "REGISTRA PRODUCTO";
+            this.btnregistrarproducto.UseVisualStyleBackColor = false;
             // 
-            // button20
+            // btnpoductDesacticadoss
             // 
-            this.button20.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button20.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button20.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button20.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.ForeColor = System.Drawing.Color.LightGray;
-            this.button20.Location = new System.Drawing.Point(647, 70);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(346, 40);
-            this.button20.TabIndex = 2;
-            this.button20.Text = "MOSTRAR PRODUCTOS DESACTIVADOS";
-            this.button20.UseVisualStyleBackColor = false;
+            this.btnpoductDesacticadoss.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnpoductDesacticadoss.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnpoductDesacticadoss.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnpoductDesacticadoss.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnpoductDesacticadoss.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnpoductDesacticadoss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnpoductDesacticadoss.ForeColor = System.Drawing.Color.LightGray;
+            this.btnpoductDesacticadoss.Location = new System.Drawing.Point(647, 70);
+            this.btnpoductDesacticadoss.Name = "btnpoductDesacticadoss";
+            this.btnpoductDesacticadoss.Size = new System.Drawing.Size(346, 40);
+            this.btnpoductDesacticadoss.TabIndex = 2;
+            this.btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS DESACTIVADOS";
+            this.btnpoductDesacticadoss.UseVisualStyleBackColor = false;
+            this.btnpoductDesacticadoss.Click += new System.EventHandler(this.btnpoductDesacticadoss_Click);
             // 
             // btnLogin
             // 
@@ -1374,15 +1376,15 @@
         private System.Windows.Forms.DataGridView dgvProveedores;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btneliminarProducto;
+        private System.Windows.Forms.Button btnmodificarProducto;
+        private System.Windows.Forms.Button btnregistrarproducto;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.TextBox txtFiltroProducto;
-        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button btnpoductDesacticadoss;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.GroupBox groupBox2;

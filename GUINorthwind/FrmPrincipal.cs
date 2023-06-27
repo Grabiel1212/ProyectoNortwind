@@ -37,6 +37,8 @@ namespace GUINorthwind
         Font fuente;
         DataGridView dgv;
 
+    
+
         // esto  sirve para persinalizar los datagriew
         private void personalizaGrilla()
         {
@@ -251,39 +253,39 @@ namespace GUINorthwind
             switch(identificador)
             {
                 case 0:
-                    //btnProductos.BackColor=Color.FromArgb(85, 159, 127);
-                    //btnCategorias.BackColor=Color.FromArgb(33,53,73);
-                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProductos.BackColor = Color.FromArgb(85, 159, 127);
+                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     break;
                 case 1:
-                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnCategorias.BackColor = Color.FromArgb(85, 159, 127);
-                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    btnCategorias.BackColor = Color.FromArgb(85, 159, 127);
+                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     break;
                 case 2:
-                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnEmpleados.BackColor = Color.FromArgb(85, 159, 127);
-                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    btnEmpleados.BackColor = Color.FromArgb(85, 159, 127);
+                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     break;
                 case 3:
-                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnProveedores.BackColor = Color.FromArgb(85, 159, 127);
-                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProveedores.BackColor = Color.FromArgb(85, 159, 127);
+                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     break;
                 case 4:
-                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
-                    //btnUsuarios.BackColor = Color.FromArgb(85, 159, 127);
+                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    btnUsuarios.BackColor = Color.FromArgb(85, 159, 127);
                     break;
             }
         }
@@ -291,6 +293,9 @@ namespace GUINorthwind
        
         private void accedeProductos(object sender, EventArgs e)// btn acceder porductos
         {
+
+            btnpoductDesacticadoss.Text = " MOSTRAR PRODUCTOS DESACTIVADOS";
+
             tcVentanas.SelectedIndex = 0;
             activaSeleccion(0);
             lblTitulo.Text = btnProductos.Text;
@@ -516,6 +521,9 @@ namespace GUINorthwind
 
 
 
+
+
+
         }
 
         private void lblregresarLogin_MouseClick(object sender, MouseEventArgs e)// para regresar la login
@@ -533,6 +541,122 @@ namespace GUINorthwind
             FrmLogin abrir = new FrmLogin();
             abrir.Visible = true;
             this.Hide();
+        }
+
+        private bool valor = false; // para enviar valor si esta activado o desactivado
+        private void btnpoductDesacticadoss_Click(object sender, EventArgs e)
+        {
+
+            //valor = !valor;
+            //int numeroAc = 0;
+
+            if (valor)
+            //{
+            //    btnpoductDesacticadoss.Text = " ";
+            //    numeroAc = 1;
+            //    BRProducto objproducto = new BRProducto();
+            //    lbeProducto = objproducto.ListarProducActivados(numeroAc);
+            //    dgvProductos.DataSource = lbeProducto;
+            //    btnpoductDesacticadoss.Text = " MOSTRAR PRODUCTOS ACTIVADOS";
+
+
+            //}
+            //else
+            //{
+
+            //    btnpoductDesacticadoss.Text = " ";
+            //    numeroAc = 0;
+            //    BRProducto objproducto = new BRProducto();
+            //    lbeProducto = objproducto.ListarProducActivados(numeroAc);
+            //    dgvProductos.DataSource = lbeProducto;
+
+            //    btnpoductDesacticadoss.Text = " MOSTRAR PRODUCTOS DESACTIVADOS";
+            //}
+            if (btnpoductDesacticadoss.Text.Equals("MOSTRAR PRODUCTOS DESACTIVADOS"))
+            {
+                BRProducto obrProducto = new BRProducto();
+                lbeProducto = obrProducto.ListarInhab();
+                dgvProductos.DataSource = lbeProducto;
+                btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS ACTIVOS";
+                btnLogin.Enabled = false;
+                btnregistrarproducto.Enabled = false;
+               btnmodificarProducto.Enabled = false;
+               btneliminarProducto.Text = "HABILITAR PRODUCTO";
+            }
+            else
+            {
+                btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS DESACTIVADOS";
+                BRProducto obrProducto = new BRProducto();
+                lbeProducto = obrProducto.Listar();
+                dgvProductos.DataSource = lbeProducto;
+                btnLogin.Enabled = true;
+                btnregistrarproducto.Enabled = true;
+                btnmodificarProducto.Enabled = true;
+                btneliminarProducto.Text = "ELIMINAR PRODUCTO";
+            }
+
+            }
+
+        private BRProducto obrProducto = new BRProducto();
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+
+            if (btneliminarProducto.Text.Equals("ELIMINAR PRODUCTO"))
+            {
+                if (MessageBox.Show("¿Seguro que desea eliminar el producto " +
+               dgvProductos.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    BEProducto obeProducto = new BEProducto();
+                    {
+                        var withBlock = obeProducto;
+                        withBlock.Codigo = Convert.ToInt32(dgvProductos.SelectedRows[0].Cells[0].Value.ToString()); ;
+                    }
+                    bool exito = obrProducto.Eliminar(obeProducto);
+                    if (exito)
+                        MessageBox.Show("Se Elimino el Producto", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    else
+                    {
+                        MessageBox.Show("No se pudo Eliminar el Producto", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                    }
+                    accedeProductos(sender, e);
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("¿Seguro que desea activar el producto " +
+               dgvProductos.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    BEProducto obeProducto = new BEProducto();
+                    {
+                        var withBlock = obeProducto;
+                        withBlock.Codigo = Convert.ToInt32(dgvProductos.SelectedRows[0].Cells[0].Value.ToString()); ;
+                    }
+                    bool exito = obrProducto.Activar(obeProducto);
+                    if (exito)
+                        MessageBox.Show("Se Activo el Producto", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    else
+                    {
+
+                        MessageBox.Show("No se pudo Activar el Producto", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                        //btnpoductDesacticadoss(sender, e);
+                    }
+                
+                    
+                }
+            }
+
+
+
+
+
+
         }
     }
 }
