@@ -293,8 +293,8 @@ namespace GUINorthwind
        
         private void accedeProductos(object sender, EventArgs e)// btn acceder porductos
         {
-
-            btnpoductDesacticadoss.Text = " MOSTRAR PRODUCTOS DESACTIVADOS";
+            btnpoductDesacticadoss.Text = "";
+            btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
 
             tcVentanas.SelectedIndex = 0;
             activaSeleccion(0);
@@ -497,27 +497,65 @@ namespace GUINorthwind
             BRCategoria objCategoria = new BRCategoria();
             BRProveedor objProveedor = new BRProveedor();
 
-            // vreificamos se se seleciono una fila  en mi datagriew
+            //// vreificamos se se seleciono una fila  en mi datagriew
 
-            if (dgvProductos.SelectedRows.Count > 0) // se ase el conteo
+            //if (dgvProductos.SelectedRows.Count > 0) // se ase el conteo
+            //{
+            //    DataGridViewRow filaSeleccionada = dgvProductos.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+            //    BEProducto productoSeleccionado = (BEProducto)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+            //    // akim el metodo firnsorDefaul va aobtener el primer dato de la condicion , para eso usamos el c , que va  va analizar k el coidgo se encuentre en las lista de mis categroria}
+            //    // y los va a validar una ves , uan ves k se culpa no va aguarda el dato en categria si no nos bottara null
+            //      BECategoria categoria = objCategoria.Listar().FirstOrDefault(c => c.Codigo == productoSeleccionado.IdCategoria);
+            //    BEProveedor proveedor = objProveedor.Listar().FirstOrDefault(p => p.Codigo==productoSeleccionado.IdProveedor);
+
+            //      FrmCRUProducto abrir = new FrmCRUProducto(productoSeleccionado, categoria , proveedor);// enviamos los dtaos 
+            //      abrir.ShowDialog();
+
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Seleccionar una fila por favor ");
+            //}
+
+
+
+            //        public int modoWindow;
+            //public int codProd;
+            //public String nomProd;
+            //public int codProv;
+            //public int codCat;
+            //public decimal precio;
+            //public Int16 stock;
+
+
+
+            if (dgvProductos.SelectedRows.Count > 0)
             {
                 DataGridViewRow filaSeleccionada = dgvProductos.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
                 BEProducto productoSeleccionado = (BEProducto)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
 
-                // akim el metodo firnsorDefaul va aobtener el primer dato de la condicion , para eso usamos el c , que va  va analizar k el coidgo se encuentre en las lista de mis categroria}
-                // y los va a validar una ves , uan ves k se culpa no va aguarda el dato en categria si no nos bottara null
-                  BECategoria categoria = objCategoria.Listar().FirstOrDefault(c => c.Codigo == productoSeleccionado.IdCategoria);
-                BEProveedor proveedor = objProveedor.Listar().FirstOrDefault(p => p.Codigo==productoSeleccionado.IdProveedor);
+                FrmCRUProducto abrir = new FrmCRUProducto();
+                abrir.modoWindow = 0;
+                abrir.codProd = productoSeleccionado.Codigo;
+                abrir.nomProd = productoSeleccionado.Nombre;
+                abrir.codProv = productoSeleccionado.IdProveedor;
+                abrir.codCat = productoSeleccionado.IdCategoria;
+                abrir.precio = productoSeleccionado.PrecioUni;
+                abrir.stock = productoSeleccionado.Stock;
 
-                  FrmCRUProducto abrir = new FrmCRUProducto(productoSeleccionado, categoria , proveedor);// enviamos los dtaos 
-                  abrir.ShowDialog();
-              
-
+                abrir.ShowDialog();
+             
             }
             else
             {
-                MessageBox.Show("Seleccionar una fila por favor ");
+                MessageBox.Show("Seleccionar una fila por favor");
             }
+
+
+
+
 
 
 
@@ -547,55 +585,74 @@ namespace GUINorthwind
         private void btnpoductDesacticadoss_Click(object sender, EventArgs e)
         {
 
-            //valor = !valor;
-            //int numeroAc = 0;
+            valor = !valor;
+            int numeroAc = 0;
 
             if (valor)
-            //{
-            //    btnpoductDesacticadoss.Text = " ";
-            //    numeroAc = 1;
-            //    BRProducto objproducto = new BRProducto();
-            //    lbeProducto = objproducto.ListarProducActivados(numeroAc);
-            //    dgvProductos.DataSource = lbeProducto;
-            //    btnpoductDesacticadoss.Text = " MOSTRAR PRODUCTOS ACTIVADOS";
-
-
-            //}
-            //else
-            //{
-
-            //    btnpoductDesacticadoss.Text = " ";
-            //    numeroAc = 0;
-            //    BRProducto objproducto = new BRProducto();
-            //    lbeProducto = objproducto.ListarProducActivados(numeroAc);
-            //    dgvProductos.DataSource = lbeProducto;
-
-            //    btnpoductDesacticadoss.Text = " MOSTRAR PRODUCTOS DESACTIVADOS";
-            //}
-            if (btnpoductDesacticadoss.Text.Equals("MOSTRAR PRODUCTOS DESACTIVADOS"))
             {
-                BRProducto obrProducto = new BRProducto();
-                lbeProducto = obrProducto.ListarInhab();
+                btnpoductDesacticadoss.Text = "";
+                numeroAc = 1;
+                BRProducto objproducto = new BRProducto();
+                lbeProducto = objproducto.ListarProducActivados(numeroAc);
                 dgvProductos.DataSource = lbeProducto;
-                btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS ACTIVOS";
+             
                 btnLogin.Enabled = false;
                 btnregistrarproducto.Enabled = false;
-               btnmodificarProducto.Enabled = false;
-               btneliminarProducto.Text = "HABILITAR PRODUCTO";
+                btnmodificarProducto.Enabled = false;
+
+                btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS ACTIVADOS";
+                btneliminarProducto.Text = "HABILITAR PRODUCTO";
+
             }
             else
             {
-                btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS DESACTIVADOS";
-                BRProducto obrProducto = new BRProducto();
-                lbeProducto = obrProducto.Listar();
+
+              
+                numeroAc = 0;
+                BRProducto objproducto = new BRProducto();
+                lbeProducto = objproducto.ListarProducActivados(numeroAc);
                 dgvProductos.DataSource = lbeProducto;
                 btnLogin.Enabled = true;
                 btnregistrarproducto.Enabled = true;
                 btnmodificarProducto.Enabled = true;
                 btneliminarProducto.Text = "ELIMINAR PRODUCTO";
-            }
+
+                btnpoductDesacticadoss.Text = "";
+                btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
+
 
             }
+            //    btnpoductDesacticadoss.Text = "";
+            //btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
+
+
+            //if (btnpoductDesacticadoss.Text.Equals("MOSTAR PRODUCTOS DESACTIVADOS"))
+            //{
+           
+            //        BRProducto obrProducto = new BRProducto();
+            //    lbeProducto = obrProducto.ListarInhabi();
+            //    dgvProductos.DataSource = lbeProducto;
+            //    btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS ACTIVOS";
+            //    btnLogin.Enabled = false;
+            //    btnregistrarproducto.Enabled = false;
+            //   btnmodificarProducto.Enabled = false;
+            //   btneliminarProducto.Text = "HABILITAR PRODUCTO";
+
+
+            //}
+            //else if (btnpoductDesacticadoss.Text.Equals("MOSTRAR PRODUCTOS ACTIVOS"))
+            //{
+            //    btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS DESACTIVADOS";
+            //    BRProducto obrProducto = new BRProducto();
+            //    lbeProducto = obrProducto.Listar();
+            //    dgvProductos.DataSource = lbeProducto;
+            //    btnLogin.Enabled = true;
+            //    btnregistrarproducto.Enabled = true;
+            //    btnmodificarProducto.Enabled = true;
+            //    btneliminarProducto.Text = "ELIMINAR PRODUCTO";
+            //}
+
+        }
 
         private BRProducto obrProducto = new BRProducto();
         private void button3_Click(object sender, EventArgs e)
@@ -606,17 +663,22 @@ namespace GUINorthwind
             {
                 if (MessageBox.Show("¿Seguro que desea eliminar el producto " +
                dgvProductos.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) //AKI LE PREGUNTAMOS SI DESE ALIMINAR UNM PRODUCTO Y SI DOSE L SI ARA LO SIGUINTE
                 {
                     BEProducto obeProducto = new BEProducto();
                     {
-                        var withBlock = obeProducto;
-                        withBlock.Codigo = Convert.ToInt32(dgvProductos.SelectedRows[0].Cells[0].Value.ToString()); ;
+
+
+                        var tomarvalorTabla = obeProducto;
+                        // en esta fila le desimoos la psocion de nuestra columna y de nustra cela en este caso sera 0 donde esta el id , y tomara esevalor , y convertilo en entero
+                        tomarvalorTabla.Codigo = Convert.ToInt32(dgvProductos.SelectedRows[0].Cells[0].Value.ToString()); 
                     }
-                    bool exito = obrProducto.Eliminar(obeProducto);
+                    bool exito = obrProducto.EliminarProd(obeProducto);
                     if (exito)
+                    {
                         MessageBox.Show("Se Elimino el Producto", "Aviso", MessageBoxButtons.OK,
                        MessageBoxIcon.Information);
+                    }
                     else
                     {
                         MessageBox.Show("No se pudo Eliminar el Producto", "Error", MessageBoxButtons.OK,
@@ -627,7 +689,7 @@ namespace GUINorthwind
             }
             else
             {
-                if (MessageBox.Show("¿Seguro que desea activar el producto " +
+                if (MessageBox.Show("¿Seguro que desea activar el producto " +  // ESTO SIRVE PARA ABLIOTAR
                dgvProductos.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -636,10 +698,14 @@ namespace GUINorthwind
                         var withBlock = obeProducto;
                         withBlock.Codigo = Convert.ToInt32(dgvProductos.SelectedRows[0].Cells[0].Value.ToString()); ;
                     }
-                    bool exito = obrProducto.Activar(obeProducto);
+                    bool exito = obrProducto.ActivarProduc(obeProducto);
                     if (exito)
+                    {
                         MessageBox.Show("Se Activo el Producto", "Aviso", MessageBoxButtons.OK,
                        MessageBoxIcon.Information);
+
+
+                    }
                     else
                     {
 
@@ -647,8 +713,9 @@ namespace GUINorthwind
                        MessageBoxIcon.Exclamation);
                         //btnpoductDesacticadoss(sender, e);
                     }
-                
-                    
+                //this.btnpoductDesacticadoss_Click(sender, e);
+
+
                 }
             }
 
@@ -657,6 +724,46 @@ namespace GUINorthwind
 
 
 
+
+
+        }
+
+        private void btnmodificarProducto_Click(object sender, EventArgs e)
+        {
+            
+
+
+            if (dgvProductos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgvProductos.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEProducto productoSeleccionado = (BEProducto)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCRUProducto abrir = new FrmCRUProducto();// enviamos los dtaos 
+                abrir.modoWindow = 2;
+                abrir.codProd = productoSeleccionado.Codigo;
+                abrir.nomProd = productoSeleccionado.Nombre;
+                abrir.codProv = productoSeleccionado.IdProveedor;
+                abrir.codCat = productoSeleccionado.IdCategoria;
+                abrir.precio = productoSeleccionado.PrecioUni;
+                abrir.stock = productoSeleccionado.Stock;
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+
+        }
+
+        private void btnregistrarproducto_Click(object sender, EventArgs e)
+        {
+            FrmCRUProducto abrir = new FrmCRUProducto();// enviamos los dtaos 
+            int yoyo = 1 ;
+            abrir.modoWindow = yoyo;
+            abrir.ShowDialog();
+         
         }
     }
 }

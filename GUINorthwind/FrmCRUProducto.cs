@@ -26,27 +26,27 @@ namespace GUINorthwind
 
 
         // llamo amis clases 
-        private BEProducto producto;
-        private BECategoria categoria;
-        private BEProveedor proveedor;
+        //private BEProducto producto;
+        //private BECategoria categoria;
+        //private BEProveedor proveedor;
 
 
-        public int modoWindow;
-        public int codProd;
-        public String nomProd;
-        public int codProv;
-        public int codCat;
-        public decimal precio;
-        public Int16 stock;
+        public int modoWindow { get; set; }
+        public int codProd { get; set; }
+        public String nomProd { get; set; }
+        public int codProv { get; set; }
+        public int codCat { get; set; }
+        public decimal precio { get; set; }
+        public Int16 stock { get; set; }
 
-        public FrmCRUProducto(BEProducto producto ,  BECategoria categoria , BEProveedor proveedor)// aki resivo los dtaos enviados de frmprincipal
+        public FrmCRUProducto()// aki resivo los dtaos enviados de frmprincipal
         {
             InitializeComponent();
 
             // aki guardo mis dtaso enviados en mis clases 
-            this.producto = producto;
-            this.categoria = categoria;
-            this.proveedor = proveedor;
+            //this.producto = producto;
+            //this.categoria = categoria;
+            //this.proveedor = proveedor;
 
 
             //BlokearObjetos(true, true, true, true, true, true);
@@ -55,34 +55,34 @@ namespace GUINorthwind
 
 
 
-        //private void habilitaCasillas(Boolean estado)
-        //{
-        //    txtUser.Enabled = estado;
-        //    cbxproovedor.Enabled = estado;
-        //    cbxcategoria.Enabled = estado;
-        //    txtprecio.Enabled = estado;
-        //    txtshow.Enabled = estado;
-        //    btnGrabar.Enabled = estado;
-        //}
-        //private void limpiaCasillas()
-        //{
-        //    txtUser.Clear();
-        //    txtprecio.Clear();
-        //    txtshow.Clear();
-        //}
-
-        public void BlokearObjetos(Boolean p1, Boolean p2, Boolean p3, Boolean p4, Boolean p5, Boolean p6)
+        private void habilitaCasillas(Boolean estado)
         {
-
-            txtUser.Enabled = p1;
-            cbxproovedor.Enabled = p2;
-            txtshow.Enabled = p3;
-            cbxcategoria.Enabled = p4;
-            txtprecio.Enabled = p5;
-            btnGrabar.Enabled = p6;
-
-
+            txtUser.Enabled = estado;
+            cbxproovedor.Enabled = estado;
+            cbxcategoria.Enabled = estado;
+            txtprecio.Enabled = estado;
+            txtshow.Enabled = estado;
+            btnGrabar.Enabled = estado;
         }
+        private void limpiaCasillas()
+        {
+            txtUser.Clear();
+            txtprecio.Clear();
+            txtshow.Clear();
+        }
+
+        //public void BlokearObjetos(Boolean p1, Boolean p2, Boolean p3, Boolean p4, Boolean p5, Boolean p6)
+        //{
+
+        //    txtUser.Enabled = p1;
+        //    cbxproovedor.Enabled = p2;
+        //    txtshow.Enabled = p3;
+        //    cbxcategoria.Enabled = p4;
+        //    txtprecio.Enabled = p5;
+        //    btnGrabar.Enabled = p6;
+
+
+        //}
 
 
         private void moverVentana(object sender, MouseEventArgs e)
@@ -103,61 +103,64 @@ namespace GUINorthwind
 
         private void FrmCRUProducto_Load(object sender, EventArgs e)
         {
-            // // para blokear los textos
-         BlokearObjetos(false, false, false, false, false, false);
+            //// para blokear los textos
+            //BlokearObjetos(false, false, false, false, false, false);
 
 
-            txtUser.Text = producto.Nombre;
+            //txtUser.Text = producto.Nombre;
 
-            cbxproovedor.Items.Add(proveedor.Nombre);
-            cbxproovedor.Items.Insert(0, "");// agrego una fila  0
-            cbxproovedor.SelectedIndex = 1;// le indiko k solo me muestr la fila 1
-
-
-
-            cbxcategoria.Items.Add(categoria.Nombre);// agrego el valor 
-            cbxcategoria.Items.Insert(0, "");// agrego una fila  0
-            cbxcategoria.SelectedIndex = 1;// le indiko k solo me muestr la fila 1
-
-            txtprecio.Text = "" + producto.PrecioUni;
-            txtshow.Text = "" + producto.Stock;
+            //cbxproovedor.Items.Add(proveedor.Nombre);
+            //cbxproovedor.Items.Insert(0, "");// agrego una fila  0
+            //cbxproovedor.SelectedIndex = 1;// le indiko k solo me muestr la fila 1
 
 
 
+            //cbxcategoria.Items.Add(categoria.Nombre);// agrego el valor 
+            //cbxcategoria.Items.Insert(0, "");// agrego una fila  0
+            //cbxcategoria.SelectedIndex = 1;// le indiko k solo me muestr la fila 1
+
+            //txtprecio.Text = "" + producto.PrecioUni;
+            //txtshow.Text = "" + producto.Stock;
 
 
-            //BRProveedor obrProveedor = new BRProveedor();
-            //List<BEProveedor> lbeProveedor = obrProveedor.Listar();
-            //cbxproovedor.DataSource = lbeProveedor;
-            //cbxproovedor.DisplayMember = "Nombre";
-            //cbxproovedor.ValueMember = "Codigo";
-            //BRCategoria obrCategoria = new BRCategoria();
-            //List<BECategoria> lbeCategoria = obrCategoria.Listar();
-            //cbxcategoria.DataSource = lbeCategoria;
-            //cbxcategoria.DisplayMember = "Nombre";
-            //cbxcategoria.ValueMember = "Codigo";
-            //switch (modoWindow)
-            //{
-            //    case 0: //Ver
-            //        txtUser.Text = nomProd;
-            //        cbxproovedor.SelectedValue = codProv;
-            //        cbxcategoria.SelectedValue = codCat;
-            //        txtprecio.Text = precio.ToString();
-            //        txtshow.Text = stock.ToString();
-            //        habilitaCasillas(false);
-            //        break;
-            //    case 1: //Nuevo
-            //        limpiaCasillas();
-            //        break;
-            //    case 2: //Editar
-            //        txtUser.Text = nomProd;
-            //        cbxproovedor.SelectedValue = codProv;
-            //        cbxcategoria.SelectedValue = codCat;
-            //        txtprecio.Text = precio.ToString();
-            //        txtshow.Text = stock.ToString();
-            //        habilitaCasillas(true);
-            //        break;
-            //}
+
+            // esto es llenar nuestro combo box categoria y proveedores 
+
+            BRProveedor obrProveedor = new BRProveedor();
+            List<BEProveedor> lbeProveedor = obrProveedor.Listar();
+            cbxproovedor.DataSource = lbeProveedor;
+            cbxproovedor.DisplayMember = "Nombre";
+            cbxproovedor.ValueMember = "Codigo";
+            BRCategoria obrCategoria = new BRCategoria();
+            List<BECategoria> lbeCategoria = obrCategoria.Listar();
+            cbxcategoria.DataSource = lbeCategoria;
+            cbxcategoria.DisplayMember = "Nombre";
+            cbxcategoria.ValueMember = "Codigo";
+
+         
+
+            switch (modoWindow)
+            {
+                case 0: //Ver
+                    txtUser.Text = nomProd;
+                    cbxproovedor.SelectedValue = codProv;
+                    cbxcategoria.SelectedValue = codCat;
+                    txtprecio.Text = precio.ToString();
+                    txtshow.Text = stock.ToString();
+                    habilitaCasillas(false);
+                    break;
+                case 1: //Nuevo
+                    limpiaCasillas();
+                    break;
+                case 2: //Editar
+                    txtUser.Text = nomProd;
+                    cbxproovedor.SelectedValue = codProv;
+                    cbxcategoria.SelectedValue = codCat;
+                    txtprecio.Text = precio.ToString();
+                    txtshow.Text = stock.ToString();
+                    habilitaCasillas(true);
+                    break;
+            }
 
         }
 
@@ -165,8 +168,13 @@ namespace GUINorthwind
         private void btnGrabar_Click(object sender, EventArgs e)
         {
 
+          
+      
+         
+
             if (modoWindow == 1) //Regitstrar
             {
+
                 BEProducto obeProducto = new BEProducto();
                 {
                     var withBlock = obeProducto;
@@ -179,13 +187,24 @@ namespace GUINorthwind
                 }
                 int N = obrProducto.Adicionar(obeProducto);
                 if (N > 0)
+                {
+
+
                     MessageBox.Show("Se Adicionó el Producto", "Aviso", MessageBoxButtons.OK,
                    MessageBoxIcon.Information);
+
+                    this.Hide();
+                }
                 else
+                {
+
+
                     MessageBox.Show("No se pudo Adicionar el Producto", "Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else if (modoWindow == 2) //Editar
+            
+            if (modoWindow == 2) //Editar
             {
                 BEProducto obeProducto = new BEProducto();
                 {
@@ -199,11 +218,30 @@ namespace GUINorthwind
                 }
                 bool exito = obrProducto.Actualizar(obeProducto);
                 if (exito)
+                {
                     MessageBox.Show("Se Actualizó el Producto", "Aviso", MessageBoxButtons.OK,
                    MessageBoxIcon.Information);
+
+                    this.Hide();
+
+
+                }
+
+
                 else
-                    MessageBox.Show("No se pudo Actualizar el Producto", "Error",
-                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                {
+
+                
+                        MessageBox.Show("No se pudo Actualizar el Producto", "Error",
+                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+
+
+           
+
+
+
             }
         }
 

@@ -49,78 +49,109 @@ namespace LibDataAccess
             return (lobeProducto);
         }
 
-        //public List<BEProducto> fValidarProductoAc(SqlConnection con, int val)
-        //{
-        //    List<BEProducto> objProducto = new List<BEProducto>();
-        //    SqlCommand cmd = new SqlCommand("ProductoDesactivadosActivados", con);
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.Parameters.Add("@activado", SqlDbType.VarChar, 20).Value = val;
-        //    cmd.CommandTimeout = 60;
-        //    SqlDataReader leer = cmd.ExecuteReader(CommandBehavior.SingleResult);
-        //    if (leer != null)
-        //    {
-        //        int posCodigo = leer.GetOrdinal("ProductId");
-        //        int posNombre = leer.GetOrdinal("ProductName");
-        //        int posIdProveedor = leer.GetOrdinal("SupplierId");
-        //        int posIdCategoria = leer.GetOrdinal("CategoryId");
-        //        int posPrecioUni = leer.GetOrdinal("UnitPrice");
-        //        int posStock = leer.GetOrdinal("UnitsInStock");
-        //        BEProducto obeProducto;
-        //        while (leer.Read())
-        //        {
-        //            obeProducto = new BEProducto();
-        //            {
-        //                var withBlock = obeProducto;
-        //                withBlock.Codigo = leer.GetInt32(posCodigo);
-        //                withBlock.Nombre = leer.GetString(posNombre);
-        //                withBlock.IdProveedor = leer.GetInt32(posIdProveedor);
-        //                withBlock.IdCategoria = leer.GetInt32(posIdCategoria);
-        //                withBlock.PrecioUni = leer.GetDecimal(posPrecioUni);
-        //                withBlock.Stock = leer.GetInt16(posStock);
-        //            }
-        //            objProducto.Add(obeProducto);
-        //        }
-        //        leer.Close();
-        //    }
-        //    return (objProducto);
-        //}
-
-        public List<BEProducto> fListarInhab(SqlConnection con)
+        public List<BEProducto> fValidarProductoAc(SqlConnection con, int val)// PARA VER SI ESTA ABILITADO O DESABILITADO
         {
-            List<BEProducto> lobeProducto = new List<BEProducto>();
-            SqlCommand cmd = new SqlCommand("uspProductsListado", con);
+            List<BEProducto> objProducto = new List<BEProducto>();
+            SqlCommand cmd = new SqlCommand("ProductoDesactivadosActivados", con);
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@activado", SqlDbType.VarChar, 20).Value = val;
             cmd.CommandTimeout = 60;
-            SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
-            if (drd != null)
+            SqlDataReader leer = cmd.ExecuteReader(CommandBehavior.SingleResult);
+            if (leer != null)
             {
-                int posCodigo = drd.GetOrdinal("ProductId");
-                int posNombre = drd.GetOrdinal("ProductName");
-                int posIdProveedor = drd.GetOrdinal("SupplierId");
-                int posIdCategoria = drd.GetOrdinal("CategoryId");
-                int posPrecioUni = drd.GetOrdinal("UnitPrice");
-                int posStock = drd.GetOrdinal("UnitsInStock");
+                int posCodigo = leer.GetOrdinal("ProductId");
+                int posNombre = leer.GetOrdinal("ProductName");
+                int posIdProveedor = leer.GetOrdinal("SupplierId");
+                int posIdCategoria = leer.GetOrdinal("CategoryId");
+                int posPrecioUni = leer.GetOrdinal("UnitPrice");
+                int posStock = leer.GetOrdinal("UnitsInStock");
                 BEProducto obeProducto;
-                while (drd.Read())
+                while (leer.Read())
                 {
                     obeProducto = new BEProducto();
                     {
                         var withBlock = obeProducto;
-                        withBlock.Codigo = drd.GetInt32(posCodigo);
-                        withBlock.Nombre = drd.GetString(posNombre);
-                        withBlock.IdProveedor = drd.GetInt32(posIdProveedor);
-                        withBlock.IdCategoria = drd.GetInt32(posIdCategoria);
-                        withBlock.PrecioUni = drd.GetDecimal(posPrecioUni);
-                        withBlock.Stock = drd.GetInt16(posStock);
+                        withBlock.Codigo = leer.GetInt32(posCodigo);
+                        withBlock.Nombre = leer.GetString(posNombre);
+                        withBlock.IdProveedor = leer.GetInt32(posIdProveedor);
+                        withBlock.IdCategoria = leer.GetInt32(posIdCategoria);
+                        withBlock.PrecioUni = leer.GetDecimal(posPrecioUni);
+                        withBlock.Stock = leer.GetInt16(posStock);
                     }
-                    lobeProducto.Add(obeProducto);
+                    objProducto.Add(obeProducto);
                 }
-                drd.Close();
+                leer.Close();
             }
-            return (lobeProducto);
+            return (objProducto);
         }
 
-        public int fAdicionar(SqlConnection con, BEProducto obeProducto)
+        //public List<BEProducto> fListarInhab(SqlConnection con)
+        //{
+        //    List<BEProducto> lobeProducto = new List<BEProducto>();
+        //    SqlCommand cmd = new SqlCommand("uspProductsInabilitados", con);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.CommandTimeout = 60;
+        //    SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
+        //    if (drd != null)
+        //    {
+        //        int posCodigo = drd.GetOrdinal("ProductId");
+        //        int posNombre = drd.GetOrdinal("ProductName");
+        //        int posIdProveedor = drd.GetOrdinal("SupplierId");
+        //        int posIdCategoria = drd.GetOrdinal("CategoryId");
+        //        int posPrecioUni = drd.GetOrdinal("UnitPrice");
+        //        int posStock = drd.GetOrdinal("UnitsInStock");
+        //        BEProducto obeProducto;
+        //        while (drd.Read())
+        //        {
+        //            obeProducto = new BEProducto();
+        //            {
+        //                var withBlock = obeProducto;
+        //                withBlock.Codigo = drd.GetInt32(posCodigo);
+        //                withBlock.Nombre = drd.GetString(posNombre);
+        //                withBlock.IdProveedor = drd.GetInt32(posIdProveedor);
+        //                withBlock.IdCategoria = drd.GetInt32(posIdCategoria);
+        //                withBlock.PrecioUni = drd.GetDecimal(posPrecioUni);
+        //                withBlock.Stock = drd.GetInt16(posStock);
+        //            }
+        //            lobeProducto.Add(obeProducto);
+        //        }
+        //        drd.Close();
+        //    }
+        //    return (lobeProducto);
+        //}
+
+        public bool fEliminar(SqlConnection con, BEProducto obeProducto) // para desabilitar un produscto
+        {
+            bool Exito = false;
+            SqlCommand cmd = new SqlCommand("uspDesavilitarProduct", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter par = cmd.Parameters.Add("@ProductId", SqlDbType.Int);
+            par.Direction = ParameterDirection.Input;
+            par.Value = obeProducto.Codigo;
+            int N = cmd.ExecuteNonQuery();
+            Exito = (N > 0);
+            return (Exito);
+        }
+
+        public bool fActivarProduc(SqlConnection con, BEProducto obeProducto) // para valitar un producto
+        {
+            bool Exito = false;
+            SqlCommand cmd = new SqlCommand("uspProductsAct", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter par = cmd.Parameters.Add("@ProductId", SqlDbType.Int);
+            par.Direction = ParameterDirection.Input;
+            par.Value = obeProducto.Codigo;
+            int N = cmd.ExecuteNonQuery();
+            Exito = (N > 0);
+            return (Exito);
+        }
+
+
+
+
+
+
+        public int fAdicionar(SqlConnection con, BEProducto obeProducto) // para insertar productos
         {
             int N = -1;
             SqlCommand cmd = new SqlCommand("uspProductsIns", con);
@@ -152,7 +183,7 @@ namespace LibDataAccess
         }
 
 
-        public bool fActualizar(SqlConnection con, BEProducto obeProducto)
+        public bool fActualizar(SqlConnection con, BEProducto obeProducto) // para actualizar los productos 
         {
             bool Exito = false;
             SqlCommand cmd = new SqlCommand("uspProductsUpd", con);
@@ -181,30 +212,8 @@ namespace LibDataAccess
         }
 
 
-        public bool fEliminar(SqlConnection con, BEProducto obeProducto)
-        {
-            bool Exito = false;
-            SqlCommand cmd = new SqlCommand("uspProductsDel", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlParameter par = cmd.Parameters.Add("@ProductId", SqlDbType.Int);
-            par.Direction = ParameterDirection.Input;
-            par.Value = obeProducto.Codigo;
-            int N = cmd.ExecuteNonQuery();
-            Exito = (N > 0);
-            return (Exito);
-        }
-        public bool fActivar(SqlConnection con, BEProducto obeProducto)
-        {
-            bool Exito = false;
-            SqlCommand cmd = new SqlCommand("uspProductsAct", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlParameter par = cmd.Parameters.Add("@ProductId", SqlDbType.Int);
-            par.Direction = ParameterDirection.Input;
-            par.Value = obeProducto.Codigo;
-            int N = cmd.ExecuteNonQuery();
-            Exito = (N > 0);
-            return (Exito);
-        }
+       
+      
 
 
     }
