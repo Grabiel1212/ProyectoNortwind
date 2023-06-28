@@ -293,8 +293,8 @@ namespace GUINorthwind
        
         private void accedeProductos(object sender, EventArgs e)// btn acceder porductos
         {
-            btnpoductDesacticadoss.Text = "";
-            btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
+            //btnpoductDesacticadoss.Text = "";
+            //btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
 
             tcVentanas.SelectedIndex = 0;
             activaSeleccion(0);
@@ -583,78 +583,79 @@ namespace GUINorthwind
             this.Hide();
         }
 
-        private bool valor = false; // para enviar valor si esta activado o desactivado
+       /* private bool valor = false; */// para enviar valor si esta activado o desactivado
         private void btnpoductDesacticadoss_Click(object sender, EventArgs e)
         {
 
-            valor = !valor;
-            int numeroAc = 0;
+            //valor = !valor;
+            //int numeroAc = 0;
 
-            if (valor)
+            //if (valor)
+            //{
+            //    btnpoductDesacticadoss.Text = "";
+            //    numeroAc = 1;
+            //    BRProducto objproducto = new BRProducto();
+            //    lbeProducto = objproducto.ListarProducActivados(numeroAc);
+            //    dgvProductos.DataSource = lbeProducto;
+
+            //    btnLogin.Enabled = false;
+            //    btnregistrarproducto.Enabled = false;
+            //    btnmodificarProducto.Enabled = false;
+
+            //    btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS ACTIVADOS";
+            //    btneliminarProducto.Text = "HABILITAR PRODUCTO";
+
+            //}
+            //else
+            //{
+
+
+            //    numeroAc = 0;
+            //    BRProducto objproducto = new BRProducto();
+            //    lbeProducto = objproducto.ListarProducActivados(numeroAc);
+            //    dgvProductos.DataSource = lbeProducto;
+            //    btnLogin.Enabled = true;
+            //    btnregistrarproducto.Enabled = true;
+            //    btnmodificarProducto.Enabled = true;
+            //    btneliminarProducto.Text = "ELIMINAR PRODUCTO";
+
+            //    btnpoductDesacticadoss.Text = "";
+            //    btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
+
+
+            //}
+            //    btnpoductDesacticadoss.Text = "";
+            //btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
+
+
+            if (btnpoductDesacticadoss.Text.Equals("MOSTRAR PRODUCTOS DESACTIVADOS"))
             {
-                btnpoductDesacticadoss.Text = "";
-                numeroAc = 1;
-                BRProducto objproducto = new BRProducto();
-                lbeProducto = objproducto.ListarProducActivados(numeroAc);
+                BRProducto obrProducto = new BRProducto();
+                lbeProducto = obrProducto.ListarProductosInhabi();
                 dgvProductos.DataSource = lbeProducto;
-             
+                btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS ACTIVOS";
                 btnLogin.Enabled = false;
                 btnregistrarproducto.Enabled = false;
                 btnmodificarProducto.Enabled = false;
-
-                btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS ACTIVADOS";
                 btneliminarProducto.Text = "HABILITAR PRODUCTO";
-
             }
             else
             {
-
-              
-                numeroAc = 0;
-                BRProducto objproducto = new BRProducto();
-                lbeProducto = objproducto.ListarProducActivados(numeroAc);
+                btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS DESACTIVADOS";
+                BRProducto obrProducto = new BRProducto();
+                lbeProducto = obrProducto.Listar();
                 dgvProductos.DataSource = lbeProducto;
                 btnLogin.Enabled = true;
                 btnregistrarproducto.Enabled = true;
                 btnmodificarProducto.Enabled = true;
                 btneliminarProducto.Text = "ELIMINAR PRODUCTO";
 
-                btnpoductDesacticadoss.Text = "";
-                btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
+            }
+
+
 
 
             }
-            //    btnpoductDesacticadoss.Text = "";
-            //btnpoductDesacticadoss.Text = "MOSTAR PRODUCTOS DESACTIVADOS";
-
-
-            //if (btnpoductDesacticadoss.Text.Equals("MOSTAR PRODUCTOS DESACTIVADOS"))
-            //{
-           
-            //        BRProducto obrProducto = new BRProducto();
-            //    lbeProducto = obrProducto.ListarInhabi();
-            //    dgvProductos.DataSource = lbeProducto;
-            //    btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS ACTIVOS";
-            //    btnLogin.Enabled = false;
-            //    btnregistrarproducto.Enabled = false;
-            //   btnmodificarProducto.Enabled = false;
-            //   btneliminarProducto.Text = "HABILITAR PRODUCTO";
-
-
-            //}
-            //else if (btnpoductDesacticadoss.Text.Equals("MOSTRAR PRODUCTOS ACTIVOS"))
-            //{
-            //    btnpoductDesacticadoss.Text = "MOSTRAR PRODUCTOS DESACTIVADOS";
-            //    BRProducto obrProducto = new BRProducto();
-            //    lbeProducto = obrProducto.Listar();
-            //    dgvProductos.DataSource = lbeProducto;
-            //    btnLogin.Enabled = true;
-            //    btnregistrarproducto.Enabled = true;
-            //    btnmodificarProducto.Enabled = true;
-            //    btneliminarProducto.Text = "ELIMINAR PRODUCTO";
-            //}
-
-        }
 
         private BRProducto obrProducto = new BRProducto();
         private void button3_Click(object sender, EventArgs e)
@@ -715,7 +716,7 @@ namespace GUINorthwind
                        MessageBoxIcon.Exclamation);
                         //btnpoductDesacticadoss(sender, e);
                     }
-                //this.btnpoductDesacticadoss_Click(sender, e);
+                this.btnpoductDesacticadoss_Click(sender, e);
 
 
                 }
@@ -776,10 +777,178 @@ namespace GUINorthwind
             abrir.ShowDialog();
         }
 
-         // codificar Empleado !! 
+        private void btnmostrarinformacionCategoria_Click(object sender, EventArgs e)
+        {
 
-        
 
 
+            if (dgvCategorias.SelectedRows.Count > 0)
+            {
+
+
+
+                DataGridViewRow filaSeleccionada = dgvCategorias.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BECategoria categoriaSeleccionado = (BECategoria)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCRUCategoria abrir = new FrmCRUCategoria();
+                abrir.modoWindow = 0;
+                abrir.codCategoria = categoriaSeleccionado.Codigo;
+                abrir.nomCategoria = categoriaSeleccionado.Nombre;
+                abrir.DescripcionCate = categoriaSeleccionado.Descripcion;
+
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+
+
+        }
+
+        private void btnregistrarCategoria_Click(object sender, EventArgs e)
+        {
+            int yoyo = 1;
+            FrmCRUCategoria abrir = new FrmCRUCategoria();// enviamos los dtaos 
+            abrir.modoWindow = yoyo;
+            abrir.ShowDialog();
+        }
+
+        private void btneditarCategoria_Click(object sender, EventArgs e)
+        {
+            if (dgvCategorias.SelectedRows.Count > 0)
+            {
+
+                DataGridViewRow filaSeleccionada = dgvCategorias.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BECategoria categoriaSeleccionado = (BECategoria)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCRUCategoria abrir = new FrmCRUCategoria();
+                abrir.modoWindow = 2;
+                abrir.codCategoria = categoriaSeleccionado.Codigo;
+                abrir.nomCategoria = categoriaSeleccionado.Nombre;
+                abrir.DescripcionCate = categoriaSeleccionado.Descripcion;
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+        }
+
+
+        private BRCategoria obrCategoria = new BRCategoria();
+        private void btnelimanarCategoria_Click(object sender, EventArgs e)
+        {
+
+            if (btnelimanarCategoria.Text.Equals("ELIMINAR CATEGORIA"))
+            {
+                if (MessageBox.Show("¿Seguro que desea eliminar la categoria " +
+               dgvCategorias.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) //AKI LE PREGUNTAMOS SI DESE ALIMINAR UNM PRODUCTO Y SI DOSE L SI ARA LO SIGUINTE
+                {
+                    BECategoria obeCategoria = new BECategoria();
+                    {
+
+
+                        var tomarvalorTabla = obeCategoria;
+                        // en esta fila le desimoos la psocion de nuestra columna y de nustra cela en este caso sera 0 donde esta el id , y tomara esevalor , y convertilo en entero
+                        tomarvalorTabla.Codigo = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells[0].Value.ToString());
+                    }
+                    bool exito = obrCategoria.EliminarCategoria(obeCategoria);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Elimino la Categoria", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Eliminar la Categoria", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                    }
+                    accedeCategorias(sender, e);
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("¿Seguro que desea activar la Categoria " +  // ESTO SIRVE PARA ctivar
+               dgvCategorias.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    BECategoria obeCategoria = new BECategoria();
+                    {
+                        var withBlock = obeCategoria;
+                        withBlock.Codigo = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells[0].Value.ToString()); ;
+                    }
+                    bool exito = obrCategoria.ActivarCategoria(obeCategoria);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Activo la Categoria", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("No se pudo Activar la Categoria", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                        //btnpoductDesacticadoss(sender, e);
+                    }
+                    this.btnmostrarCategoriaacruvadodesactivado_Click(sender, e);
+
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        private void btnmostrarCategoriaacruvadodesactivado_Click(object sender, EventArgs e)
+        {
+
+
+
+            if (btnmostrarCategoriaacruvadodesactivado.Text.Equals("MOSTRAR CATEGORIA DESACTIVADOS"))
+            {
+                BRCategoria obrCategoria = new BRCategoria();
+                lbeCategoria = obrCategoria.ListarcateInabilitados();
+                dgvCategorias.DataSource = lbeCategoria;
+                btnmostrarCategoriaacruvadodesactivado.Text = "MOSTRAR CATEGORIAS ACTIVOS";
+                btnmostrarinformacionCategoria.Enabled = false;
+                btnregistrarCategoria.Enabled = false;
+                btneditarCategoria.Enabled = false;
+                btnelimanarCategoria.Text = "HABILITAR CATEGORIA";
+            }
+            else
+            {
+                btnmostrarCategoriaacruvadodesactivado.Text = "MOSTRAR CATEGORIA DESACTIVADOS";
+                BRCategoria obrCategoria = new BRCategoria();
+                lbeCategoria = obrCategoria.Listar();
+                dgvCategorias.DataSource = lbeCategoria;
+                btnmostrarinformacionCategoria.Enabled = true;
+                btnregistrarCategoria.Enabled = true;
+                btneditarCategoria.Enabled = true;
+                btnelimanarCategoria.Text = "ELIMINAR CATEGORIA";
+
+
+
+            }
+
+        }
     }
 }

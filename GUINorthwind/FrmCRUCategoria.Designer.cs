@@ -28,41 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProovedor = new System.Windows.Forms.Button();
+            this.btngrabarcategoria = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cboEmpleado = new System.Windows.Forms.ComboBox();
-            this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
+            this.txtcategoria = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.pnlBarraTitulo = new System.Windows.Forms.Panel();
             this.lblTituloPrincipal = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Label();
+            this.txtdescripccion = new System.Windows.Forms.TextBox();
             this.pnlBarraTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnProovedor
+            // btngrabarcategoria
             // 
-            this.btnProovedor.BackColor = System.Drawing.Color.IndianRed;
-            this.btnProovedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProovedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.btnProovedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnProovedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.btnProovedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProovedor.ForeColor = System.Drawing.Color.LightGray;
-            this.btnProovedor.Location = new System.Drawing.Point(300, 210);
-            this.btnProovedor.Name = "btnProovedor";
-            this.btnProovedor.Size = new System.Drawing.Size(181, 40);
-            this.btnProovedor.TabIndex = 46;
-            this.btnProovedor.Text = "GRABAR";
-            this.btnProovedor.UseVisualStyleBackColor = false;
+            this.btngrabarcategoria.BackColor = System.Drawing.Color.IndianRed;
+            this.btngrabarcategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btngrabarcategoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btngrabarcategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btngrabarcategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btngrabarcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btngrabarcategoria.ForeColor = System.Drawing.Color.LightGray;
+            this.btngrabarcategoria.Location = new System.Drawing.Point(300, 210);
+            this.btngrabarcategoria.Name = "btngrabarcategoria";
+            this.btngrabarcategoria.Size = new System.Drawing.Size(181, 40);
+            this.btngrabarcategoria.TabIndex = 46;
+            this.btngrabarcategoria.Text = "GRABAR";
+            this.btngrabarcategoria.UseVisualStyleBackColor = false;
+            this.btngrabarcategoria.Click += new System.EventHandler(this.btngrabarcategoria_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(28, 126);
+            this.label1.Location = new System.Drawing.Point(65, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 20);
             this.label1.TabIndex = 45;
@@ -73,33 +74,22 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(28, 81);
+            this.label3.Location = new System.Drawing.Point(38, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 20);
+            this.label3.Size = new System.Drawing.Size(131, 20);
             this.label3.TabIndex = 44;
-            this.label3.Text = "NOMBRE DE LA CATEGORIA";
+            this.label3.Text = "DESCRIPCCION";
             // 
-            // cboEmpleado
+            // txtcategoria
             // 
-            this.cboEmpleado.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.cboEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.cboEmpleado.FormattingEnabled = true;
-            this.cboEmpleado.Location = new System.Drawing.Point(151, 117);
-            this.cboEmpleado.Name = "cboEmpleado";
-            this.cboEmpleado.Size = new System.Drawing.Size(256, 29);
-            this.cboEmpleado.TabIndex = 43;
-            // 
-            // txtNombreEmpleado
-            // 
-            this.txtNombreEmpleado.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtNombreEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombreEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreEmpleado.ForeColor = System.Drawing.Color.Black;
-            this.txtNombreEmpleado.Location = new System.Drawing.Point(260, 81);
-            this.txtNombreEmpleado.Name = "txtNombreEmpleado";
-            this.txtNombreEmpleado.Size = new System.Drawing.Size(238, 20);
-            this.txtNombreEmpleado.TabIndex = 42;
+            this.txtcategoria.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtcategoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtcategoria.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcategoria.ForeColor = System.Drawing.Color.Black;
+            this.txtcategoria.Location = new System.Drawing.Point(211, 81);
+            this.txtcategoria.Name = "txtcategoria";
+            this.txtcategoria.Size = new System.Drawing.Size(270, 20);
+            this.txtcategoria.TabIndex = 42;
             // 
             // txtUser
             // 
@@ -123,6 +113,7 @@
             this.pnlBarraTitulo.Name = "pnlBarraTitulo";
             this.pnlBarraTitulo.Size = new System.Drawing.Size(544, 29);
             this.pnlBarraTitulo.TabIndex = 41;
+            this.pnlBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraTitulo_MouseDown);
             // 
             // lblTituloPrincipal
             // 
@@ -149,6 +140,7 @@
             this.btnMinimizar.TabIndex = 3;
             this.btnMinimizar.Text = "--";
             this.btnMinimizar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -163,23 +155,36 @@
             this.btnCerrar.TabIndex = 4;
             this.btnCerrar.Text = "X";
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // txtdescripccion
+            // 
+            this.txtdescripccion.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtdescripccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtdescripccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescripccion.ForeColor = System.Drawing.Color.Black;
+            this.txtdescripccion.Location = new System.Drawing.Point(202, 149);
+            this.txtdescripccion.Name = "txtdescripccion";
+            this.txtdescripccion.Size = new System.Drawing.Size(279, 20);
+            this.txtdescripccion.TabIndex = 47;
             // 
             // FrmCRUCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(544, 297);
-            this.Controls.Add(this.btnProovedor);
+            this.ClientSize = new System.Drawing.Size(544, 315);
+            this.Controls.Add(this.txtdescripccion);
+            this.Controls.Add(this.btngrabarcategoria);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cboEmpleado);
-            this.Controls.Add(this.txtNombreEmpleado);
+            this.Controls.Add(this.txtcategoria);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.pnlBarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCRUCategoria";
             this.Text = "FrmCRUCategoria";
+            this.Load += new System.EventHandler(this.FrmCRUCategoria_Load);
             this.pnlBarraTitulo.ResumeLayout(false);
             this.pnlBarraTitulo.PerformLayout();
             this.ResumeLayout(false);
@@ -189,15 +194,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnProovedor;
+        private System.Windows.Forms.Button btngrabarcategoria;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cboEmpleado;
-        private System.Windows.Forms.TextBox txtNombreEmpleado;
+        private System.Windows.Forms.TextBox txtcategoria;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Panel pnlBarraTitulo;
         private System.Windows.Forms.Label lblTituloPrincipal;
         private System.Windows.Forms.Label btnMinimizar;
         private System.Windows.Forms.Label btnCerrar;
+        private System.Windows.Forms.TextBox txtdescripccion;
     }
 }

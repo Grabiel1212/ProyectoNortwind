@@ -48,31 +48,7 @@ namespace LibBusinessRules
 
 
 
-        public List<BEProducto> ListarProducActivados(int val) // PAR LISTAR PRODUCTO ABILITADOS Y DESABILITADOS 
-        {
-            List<BEProducto> lobeProducto = new List<BEProducto>();
-            using (SqlConnection con = new SqlConnection(strConexion))
-            {
-                try
-                {
-                    con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    lobeProducto = odaProducto.fValidarProductoAc(con, val);
-                }
-                catch (Exception ex)
-                {
-                    // Grabar el Log de error
-                    lobeProducto = null;
-                }
-                finally
-                {
-                    con.Close();
-                }
-            }
-            return (lobeProducto);
-        }
-
-        //public List<BEProducto> ListarInhabi()
+        //public List<BEProducto> ListarProducActivados(int val) // PAR LISTAR PRODUCTO ABILITADOS Y DESABILITADOS 
         //{
         //    List<BEProducto> lobeProducto = new List<BEProducto>();
         //    using (SqlConnection con = new SqlConnection(strConexion))
@@ -81,12 +57,12 @@ namespace LibBusinessRules
         //        {
         //            con.Open();
         //            DAProducto odaProducto = new DAProducto();
-        //            lobeProducto = odaProducto.fListarInhab(con);
+        //            lobeProducto = odaProducto.fValidarProductoAc(con, val);
         //        }
         //        catch (Exception ex)
         //        {
-        //            Grabar el Log de error
-        //           lobeProducto = null;
+        //            // Grabar el Log de error
+        //            lobeProducto = null;
         //        }
         //        finally
         //        {
@@ -95,6 +71,30 @@ namespace LibBusinessRules
         //    }
         //    return (lobeProducto);
         //}
+
+        public List<BEProducto> ListarProductosInhabi()
+        {
+            List<BEProducto> lobeProducto = new List<BEProducto>();
+            using (SqlConnection con = new SqlConnection(strConexion))
+            {
+                try
+                {
+                    con.Open();
+                    DAProducto odaProducto = new DAProducto();
+                    lobeProducto = odaProducto.fListarInhab(con);
+                }
+                catch (Exception ex)
+                {
+                    //Grabar el Log de error
+                   lobeProducto = null;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            return (lobeProducto);
+        }
 
         public bool EliminarProd(BEProducto obeProducto) // PARA DESABLITAR UN PRODUCTO
         {
