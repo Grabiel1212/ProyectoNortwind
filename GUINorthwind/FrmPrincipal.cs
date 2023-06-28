@@ -421,6 +421,8 @@ namespace GUINorthwind
                             obeEmpleado.Apellido = lbeEmpleado[I].Apellido;
                             obeEmpleado.Nombre = lbeEmpleado[I].Nombre;
                             obeEmpleado.FechaNac = lbeEmpleado[I].FechaNac;
+                            obeEmpleado.Direccion1 = lbeEmpleado[I].Direccion1;
+                            obeEmpleado.Pais = lbeEmpleado[I].Pais;
                             lbeFiltro03.Add(obeEmpleado);
                         }
                     }
@@ -765,5 +767,19 @@ namespace GUINorthwind
             abrir.ShowDialog();
          
         }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            FrmCRUEmpleado abrir = new FrmCRUEmpleado();
+            int yoyo = 1 ;
+            abrir.modoWindow = yoyo;
+            abrir.ShowDialog();
+        }
+
+         // codificar Empleado !! 
+
+        
+
+
     }
 }
