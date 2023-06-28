@@ -183,6 +183,7 @@
             this.Controls.Add(this.pnlBarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCRUCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCRUCategoria";
             this.Load += new System.EventHandler(this.FrmCRUCategoria_Load);
             this.pnlBarraTitulo.ResumeLayout(false);

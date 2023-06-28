@@ -49,8 +49,8 @@ namespace GUINorthwind
 
         private void FrmCRUCategoria_Load(object sender, EventArgs e)
         {
-            BRCategoria obrCategoria = new BRCategoria();
-            List<BECategoria> lbeCategotia = obrCategoria.Listar();
+            //BRCategoria obrCategoria = new BRCategoria();
+            //List<BECategoria> lbeCategotia = obrCategoria.Listar();
             //cbxproovedor.DataSource = lbeProveedor;
             //cbxproovedor.DisplayMember = "Nombre";
             //cbxproovedor.ValueMember = "Codigo";

@@ -950,5 +950,192 @@ namespace GUINorthwind
             }
 
         }
+
+        private void btnmostarinformacionUsuario_Click(object sender, EventArgs e)
+        {
+
+
+            if (dgvUsuarios.SelectedRows.Count > 0)
+            {
+
+
+
+                DataGridViewRow filaSeleccionada = dgvUsuarios.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEUsuario UsuarioSeleccionado = (BEUsuario)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCRUUsuario abrir = new FrmCRUUsuario();
+                abrir.modoWindow = 0;
+                abrir.codUusuario = UsuarioSeleccionado.Codigo;
+                abrir.uUsuario= UsuarioSeleccionado.NombreUsuario;
+                abrir.ucontraseña= UsuarioSeleccionado.PasswordUsuario;
+                abrir.unombreUsuario = UsuarioSeleccionado.Nombre;
+                abrir.uapellidoUsuario = UsuarioSeleccionado.Apellido;
+                abrir.uOcupacion = UsuarioSeleccionado.Ocupacion;
+
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+
+
+
+        }
+
+        private void btnregistrarUsuario_Click(object sender, EventArgs e)
+        {
+
+            int yoyo = 1;
+            FrmCRUUsuario abrir = new FrmCRUUsuario();// enviamos los dtaos 
+            abrir.modoWindow = yoyo;
+            abrir.ShowDialog();
+
+
+
+        }
+
+        private void btneditarUsuario_Click(object sender, EventArgs e)
+        {
+
+            if (dgvUsuarios.SelectedRows.Count > 0)
+            {
+
+
+                DataGridViewRow filaSeleccionada = dgvUsuarios.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEUsuario UsuarioSeleccionado = (BEUsuario)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCRUUsuario abrir = new FrmCRUUsuario();
+                abrir.modoWindow = 2;
+                abrir.codUusuario = UsuarioSeleccionado.Codigo;
+                abrir.uUsuario = UsuarioSeleccionado.NombreUsuario;
+                abrir.ucontraseña = UsuarioSeleccionado.PasswordUsuario;
+                abrir.unombreUsuario = UsuarioSeleccionado.Nombre;
+                abrir.uapellidoUsuario = UsuarioSeleccionado.Apellido;
+                abrir.uOcupacion = UsuarioSeleccionado.Ocupacion;
+
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+
+
+
+
+
+        }
+
+        private BRUsuario obrUsuario = new BRUsuario();
+        private void btneliminarUsuario_Click(object sender, EventArgs e)
+        {
+
+
+            if (btneliminarUsuario.Text.Equals("ELIMINAR USUARIO"))
+            {
+                if (MessageBox.Show("¿Seguro que desea eliminar el Usuario " +
+               dgvUsuarios.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) //AKI LE PREGUNTAMOS SI DESE ALIMINAR UNM PRODUCTO Y SI DOSE L SI ARA LO SIGUINTE
+                {
+                    BEUsuario obeUsuario= new BEUsuario();
+                    {
+
+
+                        var tomarvalorTabla = obeUsuario;
+                        // en esta fila le desimoos la psocion de nuestra columna y de nustra cela en este caso sera 0 donde esta el id , y tomara esevalor , y convertilo en entero
+                        tomarvalorTabla.Codigo = Convert.ToInt32(dgvUsuarios.SelectedRows[0].Cells[0].Value.ToString());
+                    }
+                    bool exito = obrUsuario.EliminarUsuario(obeUsuario);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Elimino el Usuario", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Eliminar el Usuario", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                    }
+                    accedeUsuarios(sender, e);
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("¿Seguro que desea activar el Usuario " +  // ESTO SIRVE PARA ctivar
+               dgvUsuarios.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    BEUsuario obeUsuario = new BEUsuario();
+                    {
+                        var withBlock = obeUsuario;
+                        withBlock.Codigo = Convert.ToInt32(dgvUsuarios.SelectedRows[0].Cells[0].Value.ToString()); ;
+                    }
+                    bool exito = obrUsuario.ActivarUsuario(obeUsuario);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Activo el Usuario", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("No se pudo Activar el Usuario", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                        //btnpoductDesacticadoss(sender, e);
+                    }
+                   btnactivarDesativarUsuario_Click(sender, e);
+
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+        private void btnactivarDesativarUsuario_Click(object sender, EventArgs e)
+        {
+
+            if (btnactivarDesativarUsuario.Text.Equals("MOSTRAR USUARIOS DESACTIVADOS"))
+            {
+                BRUsuario obrUsuario = new BRUsuario();
+                lbeUsuario = obrUsuario.ListarUsuariosInhabi();
+                dgvUsuarios.DataSource = lbeUsuario;
+
+                btnactivarDesativarUsuario.Text = "MOSTRAR USUARIOS ACTIVOS";
+                btnmostarinformacionUsuario.Enabled = false;
+                btnregistrarUsuario.Enabled = false;
+                btneditarUsuario.Enabled = false;
+                btneliminarUsuario.Text = "HABILITAR USUARIO";
+            }
+            else
+            {
+                btnactivarDesativarUsuario.Text = "MOSTRAR USUARIOS DESACTIVADOS";
+                BRUsuario obrUsuario= new BRUsuario();
+                lbeUsuario = obrUsuario.Listar();
+                dgvUsuarios.DataSource = lbeUsuario;
+
+                btnmostarinformacionUsuario.Enabled = true;
+                btnregistrarUsuario.Enabled = true;
+                btneditarUsuario.Enabled = true;
+                btneliminarUsuario.Text = "ELIMINAR USUARIO";
+
+
+
+            }
+        }
     }
 }
