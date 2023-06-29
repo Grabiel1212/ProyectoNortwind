@@ -1137,5 +1137,39 @@ namespace GUINorthwind
 
             }
         }
+
+        private void btnmostarInformacionProveedor_Click(object sender, EventArgs e)
+        {
+
+
+
+            if (dgvProveedores.SelectedRows.Count > 0)
+            {
+
+
+
+                DataGridViewRow filaSeleccionada = dgvProveedores.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEProveedor ProveedorSeleccionado = (BEProveedor)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCRUProveedor abrir = new FrmCRUProveedor();
+                abrir.modoWindow = 0;
+                abrir.codigoProvee = ProveedorSeleccionado.Codigo;
+                abrir.pcompania = ProveedorSeleccionado.Nombre;
+                abrir.pcontacto = ProveedorSeleccionado.Contacto;
+                abrir.pdireccion = ProveedorSeleccionado.Direccion;
+                abrir.ppaiz = ProveedorSeleccionado.Paiz;
+
+
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+
+
+        }
     }
 }

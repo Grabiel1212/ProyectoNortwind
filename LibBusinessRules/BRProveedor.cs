@@ -43,5 +43,32 @@ namespace LibBusinessRules
             }
             return (lobeProveedor);
         }
+
+        public List<BEProveedor> ListarProcedordesavilitado()
+        {
+            List<BEProveedor> lobeProveedor = new List<BEProveedor>();
+            using (SqlConnection con = new SqlConnection(strConexion))
+            {
+                try
+                {
+                    con.Open();
+                    DAProveedor odaProveedor = new DAProveedor();
+                    lobeProveedor = odaProveedor.fListarDesabilitados(con);
+                }
+                catch (Exception ex)
+                {
+                    // Grabar el Log de error
+                    lobeProveedor = null;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            return (lobeProveedor);
+        }
+
+
+
     }
 }

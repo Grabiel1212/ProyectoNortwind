@@ -51,46 +51,54 @@ namespace LibDataAccess
                 }
                 return (lobeUsuario);
             }
-            public List<BEUsuario> fLogin(SqlConnection con, String uName, String pName) // para validar el ingreso 
+        public List<BEUsuario> fLogin(SqlConnection con, String uName, String pName)
+        {
+            List<BEUsuario> lobeUsuario = new List<BEUsuario>();
+            SqlCommand cmd = new SqlCommand("uspUsuarioLogin", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@UName", SqlDbType.VarChar, 20).Value = uName;
+            cmd.Parameters.Add("@UPass", SqlDbType.VarChar, 7).Value = pName;
+            cmd.CommandTimeout = 60;
+            SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
+
+            if (drd != null)
             {
-                List<BEUsuario> lobeUsuario = new List<BEUsuario>();
-                SqlCommand cmd = new SqlCommand("uspUsuarioLogin", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@UName", SqlDbType.VarChar, 20).Value = uName;
-                cmd.Parameters.Add("@UPass", SqlDbType.VarChar, 7).Value = pName;
-                cmd.CommandTimeout = 60;
-                SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
-                if (drd != null)
-                {
-          
-                    int posCodigo = drd.GetOrdinal("UserId");
-                    int posNombreUsuario = drd.GetOrdinal("UserName");
-                    int posPasswordUsuario = drd.GetOrdinal("UserPass");
-                    int posNombre = drd.GetOrdinal("FirstName");
-                    int posApellido = drd.GetOrdinal("LastName");
-                    int posEstado = drd.GetOrdinal("UserStatus");
-                   int posOcupacion = drd.GetOrdinal("Occupation"); 
+                int posCodigo = drd.GetOrdinal("UserId");
+                int posNombreUsuario = drd.GetOrdinal("UserName");
+                int posPasswordUsuario = drd.GetOrdinal("UserPass");
+                int posNombre = drd.GetOrdinal("FirstName");
+                int posApellido = drd.GetOrdinal("LastName");
+                int posEstado = drd.GetOrdinal("UserStatus");
+                int posOcupacion = drd.GetOrdinal("Occupation");
 
                 BEUsuario obeUsuario;
-                    while (drd.Read())
+
+                while (drd.Read())
+                {
+                    obeUsuario = new BEUsuario();
                     {
-                        obeUsuario = new BEUsuario();
-                        {
-                            var withBlock = obeUsuario;
-                            withBlock.Codigo = drd.GetInt32(posCodigo);
-                            withBlock.NombreUsuario = drd.GetString(posNombreUsuario);
-                            withBlock.PasswordUsuario = drd.GetString(posPasswordUsuario);
-                            withBlock.Nombre = drd.GetString(posNombre);
-                            withBlock.Apellido = drd.GetString(posApellido);
-                            withBlock.Estado = drd.GetInt32(posEstado);
-                            withBlock.Ocupacion = drd.GetString(posOcupacion);
-                          }
+                        var withBlock = obeUsuario;
+                        withBlock.Codigo = drd.GetInt32(posCodigo);
+                        withBlock.NombreUsuario = drd.GetString(posNombreUsuario);
+                        withBlock.PasswordUsuario = drd.GetString(posPasswordUsuario);
+                        withBlock.Nombre = drd.GetString(posNombre);
+                        withBlock.Apellido = drd.GetString(posApellido);
+                        withBlock.Estado = drd.GetInt32(posEstado);
+                        withBlock.Ocupacion = drd.GetString(posOcupacion);
+                    }
+
+                    if (obeUsuario.Estado == 1)
+                    {
                         lobeUsuario.Add(obeUsuario);
                     }
-                    drd.Close();
                 }
-                return (lobeUsuario);
+
+                drd.Close();
             }
+
+            return lobeUsuario;
+        }
+
 
         public List<BEUsuario> fListarUserDesativados(SqlConnection con)// lisatr los usuarios desactivados
         {
@@ -147,11 +155,11 @@ namespace LibDataAccess
         
             SqlParameter par3 = cmd.Parameters.Add("@DFirstName", SqlDbType.NVarChar, 40);
             par3.Direction = ParameterDirection.Input;
-            par3.Value = obeUsuario.Apellido;
+            par3.Value = obeUsuario.Nombre;
 
             SqlParameter par4 = cmd.Parameters.Add("@LastName ", SqlDbType.NVarChar, 40);
             par4.Direction = ParameterDirection.Input;
-            par4.Value = obeUsuario.Nombre;
+            par4.Value = obeUsuario.Apellido;
 
             SqlParameter par5 = cmd.Parameters.Add("@occupation", SqlDbType.NVarChar, 40);
             par5.Direction = ParameterDirection.Input;
@@ -187,11 +195,11 @@ namespace LibDataAccess
 
             SqlParameter par3 = cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar, 40);
             par3.Direction = ParameterDirection.Input;
-            par3.Value = obeUsuario.Apellido;
+            par3.Value = obeUsuario.Nombre;
 
             SqlParameter par4 = cmd.Parameters.Add("@LastName", SqlDbType.NVarChar, 40);
             par4.Direction = ParameterDirection.Input;
-            par4.Value = obeUsuario.Nombre;
+            par4.Value = obeUsuario.Apellido;
 
             SqlParameter par5 = cmd.Parameters.Add("@ocupacion", SqlDbType.NVarChar, 40);
             par5.Direction = ParameterDirection.Input;
