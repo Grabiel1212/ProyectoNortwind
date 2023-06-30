@@ -982,6 +982,7 @@
             this.btnEditarProovedor.TabIndex = 19;
             this.btnEditarProovedor.Text = "EDITAR PROVEEDOR";
             this.btnEditarProovedor.UseVisualStyleBackColor = false;
+            this.btnEditarProovedor.Click += new System.EventHandler(this.btnEditarProovedor_Click);
             // 
             // btnRegistarProveedor
             // 

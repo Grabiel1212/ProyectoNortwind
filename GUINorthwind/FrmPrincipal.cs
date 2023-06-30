@@ -1171,5 +1171,10 @@ namespace GUINorthwind
 
 
         }
+
+        private void btnEditarProovedor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
