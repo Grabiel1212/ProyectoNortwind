@@ -39,10 +39,10 @@
             this.lblTituloPrincipal = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Label();
-            this.txtFNacimientoEmp = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDireccionEmp = new System.Windows.Forms.TextBox();
             this.txtPaisEmp = new System.Windows.Forms.TextBox();
+            this.dateFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.pnlBarraTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,11 +135,13 @@
             this.pnlBarraTitulo.Controls.Add(this.lblTituloPrincipal);
             this.pnlBarraTitulo.Controls.Add(this.btnMinimizar);
             this.pnlBarraTitulo.Controls.Add(this.btnCerrar);
+            this.pnlBarraTitulo.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnlBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlBarraTitulo.Name = "pnlBarraTitulo";
             this.pnlBarraTitulo.Size = new System.Drawing.Size(603, 29);
             this.pnlBarraTitulo.TabIndex = 13;
+            this.pnlBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraTitulo_MouseDown);
             // 
             // lblTituloPrincipal
             // 
@@ -182,17 +184,6 @@
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCerrar.Click += new System.EventHandler(this.cerrarVentana);
             // 
-            // txtFNacimientoEmp
-            // 
-            this.txtFNacimientoEmp.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtFNacimientoEmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFNacimientoEmp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFNacimientoEmp.ForeColor = System.Drawing.Color.Black;
-            this.txtFNacimientoEmp.Location = new System.Drawing.Point(234, 209);
-            this.txtFNacimientoEmp.Name = "txtFNacimientoEmp";
-            this.txtFNacimientoEmp.Size = new System.Drawing.Size(256, 20);
-            this.txtFNacimientoEmp.TabIndex = 29;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -226,16 +217,23 @@
             this.txtPaisEmp.Size = new System.Drawing.Size(256, 20);
             this.txtPaisEmp.TabIndex = 32;
             // 
+            // dateFechaNacimiento
+            // 
+            this.dateFechaNacimiento.Location = new System.Drawing.Point(234, 209);
+            this.dateFechaNacimiento.Name = "dateFechaNacimiento";
+            this.dateFechaNacimiento.Size = new System.Drawing.Size(256, 20);
+            this.dateFechaNacimiento.TabIndex = 33;
+            // 
             // FrmCRUEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(603, 450);
+            this.Controls.Add(this.dateFechaNacimiento);
             this.Controls.Add(this.txtPaisEmp);
             this.Controls.Add(this.txtDireccionEmp);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtFNacimientoEmp);
             this.Controls.Add(this.btnGrabarEmpleado);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -246,6 +244,7 @@
             this.Controls.Add(this.pnlBarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCRUEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCRUEmpleado";
             this.Load += new System.EventHandler(this.FrmCRUEmpleado_Load);
             this.pnlBarraTitulo.ResumeLayout(false);
@@ -268,9 +267,9 @@
         private System.Windows.Forms.Label lblTituloPrincipal;
         private System.Windows.Forms.Label btnMinimizar;
         private System.Windows.Forms.Label btnCerrar;
-        private System.Windows.Forms.TextBox txtFNacimientoEmp;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDireccionEmp;
         private System.Windows.Forms.TextBox txtPaisEmp;
+        private System.Windows.Forms.DateTimePicker dateFechaNacimiento;
     }
 }

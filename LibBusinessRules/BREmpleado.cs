@@ -45,7 +45,31 @@ namespace LibBusinessRules
             }
             return (lobeEmpleado);
         }
-        public List<BEEmpleado> ListarProducActivados(int val) // PAR LISTAR PRODUCTO ABILITADOS Y DESABILITADOS 
+        //public List<BEEmpleado> ListarProducActivados(int val) // PAR LISTAR PRODUCTO ABILITADOS Y DESABILITADOS 
+        //{
+        //    List<BEEmpleado> lobeEmpleado = new List<BEEmpleado>();
+        //    using (SqlConnection con = new SqlConnection(strConexion))
+        //    {
+        //        try
+        //        {
+        //            con.Open();
+        //            DAEmpleado odaEmpleado = new DAEmpleado();
+        //            lobeEmpleado = odaEmpleado.fValidarProductoAc(con, val);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Grabar el Log de error
+        //            lobeEmpleado = null;
+        //        }
+        //        finally
+        //        {
+        //            con.Close();
+        //        }
+        //    }
+        //    return (lobeEmpleado);
+        //}
+
+        public List<BEEmpleado> ListarInactivos()
         {
             List<BEEmpleado> lobeEmpleado = new List<BEEmpleado>();
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -54,7 +78,7 @@ namespace LibBusinessRules
                 {
                     con.Open();
                     DAEmpleado odaEmpleado = new DAEmpleado();
-                    lobeEmpleado = odaEmpleado.fValidarProductoAc(con, val);
+                    lobeEmpleado = odaEmpleado.fListarInacticos(con);
                 }
                 catch (Exception ex)
                 {
@@ -68,6 +92,12 @@ namespace LibBusinessRules
             }
             return (lobeEmpleado);
         }
+
+
+
+
+
+
         public bool EliminarEmpl(BEEmpleado obeEmpleado) // PARA DESABLITAR UN PRODUCTO
         {
             bool exito = false;
@@ -111,7 +141,10 @@ namespace LibBusinessRules
             }
             return (exito);
         }
-        public int Adicionar(BEEmpleado obeEmpleado) // para inserta productos 
+     
+
+
+        public int InsertarEmpleados(BEEmpleado obeEmpleado) // para inserta productos 
         {
             int N = -1;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -120,7 +153,7 @@ namespace LibBusinessRules
                 {
                     con.Open();
                     DAEmpleado odaEmpleado = new DAEmpleado();
-                    N = odaEmpleado.fAdicionar(con, obeEmpleado);
+                    N = odaEmpleado.fAinsertarEmpleados(con, obeEmpleado);
                 }
                 catch (Exception ex)
                 {
@@ -134,6 +167,8 @@ namespace LibBusinessRules
             }
             return (N);
         }
+
+
         public bool Actualizar(BEEmpleado obeEmpleado) // para actialuzar produscto
         {
             bool exito = false;

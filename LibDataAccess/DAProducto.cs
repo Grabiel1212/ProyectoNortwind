@@ -172,10 +172,11 @@ namespace LibDataAccess
             par4.Value = obeProducto.PrecioUni;
             SqlParameter par5 = cmd.Parameters.Add("@UnitsInStock", SqlDbType.SmallInt);
             par5.Direction = ParameterDirection.Input;
-         
-            par5.Value = obeProducto.Stock;
+             par5.Value = obeProducto.Stock;
+
             SqlParameter par6 = cmd.Parameters.Add("@@identity", SqlDbType.Int);
             par6.Direction = ParameterDirection.ReturnValue;
+
             N = cmd.ExecuteNonQuery();
             if (N > 0)
                 return ((int)par6.Value);

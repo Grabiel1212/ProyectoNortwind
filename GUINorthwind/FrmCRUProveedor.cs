@@ -108,75 +108,74 @@ namespace GUINorthwind
         private void btngravarProveedor_Click(object sender, EventArgs e)
         {
 
-            //if (modoWindow == 1) //Regitstrar
-            //{
+            if (modoWindow == 1) //Regitstrar
+            {
 
-            //    BEProveedor obeProveedor = new BEProveedor();
-            //    {
-            //        var withBlock = obeProducto;
-            //        withBlock.Nombre = txtUser.Text;
-            //        withBlock.IdProveedor = Convert.ToInt32(cbxproovedor.SelectedValue);
-            //        withBlock.IdCategoria = Convert.ToInt32(cbxcategoria.SelectedValue);
-            //        withBlock.PrecioUni = Convert.ToDecimal(txtprecio.Text);
-            //        withBlock.Stock = Convert.ToInt16(txtshow.Text);
+                BEProveedor obeProveedor = new BEProveedor();
+                {
+                    var withBlock = obeProveedor;
+                    withBlock.Nombre = txtcompania.Text;
+                    withBlock.Contacto = txtContacto.Text;
+                    withBlock.Direccion = txtdireccion.Text;
+                    withBlock.Paiz = txtpaiz.Text;
+       
 
-            //    }
-            //    int N = obrProducto.Adicionar(obeProducto);
-            //    if (N > 0)
-            //    {
-
-
-            //        MessageBox.Show("Se Adicionó el Producto", "Aviso", MessageBoxButtons.OK,
-            //       MessageBoxIcon.Information);
-
-            //        this.Hide();
-            //    }
-            //    else
-            //    {
+                }
+                int N = obrProveedor.AdicionarProveddor(obeProveedor);
+                if (N > 0)
+                {
 
 
-            //        MessageBox.Show("No se pudo Adicionar el Producto", "Error",
-            //       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    }
-            //}
+                    MessageBox.Show("Se Adicionó el Proovedor", "Aviso", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
 
-            //if (modoWindow == 2) //Editar
-            //{
-            //    BEProducto obeProducto = new BEProducto();
-            //    {
-            //        var withBlock = obeProducto;
-            //        withBlock.Codigo = codProd;
-            //        withBlock.Nombre = txtUser.Text;
-            //        withBlock.IdProveedor = Convert.ToInt32(cbxproovedor.SelectedValue);
-            //        withBlock.IdCategoria = Convert.ToInt32(cbxcategoria.SelectedValue);
-            //        withBlock.PrecioUni = Convert.ToDecimal(txtprecio.Text);
-            //        withBlock.Stock = Convert.ToInt16(txtshow.Text);
-            //    }
-            //    bool exito = obrProducto.Actualizar(obeProducto);
-            //    if (exito)
-            //    {
-            //        MessageBox.Show("Se Actualizó el Producto", "Aviso", MessageBoxButtons.OK,
-            //       MessageBoxIcon.Information);
-
-            //        this.Hide();
+                    this.Hide();
+                }
+                else
+                {
 
 
-            //    }
+                    MessageBox.Show("No se pudo Adicionar el Proovedor", "Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            if (modoWindow == 2) //Editar
+            {
+                BEProveedor obeProveedor = new BEProveedor();
+                {
+                    var withBlock = obeProveedor;
+                    withBlock.Codigo = codigoProvee;
+                    withBlock.Nombre = txtcompania.Text;
+                    withBlock.Contacto = txtContacto.Text;
+                    withBlock.Direccion = txtdireccion.Text;
+                    withBlock.Paiz = txtpaiz.Text;
+                }
+                bool exito = obrProveedor.ActualizarProveedor(obeProveedor);
+                if (exito)
+                {
+                    MessageBox.Show("Se Actualizó el Proveedor ", "Aviso", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+
+                    this.Hide();
 
 
-            //    else
-            //    {
+                }
 
 
-            //        MessageBox.Show("No se pudo Actualizar el Producto", "Error",
-            //       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    }
+                else
+                {
+
+
+                    MessageBox.Show("No se pudo Actualizar el Proovedor ", "Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
 
 
 
-
-
-        }
+            }
 
         private void pnlBarraTitulo_MouseDown(object sender, MouseEventArgs e)
         {

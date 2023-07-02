@@ -127,7 +127,7 @@ namespace GUINorthwind
             // esto es llenar nuestro combo box categoria y proveedores 
 
             BRProveedor obrProveedor = new BRProveedor();
-            List<BEProveedor> lbeProveedor = obrProveedor.Listar();
+            List<BEProveedor> lbeProveedor = obrProveedor.ListarProveedor();
             cbxproovedor.DataSource = lbeProveedor;
             cbxproovedor.DisplayMember = "Nombre";
             cbxproovedor.ValueMember = "Codigo";

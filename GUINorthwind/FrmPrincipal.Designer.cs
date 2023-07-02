@@ -80,11 +80,11 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvCategorias = new System.Windows.Forms.DataGridView();
             this.tpEmpleados = new System.Windows.Forms.TabPage();
+            this.btmactivardesativarempleados = new System.Windows.Forms.Button();
             this.btnEliminarEmpleado = new System.Windows.Forms.Button();
             this.btnEditarEmpleado = new System.Windows.Forms.Button();
             this.btnRegistrarEmpleado = new System.Windows.Forms.Button();
             this.btnMostrarEmpleado = new System.Windows.Forms.Button();
-            this.btnDescativadoActivadoEmpleado = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFiltroEmpleado = new System.Windows.Forms.TextBox();
@@ -760,11 +760,11 @@
             // 
             // tpEmpleados
             // 
+            this.tpEmpleados.Controls.Add(this.btmactivardesativarempleados);
             this.tpEmpleados.Controls.Add(this.btnEliminarEmpleado);
             this.tpEmpleados.Controls.Add(this.btnEditarEmpleado);
             this.tpEmpleados.Controls.Add(this.btnRegistrarEmpleado);
             this.tpEmpleados.Controls.Add(this.btnMostrarEmpleado);
-            this.tpEmpleados.Controls.Add(this.btnDescativadoActivadoEmpleado);
             this.tpEmpleados.Controls.Add(this.groupBox3);
             this.tpEmpleados.Controls.Add(this.dgvEmpleados);
             this.tpEmpleados.Location = new System.Drawing.Point(4, 22);
@@ -774,6 +774,23 @@
             this.tpEmpleados.TabIndex = 2;
             this.tpEmpleados.Text = "tabPage3";
             this.tpEmpleados.UseVisualStyleBackColor = true;
+            // 
+            // btmactivardesativarempleados
+            // 
+            this.btmactivardesativarempleados.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btmactivardesativarempleados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btmactivardesativarempleados.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btmactivardesativarempleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btmactivardesativarempleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btmactivardesativarempleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btmactivardesativarempleados.ForeColor = System.Drawing.Color.LightGray;
+            this.btmactivardesativarempleados.Location = new System.Drawing.Point(653, 50);
+            this.btmactivardesativarempleados.Name = "btmactivardesativarempleados";
+            this.btmactivardesativarempleados.Size = new System.Drawing.Size(346, 40);
+            this.btmactivardesativarempleados.TabIndex = 22;
+            this.btmactivardesativarempleados.Text = "MOSTRAR EMPLEADOS DESACTIVADOS";
+            this.btmactivardesativarempleados.UseVisualStyleBackColor = false;
+            this.btmactivardesativarempleados.Click += new System.EventHandler(this.btmactivardesativarempleados_Click);
             // 
             // btnEliminarEmpleado
             // 
@@ -788,8 +805,9 @@
             this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
             this.btnEliminarEmpleado.Size = new System.Drawing.Size(235, 40);
             this.btnEliminarEmpleado.TabIndex = 18;
-            this.btnEliminarEmpleado.Text = "ELIMINAR PRODUCTO";
+            this.btnEliminarEmpleado.Text = "ELIMINAR EMPLEADO";
             this.btnEliminarEmpleado.UseVisualStyleBackColor = false;
+            this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
             // 
             // btnEditarEmpleado
             // 
@@ -804,8 +822,9 @@
             this.btnEditarEmpleado.Name = "btnEditarEmpleado";
             this.btnEditarEmpleado.Size = new System.Drawing.Size(235, 40);
             this.btnEditarEmpleado.TabIndex = 19;
-            this.btnEditarEmpleado.Text = "EDITAR PRODUCTO";
+            this.btnEditarEmpleado.Text = "EDITAR EMPLEADO";
             this.btnEditarEmpleado.UseVisualStyleBackColor = false;
+            this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
             // 
             // btnRegistrarEmpleado
             // 
@@ -820,8 +839,9 @@
             this.btnRegistrarEmpleado.Name = "btnRegistrarEmpleado";
             this.btnRegistrarEmpleado.Size = new System.Drawing.Size(235, 40);
             this.btnRegistrarEmpleado.TabIndex = 20;
-            this.btnRegistrarEmpleado.Text = "REGISTRA PRODUCTO";
+            this.btnRegistrarEmpleado.Text = "REGISTRA EMPLEADO";
             this.btnRegistrarEmpleado.UseVisualStyleBackColor = false;
+            this.btnRegistrarEmpleado.Click += new System.EventHandler(this.btnRegistrarEmpleado_Click);
             // 
             // btnMostrarEmpleado
             // 
@@ -839,22 +859,6 @@
             this.btnMostrarEmpleado.Text = "MOSTRAR INFORMACIÓN";
             this.btnMostrarEmpleado.UseVisualStyleBackColor = false;
             this.btnMostrarEmpleado.Click += new System.EventHandler(this.btnMostrar_Click);
-            // 
-            // btnDescativadoActivadoEmpleado
-            // 
-            this.btnDescativadoActivadoEmpleado.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnDescativadoActivadoEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDescativadoActivadoEmpleado.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.btnDescativadoActivadoEmpleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnDescativadoActivadoEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.btnDescativadoActivadoEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescativadoActivadoEmpleado.ForeColor = System.Drawing.Color.LightGray;
-            this.btnDescativadoActivadoEmpleado.Location = new System.Drawing.Point(646, 70);
-            this.btnDescativadoActivadoEmpleado.Name = "btnDescativadoActivadoEmpleado";
-            this.btnDescativadoActivadoEmpleado.Size = new System.Drawing.Size(346, 40);
-            this.btnDescativadoActivadoEmpleado.TabIndex = 17;
-            this.btnDescativadoActivadoEmpleado.Text = "MOSTRAR PRODUCTOS DESACTIVADOS";
-            this.btnDescativadoActivadoEmpleado.UseVisualStyleBackColor = false;
             // 
             // groupBox3
             // 
@@ -966,6 +970,7 @@
             this.btneliminarProvedor.TabIndex = 18;
             this.btneliminarProvedor.Text = "ELIMINAR PROVEEDOR";
             this.btneliminarProvedor.UseVisualStyleBackColor = false;
+            this.btneliminarProvedor.Click += new System.EventHandler(this.btneliminarProvedor_Click);
             // 
             // btnEditarProovedor
             // 
@@ -999,6 +1004,7 @@
             this.btnRegistarProveedor.TabIndex = 20;
             this.btnRegistarProveedor.Text = "REGISTRA PROVEEDOR";
             this.btnRegistarProveedor.UseVisualStyleBackColor = false;
+            this.btnRegistarProveedor.Click += new System.EventHandler(this.btnRegistarProveedor_Click);
             // 
             // btnmostarInformacionProveedor
             // 
@@ -1030,8 +1036,9 @@
             this.btnactivarDesactivarProvedor.Name = "btnactivarDesactivarProvedor";
             this.btnactivarDesactivarProvedor.Size = new System.Drawing.Size(346, 40);
             this.btnactivarDesactivarProvedor.TabIndex = 17;
-            this.btnactivarDesactivarProvedor.Text = "MOSTRAR PROVEEDORES DESACTIVADOS";
+            this.btnactivarDesactivarProvedor.Text = "MOSTRAR PROVEEDORES DESACTIVADOS\r\n";
             this.btnactivarDesactivarProvedor.UseVisualStyleBackColor = false;
+            this.btnactivarDesactivarProvedor.Click += new System.EventHandler(this.btnactivarDesactivarProvedor_Click);
             // 
             // groupBox4
             // 
@@ -1110,6 +1117,7 @@
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(976, 454);
             this.dgvProveedores.TabIndex = 15;
+            this.dgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentClick);
             // 
             // tpUsuarios
             // 
@@ -1388,7 +1396,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFiltroCategoria;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button btnDescativadoActivadoEmpleado;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtFiltroEmpleado;
@@ -1421,5 +1428,6 @@
         private System.Windows.Forms.Button btnEditarProovedor;
         private System.Windows.Forms.Button btnRegistarProveedor;
         private System.Windows.Forms.Button btnmostarInformacionProveedor;
+        private System.Windows.Forms.Button btmactivardesativarempleados;
     }
 }

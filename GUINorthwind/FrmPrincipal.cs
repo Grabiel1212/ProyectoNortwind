@@ -236,7 +236,7 @@ namespace GUINorthwind
                     break;
                 case 3:
                     BRProveedor obrProveedor = new BRProveedor();
-                    lbeProveedor = obrProveedor.Listar();
+                    lbeProveedor = obrProveedor.ListarProveedor();
                     dgvProveedores.DataSource = lbeProveedor;
                     break;
                 case 4:
@@ -771,10 +771,26 @@ namespace GUINorthwind
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            FrmCRUEmpleado abrir = new FrmCRUEmpleado();
-            int yoyo = 1 ;
-            abrir.modoWindow = yoyo;
-            abrir.ShowDialog();
+            // para mistar informacion de l empleados
+            if (dgvEmpleados.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgvEmpleados.SelectedRows[0];
+                BEEmpleado EmpleadoSelecionado = (BEEmpleado)filaSeleccionada.DataBoundItem;
+
+                FrmCRUEmpleado abrir = new FrmCRUEmpleado();
+                int yoyo = 0;
+                abrir.modoWindow = yoyo;
+                abrir.codEmpleado = EmpleadoSelecionado.Codigo;
+                abrir.nomEmpleado = EmpleadoSelecionado.Nombre;
+                abrir.apeEmpleado = EmpleadoSelecionado.Apellido;
+                abrir.FechaNacimiento =EmpleadoSelecionado.FechaNac;
+                abrir.Direccion = EmpleadoSelecionado.Direccion1;
+                abrir.Pais = EmpleadoSelecionado.Pais;
+
+
+                abrir.ShowDialog();
+
+            }
         }
 
         private void btnmostrarinformacionCategoria_Click(object sender, EventArgs e)
@@ -1173,6 +1189,304 @@ namespace GUINorthwind
         }
 
         private void btnEditarProovedor_Click(object sender, EventArgs e)
+        {
+
+
+            if (dgvProveedores.SelectedRows.Count > 0)
+            {
+
+
+                DataGridViewRow filaSeleccionada = dgvProveedores.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEProveedor ProveedorSeleccionado = (BEProveedor)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCRUProveedor abrir = new FrmCRUProveedor();
+                abrir.modoWindow = 2;
+                abrir.codigoProvee = ProveedorSeleccionado.Codigo;
+                abrir.pcompania = ProveedorSeleccionado.Nombre;
+                abrir.pcontacto = ProveedorSeleccionado.Contacto;
+                abrir.pdireccion = ProveedorSeleccionado.Direccion;
+                abrir.ppaiz = ProveedorSeleccionado.Paiz;
+
+
+
+                abrir.ShowDialog();
+
+
+        
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+
+        }
+
+        private void btnRegistrarEmpleado_Click(object sender, EventArgs e)
+        {
+
+            FrmCRUEmpleado abrir = new FrmCRUEmpleado();// enviamos los dtaos 
+            int yoyo = 1;
+            abrir.modoWindow = yoyo;
+            abrir.ShowDialog();
+
+
+
+
+        }
+
+        private void btnEditarEmpleado_Click(object sender, EventArgs e)
+        {
+            if (dgvEmpleados.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgvEmpleados.SelectedRows[0];
+                BEEmpleado EmpleadoSelecionado = (BEEmpleado)filaSeleccionada.DataBoundItem;
+
+                FrmCRUEmpleado abrir = new FrmCRUEmpleado();
+                int yoyo = 2;
+                abrir.modoWindow = yoyo;
+                abrir.codEmpleado = EmpleadoSelecionado.Codigo;
+                abrir.nomEmpleado = EmpleadoSelecionado.Nombre;
+                abrir.apeEmpleado = EmpleadoSelecionado.Apellido;
+                abrir.FechaNacimiento = EmpleadoSelecionado.FechaNac;
+                abrir.Direccion = EmpleadoSelecionado.Direccion1;
+                abrir.Pais = EmpleadoSelecionado.Pais;
+
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show(" POR FAVOR SELECIONAR UYN FILA ?");
+            }
+        }
+
+        private BREmpleado obrEmpleado = new BREmpleado();
+        private void btnEliminarEmpleado_Click(object sender, EventArgs e)
+        {
+
+
+            
+            if (btnEliminarEmpleado.Text.Equals("ELIMINAR EMPLEADO"))
+            {
+                if (MessageBox.Show("¿Seguro que desea eliminar el EMPLEADO " +
+               dgvEmpleados.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) //AKI LE PREGUNTAMOS SI DESE ALIMINAR UNM PRODUCTO Y SI DOSE L SI ARA LO SIGUINTE
+                {
+                    BEEmpleado obeEmpleado= new BEEmpleado();
+                    {
+
+
+                        var tomarvalorTabla = obeEmpleado;
+                        // en esta fila le desimoos la psocion de nuestra columna y de nustra cela en este caso sera 0 donde esta el id , y tomara esevalor , y convertilo en entero
+                        tomarvalorTabla.Codigo = Convert.ToInt32(dgvEmpleados.SelectedRows[0].Cells[0].Value.ToString());
+                    }
+                    bool exito = obrEmpleado.EliminarEmpl(obeEmpleado);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Elimino el EMPLEADO", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Eliminar el EMPLEADO", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                    }
+                    accedeEmpleados(sender, e);
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("¿Seguro que desea activar el EMPLEADO" +  // ESTO SIRVE PARA ctivar
+               dgvEmpleados.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    BEEmpleado obeEmpleado = new BEEmpleado();
+                    {
+                        var withBlock = obeEmpleado;
+                        withBlock.Codigo = Convert.ToInt32(dgvUsuarios.SelectedRows[0].Cells[0].Value.ToString()); ;
+                    }
+                    bool exito = obrEmpleado.ActivarEmpl(obeEmpleado);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Activo el Empleado", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("No se pudo Activar el empleado", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                        //btnpoductDesacticadoss(sender, e);
+                    }
+                    //btmactivardesativarempleados_Click(sender, e);
+
+
+                }
+            }
+
+
+
+        }
+
+        private void btnDescativadoActivadoEmpleado_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+        }
+
+        private void btmactivardesativarempleados_Click(object sender, EventArgs e)
+        {
+          
+
+            if (btmactivardesativarempleados.Text.Equals("MOSTRAR EMPLEADOS DESACTIVADOS"))
+            {
+                BREmpleado obrEmplead = new BREmpleado();
+                lbeEmpleado = obrEmpleado.ListarInactivos();
+                dgvEmpleados.DataSource = lbeEmpleado;
+
+                btmactivardesativarempleados.Text = "MOSTRAR EMPLEADOS ACTIVOS";
+                btnMostrarEmpleado.Enabled = false;
+                btnRegistrarEmpleado.Enabled = false;
+                btnEditarEmpleado.Enabled = false;
+         
+            }
+            else
+            {
+                btmactivardesativarempleados.Text = "MOSTRAR EMPLEADOS DESACTIVADOS";
+                BREmpleado obrEmplea = new BREmpleado();
+                lbeEmpleado = obrEmpleado.Listar();
+                dgvEmpleados.DataSource = lbeEmpleado;
+
+                btnMostrarEmpleado.Enabled = true;
+                btnRegistrarEmpleado.Enabled = true;
+                btnEditarEmpleado.Enabled = true;
+                btnEliminarEmpleado.Text = "ELIMINAR EMPLEADO";
+
+
+
+            }
+
+        }
+
+        private void btnRegistarProveedor_Click(object sender, EventArgs e)
+        {
+            FrmCRUProveedor abrir = new FrmCRUProveedor();// enviamos los dtaos 
+            int yoyo = 1;
+            abrir.modoWindow = yoyo;
+            abrir.ShowDialog();
+        }
+
+        private BRProveedor obrProveedor = new BRProveedor();
+        private void btneliminarProvedor_Click(object sender, EventArgs e)
+        {
+
+            if (btneliminarProvedor.Text.Equals("ELIMINAR PROVEEDOR"))
+            {
+                if (MessageBox.Show("¿Seguro que desea eliminar el PROVEEDOR " +
+               dgvProveedores.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) //AKI LE PREGUNTAMOS SI DESE ALIMINAR UNM PRODUCTO Y SI DOSE L SI ARA LO SIGUINTE
+                {
+                    BEProveedor  obeProveedor = new BEProveedor();
+                    {
+
+
+                        var tomarvalorTabla = obeProveedor;
+                        // en esta fila le desimoos la psocion de nuestra columna y de nustra cela en este caso sera 0 donde esta el id , y tomara esevalor , y convertilo en entero
+                        tomarvalorTabla.Codigo = Convert.ToInt32(dgvProveedores.SelectedRows[0].Cells[0].Value.ToString());
+                    }
+                    bool exito = obrProveedor.EliminarProveedor(obeProveedor);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Elimino el Proveedor", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Eliminar el Porveedor", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                    }
+                    accedeProveedores(sender, e);
+                }
+            }
+            else
+            {
+
+                if (MessageBox.Show("¿Seguro que desea activar el Porveedor " +  // ESTO SIRVE PARA ctivar
+              dgvProveedores.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    BEProveedor obeProveedor = new BEProveedor();
+                    {
+                        var withBlock = obeProveedor;
+                        withBlock.Codigo = Convert.ToInt32(dgvProveedores.SelectedRows[0].Cells[0].Value.ToString()); ;
+                    }
+                    bool exito = obrProveedor.ActivarPriveedor(obeProveedor);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Activo el proveedor", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("No se pudo Activar el Porveedor", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                        //btnpoductDesacticadoss(sender, e);
+                    }
+                  btnactivarDesactivarProvedor_Click(sender, e);
+
+
+                }
+
+
+            }
+        }
+
+        private void btnactivarDesactivarProvedor_Click(object sender, EventArgs e)
+        {
+
+            if (btnactivarDesactivarProvedor.Text.Equals("MOSTRAR PROVEEDORES DESACTIVADOS"))
+            {
+                BRProveedor obrProveedor = new BRProveedor();
+                lbeProveedor = obrProveedor.ListarProcedordesavilitado();
+                dgvProveedores.DataSource = lbeProveedor;
+
+                btnactivarDesactivarProvedor.Text = "MOSTRAR PROVEEDOR ACTIVOS";
+                btnmostarInformacionProveedor.Enabled = false;
+                btnRegistarProveedor.Enabled = false;
+                btnEditarProovedor.Enabled = false;
+                btneliminarProvedor.Text = "HABILITAR PROVEEDOR";
+            }
+            else
+            {
+                btnactivarDesactivarProvedor.Text = "MOSTRAR PROVEEDORES DESACTIVADOS";
+                BRProveedor obrProveedor = new BRProveedor();
+                lbeProveedor = obrProveedor.ListarProveedor();
+                dgvProveedores.DataSource = lbeProveedor;
+
+                btnmostarInformacionProveedor.Enabled = true;
+                btnRegistarProveedor.Enabled = true;
+                btnEditarProovedor.Enabled = true;
+                btneliminarProvedor.Text = "ELIMINAR PROVEEDOR";
+
+
+
+            }
+
+
+
+        }
+
+        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

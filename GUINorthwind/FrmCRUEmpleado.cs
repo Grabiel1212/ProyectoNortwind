@@ -26,7 +26,7 @@ namespace GUINorthwind
         public int codEmpleado { get; set; }
         public String nomEmpleado { get; set; }
         public String apeEmpleado { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public DateTime   FechaNacimiento { get; set; }
         public String Direccion { get; set; }
         public String Pais { get; set; }
         public FrmCRUEmpleado()
@@ -37,7 +37,7 @@ namespace GUINorthwind
         {
             txtApellidoEmpleado.Enabled = estado;
             txtNombreEmpleado.Enabled = estado;
-            txtFNacimientoEmp.Enabled = estado;
+            dateFechaNacimiento.Enabled = estado;
             txtDireccionEmp.Enabled = estado;
             txtPaisEmp.Enabled = estado;
             btnGrabarEmpleado.Enabled = estado;
@@ -48,7 +48,7 @@ namespace GUINorthwind
             txtApellidoEmpleado.Clear();
             txtNombreEmpleado.Clear();
             txtDireccionEmp.Clear();
-            txtFNacimientoEmp.Clear();
+            //txtFNacimientoEmp.Clear();
             txtPaisEmp.Clear();
 
         }
@@ -75,7 +75,7 @@ namespace GUINorthwind
                 case 0: //Ver
                     txtNombreEmpleado.Text = nomEmpleado;
                     txtApellidoEmpleado.Text = apeEmpleado;
-                    txtFNacimientoEmp.Text = FechaNacimiento.ToString();
+                   dateFechaNacimiento.Value =FechaNacimiento;
                     txtDireccionEmp.Text = Direccion;
                     txtPaisEmp.Text = Pais;
                     habilitaCasillas(false);
@@ -86,7 +86,7 @@ namespace GUINorthwind
                 case 2: //Editar
                     txtNombreEmpleado.Text = nomEmpleado;
                     txtApellidoEmpleado.Text = apeEmpleado;
-                    txtFNacimientoEmp.Text = FechaNacimiento.ToString();
+                    dateFechaNacimiento.Value = FechaNacimiento;
                     txtDireccionEmp.Text = Direccion;
                     txtPaisEmp.Text = Pais;
                     habilitaCasillas(true);
@@ -107,17 +107,18 @@ namespace GUINorthwind
                     var withBlock = obeEmpleado;
                     withBlock.Nombre = txtNombreEmpleado.Text;
                     withBlock.Apellido = txtApellidoEmpleado.Text;
-                    withBlock.FechaNac = Convert.ToDateTime(txtFNacimientoEmp);
+                    withBlock.FechaNac = FechaNacimiento;
                     withBlock.Direccion1 = txtDireccionEmp.Text;
                     withBlock.Pais = txtPaisEmp.Text;
 
+
                 }
-                int N = obrEmpleado.Adicionar(obeEmpleado);
+                int N = obrEmpleado.InsertarEmpleados(obeEmpleado);
                 if (N > 0)
                 {
 
 
-                    MessageBox.Show("Se Adicionó el Producto", "Aviso", MessageBoxButtons.OK,
+                    MessageBox.Show("Se Adicionó el Empleado", "Aviso", MessageBoxButtons.OK,
                    MessageBoxIcon.Information);
 
                     this.Hide();
@@ -126,7 +127,7 @@ namespace GUINorthwind
                 {
 
 
-                    MessageBox.Show("No se pudo Adicionar el Producto", "Error",
+                    MessageBox.Show("No se pudo Adicionar el empleado", "Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
@@ -139,14 +140,14 @@ namespace GUINorthwind
                     withBlock.Codigo = codEmpleado;
                     withBlock.Nombre = txtNombreEmpleado.Text;
                     withBlock.Apellido = txtApellidoEmpleado.Text;
-                    withBlock.FechaNac = Convert.ToDateTime(txtFNacimientoEmp);
+                    withBlock.FechaNac = FechaNacimiento;
                     withBlock.Direccion1 = txtDireccionEmp.Text;
                     withBlock.Pais = txtPaisEmp.Text;
                 }
                 bool exito = obrEmpleado.Actualizar(obeEmpleado);
                 if (exito)
                 {
-                    MessageBox.Show("Se Actualizó el Producto", "Aviso", MessageBoxButtons.OK,
+                    MessageBox.Show("Se Actualizó el empleado", "Aviso", MessageBoxButtons.OK,
                    MessageBoxIcon.Information);
 
                     this.Hide();
@@ -159,11 +160,17 @@ namespace GUINorthwind
                 {
 
 
-                    MessageBox.Show("No se pudo Actualizar el Producto", "Error",
+                    MessageBox.Show("No se pudo Actualizar el Rmplreado", "Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }
+        }
+
+        private void pnlBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
