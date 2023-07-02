@@ -12,6 +12,7 @@ using LibBusinessEntities;
 using LibBusinessRules;
 using System.Security.Policy;
 using System.Drawing.Text;
+using System.Drawing.Drawing2D;
 
 namespace GUINorthwind
 {
@@ -206,6 +207,41 @@ namespace GUINorthwind
             dgvUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvUsuarios.ColumnHeadersVisible = true;
+
+
+            dgvProductosFiltro.BackgroundColor = Color.FromArgb(45, 66, 91);
+            dgvProductosFiltro.BorderStyle = BorderStyle.None;
+            dgvProductosFiltro.RowsDefaultCellStyle.BackColor = Color.FromArgb(45, 66, 91);
+            fuente = new Font("Century Gothic", 10);
+            dgvProductosFiltro.RowsDefaultCellStyle.Font = fuente;
+            dgvProductosFiltro.RowsDefaultCellStyle.ForeColor = Color.White;
+            dgvProductosFiltro.RowsDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dgvProductosFiltro.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+            dgvProductosFiltro.GridColor = Color.SteelBlue;
+            dgvProductosFiltro.EnableHeadersVisualStyles = false;
+            dgvProductosFiltro.ColumnHeadersDefaultCellStyle.BackColor = SystemColors.HotTrack;
+            dgvProductosFiltro.ColumnHeadersDefaultCellStyle.Font = fuente;
+            dgvProductosFiltro.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvProductosFiltro.ColumnHeadersDefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            dgvProductosFiltro.ColumnHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
+            dgvProductosFiltro.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvProductosFiltro.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvProductosFiltro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvProductosFiltro.ColumnHeadersHeight = 30;
+            dgvProductosFiltro.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 66, 91);
+            fuente = new Font("Microsoft Sans Serif", 9);
+            dgvProductosFiltro.RowHeadersDefaultCellStyle.Font = fuente;
+            dgvProductosFiltro.RowHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvProductosFiltro.RowHeadersDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dgvProductosFiltro.RowHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
+            dgvProductosFiltro.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvProductosFiltro.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductosFiltro.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvProductosFiltro.ColumnHeadersVisible = true;
+            dgvProductosFiltro.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvProductosFiltro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvProductosFiltro.ColumnHeadersVisible = true;
+
         }
         // para lsitar mis encapsulados 
         private List<BEProducto> lbeProducto;
@@ -244,7 +280,17 @@ namespace GUINorthwind
                     lbeUsuario = obrUsuario.Listar();
                     dgvUsuarios.DataSource = lbeUsuario;
                     break;
-               
+                case 5:
+                    BRCategoria obrCategoria = new BRCategoria();
+                    lbeCategoria = obrCategoria.Listar();
+                    cbxcategoria.DataSource = lbeCategoria;
+                    dgvProductosFiltro.DataSource = lbeProducto;
+                    cbxcategoria.DisplayMember = "Nombre";
+                    cbxcategoria.ValueMember = "Codigo";
+                    break;
+
+
+
             }
         }
 
@@ -286,6 +332,15 @@ namespace GUINorthwind
                     btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
                     btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
                     btnUsuarios.BackColor = Color.FromArgb(85, 159, 127);
+                    break;
+
+                case 5:
+                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    btnproductoPorCategoria.BackColor = Color.FromArgb(85, 159, 127);
                     break;
             }
         }
@@ -1488,6 +1543,120 @@ namespace GUINorthwind
 
         private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void btnproductoPorCategoria_Click(object sender, EventArgs e)
+        {
+            tcVentanas.SelectedIndex = 5;
+            activaSeleccion(5);
+            lblTitulo.Text = btnproductoPorCategoria.Text;
+            cargaDatos(5);
+        }
+
+        private void bTNFILTRO_Click(object sender, EventArgs e)
+        {
+            lbeFiltro01 = new List<BEProducto>();
+            BEProducto obeProducto;
+            for (int I = 0; I <= lbeProducto.Count - 1; I++)
+            {
+                if (lbeProducto[I].IdCategoria.Equals(cbxcategoria.SelectedValue))
+                {
+                    obeProducto = new BEProducto();
+                    obeProducto.Codigo = lbeProducto[I].Codigo;
+                    obeProducto.Nombre = lbeProducto[I].Nombre;
+                    obeProducto.IdProveedor = lbeProducto[I].IdProveedor;
+                    obeProducto.IdCategoria = lbeProducto[I].IdCategoria;
+                    obeProducto.PrecioUni = lbeProducto[I].PrecioUni;
+                    obeProducto.Stock = lbeProducto[I].Stock;
+                    lbeFiltro01.Add(obeProducto);
+                }
+            }
+            dgvProductosFiltro.DataSource = lbeFiltro01;
+        }
+
+        private void m(object sender, EventArgs e)
+        {
+
+        }
+        private int cr;
+        private int totPags;
+        private int numPag;
+        private void imprimirPagina(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int x = e.MarginBounds.Left;
+            int y = e.MarginBounds.Top;
+            Rectangle rec = new Rectangle(x, y - 20, e.MarginBounds.Width, e.MarginBounds.Height);
+            LinearGradientBrush deg = new LinearGradientBrush(rec, Color.Aqua, Color.Blue,
+           LinearGradientMode.BackwardDiagonal);
+            Font fuente = new Font("Arial", 10);
+            Brush brocha = Brushes.Blue;
+            Brush brochaTitulo = Brushes.Red;
+            int tlp = (int)(e.MarginBounds.Height / (fuente.GetHeight() + 20));
+            totPags = (lbeFiltro01.Count / (tlp - 1));
+            if (lbeFiltro01.Count % (tlp - 1) > 0)
+                totPags += 1;
+            numPag += 1;
+            {
+                var withBlock = e.Graphics;
+                x = e.MarginBounds.Left;
+                withBlock.DrawString("Codigo", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("Nombre", fuente, brochaTitulo, x, y);
+                x = x + 300;
+                withBlock.DrawString("Precio Unit", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("Stock", fuente, brochaTitulo, x, y);
+                y = (int)(y + fuente.GetHeight() + 20);
+                int I;
+                for (I = 0; I <= tlp - 2; I++)
+                {
+                    if (cr == lbeFiltro01.Count)
+                        break;
+                    x = e.MarginBounds.Left;
+                    withBlock.DrawString(lbeFiltro01[cr].Codigo.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro01[cr].Nombre.ToString(), fuente, brocha, x, y);
+                    x = x + 300;
+                    withBlock.DrawString(lbeFiltro01[cr].PrecioUni.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro01[cr].Stock.ToString(), fuente, brocha, x, y);
+                    y = (int)(y + fuente.GetHeight() + 20);
+                    cr += 1;
+                }
+                withBlock.DrawString(string.Format("Pag {0} de {1}", numPag, totPags), fuente,
+               brochaTitulo, 400, e.MarginBounds.Top + e.MarginBounds.Height);
+                e.HasMorePages = (cr < lbeFiltro01.Count - 1);
+            }
+        }
+
+        private void btnaserreporte_Click(object sender, EventArgs e)
+        {
+            cr = 0;
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = pd;
+
+            ppd.ShowDialog();
+        }
+
+        private void previewReporte(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void btnconfigurarPajina_Click(object sender, EventArgs e)
+        {
+            PageSetupDialog psd = new PageSetupDialog();
+            psd.Document = pd;
+            psd.ShowDialog();
+
+        }
+
+        private void btnImprimirReporte_Click(object sender, EventArgs e)
+        {
+            PrintDialog pdg = new PrintDialog();
+            pdg.Document = pd;
+            pdg.ShowDialog();
 
         }
     }
