@@ -242,6 +242,105 @@ namespace GUINorthwind
             dgvProductosFiltro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvProductosFiltro.ColumnHeadersVisible = true;
 
+            dtgProductoPorproveedor.BackgroundColor = Color.FromArgb(45, 66, 91);
+            dtgProductoPorproveedor.BorderStyle = BorderStyle.None;
+            dtgProductoPorproveedor.RowsDefaultCellStyle.BackColor = Color.FromArgb(45, 66, 91);
+            fuente = new Font("Century Gothic", 10);
+            dtgProductoPorproveedor.RowsDefaultCellStyle.Font = fuente;
+            dtgProductoPorproveedor.RowsDefaultCellStyle.ForeColor = Color.White;
+            dtgProductoPorproveedor.RowsDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dtgProductoPorproveedor.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+            dtgProductoPorproveedor.GridColor = Color.SteelBlue;
+            dtgProductoPorproveedor.EnableHeadersVisualStyles = false;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.BackColor = SystemColors.HotTrack;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.Font = fuente;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtgProductoPorproveedor.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgProductoPorproveedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtgProductoPorproveedor.ColumnHeadersHeight = 30;
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 66, 91);
+            fuente = new Font("Microsoft Sans Serif", 9);
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.Font = fuente;
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
+            dtgProductoPorproveedor.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dtgProductoPorproveedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgProductoPorproveedor.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgProductoPorproveedor.ColumnHeadersVisible = true;
+            dtgProductoPorproveedor.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtgProductoPorproveedor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgProductoPorproveedor.ColumnHeadersVisible = true;
+
+
+            dtgProductoPorproveedor.BackgroundColor = Color.FromArgb(45, 66, 91);
+            dtgProductoPorproveedor.BorderStyle = BorderStyle.None;
+            dtgProductoPorproveedor.RowsDefaultCellStyle.BackColor = Color.FromArgb(45, 66, 91);
+            fuente = new Font("Century Gothic", 10);
+            dtgProductoPorproveedor.RowsDefaultCellStyle.Font = fuente;
+            dtgProductoPorproveedor.RowsDefaultCellStyle.ForeColor = Color.White;
+            dtgProductoPorproveedor.RowsDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dtgProductoPorproveedor.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+            dtgProductoPorproveedor.GridColor = Color.SteelBlue;
+            dtgProductoPorproveedor.EnableHeadersVisualStyles = false;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.BackColor = SystemColors.HotTrack;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.Font = fuente;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
+            dtgProductoPorproveedor.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtgProductoPorproveedor.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgProductoPorproveedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtgProductoPorproveedor.ColumnHeadersHeight = 30;
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 66, 91);
+            fuente = new Font("Microsoft Sans Serif", 9);
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.Font = fuente;
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dtgProductoPorproveedor.RowHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
+            dtgProductoPorproveedor.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dtgProductoPorproveedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgProductoPorproveedor.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgProductoPorproveedor.ColumnHeadersVisible = true;
+            dtgProductoPorproveedor.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtgProductoPorproveedor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgProductoPorproveedor.ColumnHeadersVisible = true;
+
+            dtgPorveedorPorPaiz.BackgroundColor = Color.FromArgb(45, 66, 91);
+            dtgPorveedorPorPaiz.BorderStyle = BorderStyle.None;
+            dtgPorveedorPorPaiz.RowsDefaultCellStyle.BackColor = Color.FromArgb(45, 66, 91);
+            fuente = new Font("Century Gothic", 10);
+            dtgPorveedorPorPaiz.RowsDefaultCellStyle.Font = fuente;
+            dtgPorveedorPorPaiz.RowsDefaultCellStyle.ForeColor = Color.White;
+            dtgPorveedorPorPaiz.RowsDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dtgPorveedorPorPaiz.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+            dtgPorveedorPorPaiz.GridColor = Color.SteelBlue;
+            dtgPorveedorPorPaiz.EnableHeadersVisualStyles = false;
+            dtgPorveedorPorPaiz.ColumnHeadersDefaultCellStyle.BackColor = SystemColors.HotTrack;
+            dtgPorveedorPorPaiz.ColumnHeadersDefaultCellStyle.Font = fuente;
+            dtgPorveedorPorPaiz.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgPorveedorPorPaiz.ColumnHeadersDefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            dtgPorveedorPorPaiz.ColumnHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
+            dtgPorveedorPorPaiz.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtgPorveedorPorPaiz.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgPorveedorPorPaiz.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtgPorveedorPorPaiz.ColumnHeadersHeight = 30;
+            dtgPorveedorPorPaiz.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 66, 91);
+            fuente = new Font("Microsoft Sans Serif", 9);
+            dtgPorveedorPorPaiz.RowHeadersDefaultCellStyle.Font = fuente;
+            dtgPorveedorPorPaiz.RowHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgPorveedorPorPaiz.RowHeadersDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dtgPorveedorPorPaiz.RowHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
+            dtgPorveedorPorPaiz.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dtgPorveedorPorPaiz.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgPorveedorPorPaiz.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgPorveedorPorPaiz.ColumnHeadersVisible = true;
+            dtgPorveedorPorPaiz.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtgPorveedorPorPaiz.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgPorveedorPorPaiz.ColumnHeadersVisible = true;
         }
         // para lsitar mis encapsulados 
         private List<BEProducto> lbeProducto;
@@ -287,6 +386,22 @@ namespace GUINorthwind
                     dgvProductosFiltro.DataSource = lbeProducto;
                     cbxcategoria.DisplayMember = "Nombre";
                     cbxcategoria.ValueMember = "Codigo";
+                    break;
+                case 6:
+                    BRProveedor obProveedor = new BRProveedor();
+                    lbeProveedor = obProveedor.ListarProveedor();
+                    cbxproveedorxproducto.DataSource = lbeProveedor;
+                    dtgProductoPorproveedor.DataSource = lbeProveedor;
+                    cbxproveedorxproducto.DisplayMember = "Nombre";
+                    cbxproveedorxproducto.ValueMember = "Codigo";
+                    break;
+                case 7:
+                    BRProveedor obsProveedor = new BRProveedor();
+                    lbeProveedor = obsProveedor.ListarProveedor();
+                    cbopaizFiltro.DataSource = lbeProveedor;
+                    dtgPorveedorPorPaiz.DataSource = lbeProveedor;
+                    cbopaizFiltro.DisplayMember = "Paiz";
+                    cbopaizFiltro.ValueMember = "Codigo";
                     break;
 
 
@@ -341,6 +456,25 @@ namespace GUINorthwind
                     btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
                     btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
                     btnproductoPorCategoria.BackColor = Color.FromArgb(85, 159, 127);
+                    break;
+                case 6:
+                    btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    btnproductoPorCategoria.BackColor = Color.FromArgb(85, 159, 127);
+                    btnproductoPorProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    break;
+                case 7:
+                    //btnProductos.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnCategorias.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnEmpleados.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnProveedores.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnUsuarios.BackColor = Color.FromArgb(33, 53, 73);
+                    //btnproductoPorCategoria.BackColor = Color.FromArgb(85, 159, 127);
+                    //btnproductoPorProveedores.BackColor = Color.FromArgb(133, 153, 173);
+                    //btnProveedoresPorPaiz.BackColor = Color.FromArgb(233, 253, 273);
                     break;
             }
         }
@@ -1658,6 +1792,65 @@ namespace GUINorthwind
             pdg.Document = pd;
             pdg.ShowDialog();
 
+        }
+
+        private void btnFiltroProductoXproveedor_Click(object sender, EventArgs e)
+        {
+
+            lbeFiltro01 = new List<BEProducto>();
+            BEProducto obeProducto;
+            for (int I = 0; I <= lbeProducto.Count - 1; I++)
+            {
+                if (lbeProducto[I].IdProveedor.Equals(cbxproveedorxproducto.SelectedValue))
+                {
+                    obeProducto = new BEProducto();
+                    obeProducto.Codigo = lbeProducto[I].Codigo;
+                    obeProducto.Nombre = lbeProducto[I].Nombre;
+                    obeProducto.IdProveedor = lbeProducto[I].IdProveedor;
+                    obeProducto.IdCategoria = lbeProducto[I].IdCategoria;
+                    obeProducto.PrecioUni = lbeProducto[I].PrecioUni;
+                    obeProducto.Stock = lbeProducto[I].Stock;
+                    lbeFiltro01.Add(obeProducto);
+                }
+            }
+            dtgProductoPorproveedor.DataSource = lbeFiltro01;
+        }
+
+        private void btnproductoPorProveedores_Click(object sender, EventArgs e)
+        {
+            tcVentanas.SelectedIndex = 6;
+            activaSeleccion(6);
+            lblTitulo.Text = btnproductoPorProveedores.Text;
+            cargaDatos(6);
+        }
+
+        private void btnProveedoresPorPaiz_Click(object sender, EventArgs e)
+        {
+            tcVentanas.SelectedIndex = 7;
+            activaSeleccion(7);
+            lblTitulo.Text = btnProveedoresPorPaiz.Text;
+            cargaDatos(7);
+        }
+
+        private void btnProveedorPorPaiz_Click(object sender, EventArgs e)
+        {
+            lbeFiltro04 = new List<BEProveedor>();
+            BEProveedor obeProveedor;
+            for (int I = 0; I <= lbeProveedor.Count - 1; I++)
+            {
+                if (lbeProveedor[I].Codigo.Equals(cbopaizFiltro.SelectedValue))
+                {
+                    obeProveedor = new BEProveedor();
+                    obeProveedor.Codigo = lbeProveedor[I].Codigo;
+                    obeProveedor.Nombre = lbeProveedor[I].Nombre;
+                    obeProveedor.Contacto = lbeProveedor[I].Contacto;
+                    obeProveedor.Direccion= lbeProveedor[I].Direccion;
+                    obeProveedor.Paiz = lbeProveedor[I].Paiz;
+                   
+                    lbeFiltro04.Add(obeProveedor);
+                }
+            }
+            dtgPorveedorPorPaiz.DataSource = lbeFiltro04;
         }
     }
 }
