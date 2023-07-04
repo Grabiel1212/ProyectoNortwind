@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBarraTitulo = new System.Windows.Forms.Panel();
             this.lblTituloPrincipal = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnProveedoresPorPaiz = new System.Windows.Forms.Button();
+            this.btnproductoPorProveedores = new System.Windows.Forms.Button();
             this.btnproductoPorCategoria = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
@@ -114,6 +116,8 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.tpProductoPorCategoria = new System.Windows.Forms.TabPage();
+            this.btnconfigurarPajina = new System.Windows.Forms.Button();
+            this.btnImprimirReporte = new System.Windows.Forms.Button();
             this.dgvProductosFiltro = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.btnaserreporte = new System.Windows.Forms.Button();
@@ -121,28 +125,25 @@
             this.cbxcategoria = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tpProductoPorProveedor = new System.Windows.Forms.TabPage();
-            this.pd = new System.Drawing.Printing.PrintDocument();
-            this.btnImprimirReporte = new System.Windows.Forms.Button();
-            this.btnconfigurarPajina = new System.Windows.Forms.Button();
-            this.btnproductoPorProveedores = new System.Windows.Forms.Button();
-            this.btnProveedoresPorPaiz = new System.Windows.Forms.Button();
-            this.tpProveedorPorPaiz = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnConfugurarPajinaPorductoProveedor = new System.Windows.Forms.Button();
+            this.btnImprimirProductoProveedor = new System.Windows.Forms.Button();
             this.dtgProductoPorproveedor = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnreporteProductoPoveedor = new System.Windows.Forms.Button();
             this.btnFiltroProductoXproveedor = new System.Windows.Forms.Button();
             this.cbxproveedorxproducto = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.tpProveedorPorPaiz = new System.Windows.Forms.TabPage();
+            this.btnconfiggurarPajinaProverdorPorPAIZ = new System.Windows.Forms.Button();
+            this.BTNimprimirPorveedorPorPaiz = new System.Windows.Forms.Button();
             this.dtgPorveedorPorPaiz = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.BTNreporteProveedorPaiz = new System.Windows.Forms.Button();
             this.btnProveedorPorPaiz = new System.Windows.Forms.Button();
             this.cbopaizFiltro = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.pd = new System.Drawing.Printing.PrintDocument();
+            this.pd02 = new System.Drawing.Printing.PrintDocument();
             this.pnlBarraTitulo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -173,8 +174,8 @@
             this.tpProductoPorCategoria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosFiltro)).BeginInit();
             this.tpProductoPorProveedor.SuspendLayout();
-            this.tpProveedorPorPaiz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductoPorproveedor)).BeginInit();
+            this.tpProveedorPorPaiz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPorveedorPorPaiz)).BeginInit();
             this.SuspendLayout();
             // 
@@ -257,6 +258,42 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(291, 681);
             this.panel4.TabIndex = 1;
+            // 
+            // btnProveedoresPorPaiz
+            // 
+            this.btnProveedoresPorPaiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnProveedoresPorPaiz.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProveedoresPorPaiz.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedoresPorPaiz.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnProveedoresPorPaiz.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnProveedoresPorPaiz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnProveedoresPorPaiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedoresPorPaiz.ForeColor = System.Drawing.Color.LightGray;
+            this.btnProveedoresPorPaiz.Location = new System.Drawing.Point(0, 280);
+            this.btnProveedoresPorPaiz.Name = "btnProveedoresPorPaiz";
+            this.btnProveedoresPorPaiz.Size = new System.Drawing.Size(291, 40);
+            this.btnProveedoresPorPaiz.TabIndex = 10;
+            this.btnProveedoresPorPaiz.Text = "PROVEEDORES POR PAIZ";
+            this.btnProveedoresPorPaiz.UseVisualStyleBackColor = false;
+            this.btnProveedoresPorPaiz.Click += new System.EventHandler(this.btnProveedoresPorPaiz_Click);
+            // 
+            // btnproductoPorProveedores
+            // 
+            this.btnproductoPorProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnproductoPorProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnproductoPorProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnproductoPorProveedores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnproductoPorProveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnproductoPorProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnproductoPorProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnproductoPorProveedores.ForeColor = System.Drawing.Color.LightGray;
+            this.btnproductoPorProveedores.Location = new System.Drawing.Point(0, 240);
+            this.btnproductoPorProveedores.Name = "btnproductoPorProveedores";
+            this.btnproductoPorProveedores.Size = new System.Drawing.Size(291, 40);
+            this.btnproductoPorProveedores.TabIndex = 9;
+            this.btnproductoPorProveedores.Text = "PRODUCTO POR PROVEEDORES";
+            this.btnproductoPorProveedores.UseVisualStyleBackColor = false;
+            this.btnproductoPorProveedores.Click += new System.EventHandler(this.btnproductoPorProveedores_Click);
             // 
             // btnproductoPorCategoria
             // 
@@ -611,14 +648,14 @@
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
             this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -629,12 +666,12 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(976, 453);
             this.dgvProductos.TabIndex = 0;
@@ -791,14 +828,14 @@
             this.dgvCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCategorias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.dgvCategorias.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvCategorias.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -809,12 +846,12 @@
             this.dgvCategorias.Name = "dgvCategorias";
             this.dgvCategorias.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCategorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvCategorias.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvCategorias.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategorias.Size = new System.Drawing.Size(976, 454);
             this.dgvCategorias.TabIndex = 9;
@@ -971,14 +1008,14 @@
             this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEmpleados.BackgroundColor = System.Drawing.Color.White;
             this.dgvEmpleados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvEmpleados.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -989,12 +1026,12 @@
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvEmpleados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(976, 454);
             this.dgvEmpleados.TabIndex = 15;
@@ -1151,14 +1188,14 @@
             this.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProveedores.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.dgvProveedores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvProveedores.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -1169,12 +1206,12 @@
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProveedores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvProveedores.RowsDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvProveedores.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(976, 454);
             this.dgvProveedores.TabIndex = 15;
@@ -1332,14 +1369,14 @@
             this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.dgvUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -1350,12 +1387,12 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(976, 454);
             this.dgvUsuarios.TabIndex = 15;
@@ -1376,6 +1413,40 @@
             this.tpProductoPorCategoria.TabIndex = 5;
             this.tpProductoPorCategoria.Text = "tabPage1";
             this.tpProductoPorCategoria.UseVisualStyleBackColor = true;
+            // 
+            // btnconfigurarPajina
+            // 
+            this.btnconfigurarPajina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnconfigurarPajina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnconfigurarPajina.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnconfigurarPajina.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnconfigurarPajina.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnconfigurarPajina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnconfigurarPajina.ForeColor = System.Drawing.Color.LightGray;
+            this.btnconfigurarPajina.Location = new System.Drawing.Point(277, 503);
+            this.btnconfigurarPajina.Name = "btnconfigurarPajina";
+            this.btnconfigurarPajina.Size = new System.Drawing.Size(156, 35);
+            this.btnconfigurarPajina.TabIndex = 7;
+            this.btnconfigurarPajina.Text = "CONFIGURA PAJINA";
+            this.btnconfigurarPajina.UseVisualStyleBackColor = false;
+            this.btnconfigurarPajina.Click += new System.EventHandler(this.btnconfigurarPajina_Click);
+            // 
+            // btnImprimirReporte
+            // 
+            this.btnImprimirReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnImprimirReporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimirReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnImprimirReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnImprimirReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnImprimirReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirReporte.ForeColor = System.Drawing.Color.LightGray;
+            this.btnImprimirReporte.Location = new System.Drawing.Point(488, 503);
+            this.btnImprimirReporte.Name = "btnImprimirReporte";
+            this.btnImprimirReporte.Size = new System.Drawing.Size(156, 35);
+            this.btnImprimirReporte.TabIndex = 6;
+            this.btnImprimirReporte.Text = "IMPRIMIR";
+            this.btnImprimirReporte.UseVisualStyleBackColor = false;
+            this.btnImprimirReporte.Click += new System.EventHandler(this.btnImprimirReporte_Click);
             // 
             // dgvProductosFiltro
             // 
@@ -1449,11 +1520,11 @@
             // 
             // tpProductoPorProveedor
             // 
-            this.tpProductoPorProveedor.Controls.Add(this.button1);
-            this.tpProductoPorProveedor.Controls.Add(this.button2);
+            this.tpProductoPorProveedor.Controls.Add(this.btnConfugurarPajinaPorductoProveedor);
+            this.tpProductoPorProveedor.Controls.Add(this.btnImprimirProductoProveedor);
             this.tpProductoPorProveedor.Controls.Add(this.dtgProductoPorproveedor);
             this.tpProductoPorProveedor.Controls.Add(this.label8);
-            this.tpProductoPorProveedor.Controls.Add(this.button3);
+            this.tpProductoPorProveedor.Controls.Add(this.btnreporteProductoPoveedor);
             this.tpProductoPorProveedor.Controls.Add(this.btnFiltroProductoXproveedor);
             this.tpProductoPorProveedor.Controls.Add(this.cbxproveedorxproducto);
             this.tpProductoPorProveedor.Controls.Add(this.label9);
@@ -1464,128 +1535,39 @@
             this.tpProductoPorProveedor.Text = "tabPage1";
             this.tpProductoPorProveedor.UseVisualStyleBackColor = true;
             // 
-            // pd
+            // btnConfugurarPajinaPorductoProveedor
             // 
-            this.pd.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimirPagina);
+            this.btnConfugurarPajinaPorductoProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnConfugurarPajinaPorductoProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfugurarPajinaPorductoProveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnConfugurarPajinaPorductoProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnConfugurarPajinaPorductoProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnConfugurarPajinaPorductoProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfugurarPajinaPorductoProveedor.ForeColor = System.Drawing.Color.LightGray;
+            this.btnConfugurarPajinaPorductoProveedor.Location = new System.Drawing.Point(313, 513);
+            this.btnConfugurarPajinaPorductoProveedor.Name = "btnConfugurarPajinaPorductoProveedor";
+            this.btnConfugurarPajinaPorductoProveedor.Size = new System.Drawing.Size(156, 35);
+            this.btnConfugurarPajinaPorductoProveedor.TabIndex = 15;
+            this.btnConfugurarPajinaPorductoProveedor.Text = "CONFIGURA PAJINA";
+            this.btnConfugurarPajinaPorductoProveedor.UseVisualStyleBackColor = false;
+            this.btnConfugurarPajinaPorductoProveedor.Click += new System.EventHandler(this.btnConfugurarPajinaPorductoProveedor_Click);
             // 
-            // btnImprimirReporte
+            // btnImprimirProductoProveedor
             // 
-            this.btnImprimirReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.btnImprimirReporte.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimirReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.btnImprimirReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnImprimirReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.btnImprimirReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirReporte.ForeColor = System.Drawing.Color.LightGray;
-            this.btnImprimirReporte.Location = new System.Drawing.Point(488, 503);
-            this.btnImprimirReporte.Name = "btnImprimirReporte";
-            this.btnImprimirReporte.Size = new System.Drawing.Size(156, 35);
-            this.btnImprimirReporte.TabIndex = 6;
-            this.btnImprimirReporte.Text = "IMPRIMIR";
-            this.btnImprimirReporte.UseVisualStyleBackColor = false;
-            this.btnImprimirReporte.Click += new System.EventHandler(this.btnImprimirReporte_Click);
-            // 
-            // btnconfigurarPajina
-            // 
-            this.btnconfigurarPajina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.btnconfigurarPajina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnconfigurarPajina.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.btnconfigurarPajina.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnconfigurarPajina.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.btnconfigurarPajina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnconfigurarPajina.ForeColor = System.Drawing.Color.LightGray;
-            this.btnconfigurarPajina.Location = new System.Drawing.Point(277, 503);
-            this.btnconfigurarPajina.Name = "btnconfigurarPajina";
-            this.btnconfigurarPajina.Size = new System.Drawing.Size(156, 35);
-            this.btnconfigurarPajina.TabIndex = 7;
-            this.btnconfigurarPajina.Text = "CONFIGURA PAJINA";
-            this.btnconfigurarPajina.UseVisualStyleBackColor = false;
-            this.btnconfigurarPajina.Click += new System.EventHandler(this.btnconfigurarPajina_Click);
-            // 
-            // btnproductoPorProveedores
-            // 
-            this.btnproductoPorProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.btnproductoPorProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnproductoPorProveedores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnproductoPorProveedores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.btnproductoPorProveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnproductoPorProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.btnproductoPorProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnproductoPorProveedores.ForeColor = System.Drawing.Color.LightGray;
-            this.btnproductoPorProveedores.Location = new System.Drawing.Point(0, 240);
-            this.btnproductoPorProveedores.Name = "btnproductoPorProveedores";
-            this.btnproductoPorProveedores.Size = new System.Drawing.Size(291, 40);
-            this.btnproductoPorProveedores.TabIndex = 9;
-            this.btnproductoPorProveedores.Text = "PRODUCTO POR PROVEEDORES";
-            this.btnproductoPorProveedores.UseVisualStyleBackColor = false;
-            this.btnproductoPorProveedores.Click += new System.EventHandler(this.btnproductoPorProveedores_Click);
-            // 
-            // btnProveedoresPorPaiz
-            // 
-            this.btnProveedoresPorPaiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.btnProveedoresPorPaiz.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProveedoresPorPaiz.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProveedoresPorPaiz.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.btnProveedoresPorPaiz.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnProveedoresPorPaiz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.btnProveedoresPorPaiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedoresPorPaiz.ForeColor = System.Drawing.Color.LightGray;
-            this.btnProveedoresPorPaiz.Location = new System.Drawing.Point(0, 280);
-            this.btnProveedoresPorPaiz.Name = "btnProveedoresPorPaiz";
-            this.btnProveedoresPorPaiz.Size = new System.Drawing.Size(291, 40);
-            this.btnProveedoresPorPaiz.TabIndex = 10;
-            this.btnProveedoresPorPaiz.Text = "PROVEEDORES POR PAIZ";
-            this.btnProveedoresPorPaiz.UseVisualStyleBackColor = false;
-            this.btnProveedoresPorPaiz.Click += new System.EventHandler(this.btnProveedoresPorPaiz_Click);
-            // 
-            // tpProveedorPorPaiz
-            // 
-            this.tpProveedorPorPaiz.Controls.Add(this.button5);
-            this.tpProveedorPorPaiz.Controls.Add(this.button6);
-            this.tpProveedorPorPaiz.Controls.Add(this.dtgPorveedorPorPaiz);
-            this.tpProveedorPorPaiz.Controls.Add(this.label10);
-            this.tpProveedorPorPaiz.Controls.Add(this.button7);
-            this.tpProveedorPorPaiz.Controls.Add(this.btnProveedorPorPaiz);
-            this.tpProveedorPorPaiz.Controls.Add(this.cbopaizFiltro);
-            this.tpProveedorPorPaiz.Controls.Add(this.label11);
-            this.tpProveedorPorPaiz.Location = new System.Drawing.Point(4, 22);
-            this.tpProveedorPorPaiz.Name = "tpProveedorPorPaiz";
-            this.tpProveedorPorPaiz.Size = new System.Drawing.Size(1008, 728);
-            this.tpProveedorPorPaiz.TabIndex = 7;
-            this.tpProveedorPorPaiz.Text = "tabPage1";
-            this.tpProveedorPorPaiz.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.LightGray;
-            this.button1.Location = new System.Drawing.Point(313, 513);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 35);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "CONFIGURA PAJINA";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.LightGray;
-            this.button2.Location = new System.Drawing.Point(524, 513);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 35);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "IMPRIMIR";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnImprimirProductoProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnImprimirProductoProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimirProductoProveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnImprimirProductoProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnImprimirProductoProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnImprimirProductoProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirProductoProveedor.ForeColor = System.Drawing.Color.LightGray;
+            this.btnImprimirProductoProveedor.Location = new System.Drawing.Point(524, 513);
+            this.btnImprimirProductoProveedor.Name = "btnImprimirProductoProveedor";
+            this.btnImprimirProductoProveedor.Size = new System.Drawing.Size(156, 35);
+            this.btnImprimirProductoProveedor.TabIndex = 14;
+            this.btnImprimirProductoProveedor.Text = "IMPRIMIR";
+            this.btnImprimirProductoProveedor.UseVisualStyleBackColor = false;
+            this.btnImprimirProductoProveedor.Click += new System.EventHandler(this.btnImprimirProductoProveedor_Click);
             // 
             // dtgProductoPorproveedor
             // 
@@ -1605,21 +1587,22 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "PROVEEDOR  FILTRADOS";
             // 
-            // button3
+            // btnreporteProductoPoveedor
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.LightGray;
-            this.button3.Location = new System.Drawing.Point(103, 513);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(156, 35);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "REPORTE";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnreporteProductoPoveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnreporteProductoPoveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnreporteProductoPoveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnreporteProductoPoveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnreporteProductoPoveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnreporteProductoPoveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnreporteProductoPoveedor.ForeColor = System.Drawing.Color.LightGray;
+            this.btnreporteProductoPoveedor.Location = new System.Drawing.Point(103, 513);
+            this.btnreporteProductoPoveedor.Name = "btnreporteProductoPoveedor";
+            this.btnreporteProductoPoveedor.Size = new System.Drawing.Size(156, 35);
+            this.btnreporteProductoPoveedor.TabIndex = 11;
+            this.btnreporteProductoPoveedor.Text = "REPORTE";
+            this.btnreporteProductoPoveedor.UseVisualStyleBackColor = false;
+            this.btnreporteProductoPoveedor.Click += new System.EventHandler(this.btnreporteProductoPoveedor_Click);
             // 
             // btnFiltroProductoXproveedor
             // 
@@ -1655,37 +1638,56 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "SLECCIONA UN PROVEEDOR";
             // 
-            // button5
+            // tpProveedorPorPaiz
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.LightGray;
-            this.button5.Location = new System.Drawing.Point(282, 493);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(156, 35);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "CONFIGURA PAJINA";
-            this.button5.UseVisualStyleBackColor = false;
+            this.tpProveedorPorPaiz.Controls.Add(this.btnconfiggurarPajinaProverdorPorPAIZ);
+            this.tpProveedorPorPaiz.Controls.Add(this.BTNimprimirPorveedorPorPaiz);
+            this.tpProveedorPorPaiz.Controls.Add(this.dtgPorveedorPorPaiz);
+            this.tpProveedorPorPaiz.Controls.Add(this.label10);
+            this.tpProveedorPorPaiz.Controls.Add(this.BTNreporteProveedorPaiz);
+            this.tpProveedorPorPaiz.Controls.Add(this.btnProveedorPorPaiz);
+            this.tpProveedorPorPaiz.Controls.Add(this.cbopaizFiltro);
+            this.tpProveedorPorPaiz.Controls.Add(this.label11);
+            this.tpProveedorPorPaiz.Location = new System.Drawing.Point(4, 22);
+            this.tpProveedorPorPaiz.Name = "tpProveedorPorPaiz";
+            this.tpProveedorPorPaiz.Size = new System.Drawing.Size(1008, 728);
+            this.tpProveedorPorPaiz.TabIndex = 7;
+            this.tpProveedorPorPaiz.Text = "tabPage1";
+            this.tpProveedorPorPaiz.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnconfiggurarPajinaProverdorPorPAIZ
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.LightGray;
-            this.button6.Location = new System.Drawing.Point(493, 493);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(156, 35);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "IMPRIMIR";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnconfiggurarPajinaProverdorPorPAIZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnconfiggurarPajinaProverdorPorPAIZ.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnconfiggurarPajinaProverdorPorPAIZ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnconfiggurarPajinaProverdorPorPAIZ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnconfiggurarPajinaProverdorPorPAIZ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnconfiggurarPajinaProverdorPorPAIZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnconfiggurarPajinaProverdorPorPAIZ.ForeColor = System.Drawing.Color.LightGray;
+            this.btnconfiggurarPajinaProverdorPorPAIZ.Location = new System.Drawing.Point(282, 493);
+            this.btnconfiggurarPajinaProverdorPorPAIZ.Name = "btnconfiggurarPajinaProverdorPorPAIZ";
+            this.btnconfiggurarPajinaProverdorPorPAIZ.Size = new System.Drawing.Size(156, 35);
+            this.btnconfiggurarPajinaProverdorPorPAIZ.TabIndex = 15;
+            this.btnconfiggurarPajinaProverdorPorPAIZ.Text = "CONFIGURA PAJINA";
+            this.btnconfiggurarPajinaProverdorPorPAIZ.UseVisualStyleBackColor = false;
+            this.btnconfiggurarPajinaProverdorPorPAIZ.Click += new System.EventHandler(this.btnconfiggurarPajinaProverdorPorPAIZ_Click);
+            // 
+            // BTNimprimirPorveedorPorPaiz
+            // 
+            this.BTNimprimirPorveedorPorPaiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.BTNimprimirPorveedorPorPaiz.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BTNimprimirPorveedorPorPaiz.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.BTNimprimirPorveedorPorPaiz.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BTNimprimirPorveedorPorPaiz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.BTNimprimirPorveedorPorPaiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNimprimirPorveedorPorPaiz.ForeColor = System.Drawing.Color.LightGray;
+            this.BTNimprimirPorveedorPorPaiz.Location = new System.Drawing.Point(493, 493);
+            this.BTNimprimirPorveedorPorPaiz.Name = "BTNimprimirPorveedorPorPaiz";
+            this.BTNimprimirPorveedorPorPaiz.Size = new System.Drawing.Size(156, 35);
+            this.BTNimprimirPorveedorPorPaiz.TabIndex = 14;
+            this.BTNimprimirPorveedorPorPaiz.Text = "IMPRIMIR";
+            this.BTNimprimirPorveedorPorPaiz.UseVisualStyleBackColor = false;
+            this.BTNimprimirPorveedorPorPaiz.Click += new System.EventHandler(this.BTNimprimirPorveedorPorPaiz_Click);
             // 
             // dtgPorveedorPorPaiz
             // 
@@ -1705,21 +1707,22 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "PROVEEDORES FILTRADOS";
             // 
-            // button7
+            // BTNreporteProveedorPaiz
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.LightGray;
-            this.button7.Location = new System.Drawing.Point(72, 493);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(156, 35);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "REPORTE";
-            this.button7.UseVisualStyleBackColor = false;
+            this.BTNreporteProveedorPaiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.BTNreporteProveedorPaiz.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BTNreporteProveedorPaiz.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.BTNreporteProveedorPaiz.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BTNreporteProveedorPaiz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.BTNreporteProveedorPaiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNreporteProveedorPaiz.ForeColor = System.Drawing.Color.LightGray;
+            this.BTNreporteProveedorPaiz.Location = new System.Drawing.Point(72, 493);
+            this.BTNreporteProveedorPaiz.Name = "BTNreporteProveedorPaiz";
+            this.BTNreporteProveedorPaiz.Size = new System.Drawing.Size(156, 35);
+            this.BTNreporteProveedorPaiz.TabIndex = 11;
+            this.BTNreporteProveedorPaiz.Text = "REPORTE";
+            this.BTNreporteProveedorPaiz.UseVisualStyleBackColor = false;
+            this.BTNreporteProveedorPaiz.Click += new System.EventHandler(this.BTNreporteProveedorPaiz_Click);
             // 
             // btnProveedorPorPaiz
             // 
@@ -1754,6 +1757,14 @@
             this.label11.Size = new System.Drawing.Size(118, 13);
             this.label11.TabIndex = 8;
             this.label11.Text = "SLECCIONAR EL PAIZ";
+            // 
+            // pd
+            // 
+            this.pd.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimirPagina);
+            // 
+            // pd02
+            // 
+            this.pd02.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pd02_PrintPage);
             // 
             // FrmPrincipal
             // 
@@ -1810,9 +1821,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosFiltro)).EndInit();
             this.tpProductoPorProveedor.ResumeLayout(false);
             this.tpProductoPorProveedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProductoPorproveedor)).EndInit();
             this.tpProveedorPorPaiz.ResumeLayout(false);
             this.tpProveedorPorPaiz.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgProductoPorproveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPorveedorPorPaiz)).EndInit();
             this.ResumeLayout(false);
 
@@ -1910,21 +1921,22 @@
         private System.Windows.Forms.Button btnProveedoresPorPaiz;
         private System.Windows.Forms.Button btnproductoPorProveedores;
         private System.Windows.Forms.TabPage tpProveedorPorPaiz;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnConfugurarPajinaPorductoProveedor;
+        private System.Windows.Forms.Button btnImprimirProductoProveedor;
         private System.Windows.Forms.DataGridView dtgProductoPorproveedor;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnreporteProductoPoveedor;
         private System.Windows.Forms.Button btnFiltroProductoXproveedor;
         private System.Windows.Forms.ComboBox cbxproveedorxproducto;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnconfiggurarPajinaProverdorPorPAIZ;
+        private System.Windows.Forms.Button BTNimprimirPorveedorPorPaiz;
         private System.Windows.Forms.DataGridView dtgPorveedorPorPaiz;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button BTNreporteProveedorPaiz;
         private System.Windows.Forms.Button btnProveedorPorPaiz;
         private System.Windows.Forms.ComboBox cbopaizFiltro;
         private System.Windows.Forms.Label label11;
+        private System.Drawing.Printing.PrintDocument pd02;
     }
 }

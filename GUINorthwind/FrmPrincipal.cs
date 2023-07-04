@@ -1852,5 +1852,102 @@ namespace GUINorthwind
             }
             dtgPorveedorPorPaiz.DataSource = lbeFiltro04;
         }
+
+        private void btnreporteProductoPoveedor_Click(object sender, EventArgs e)
+        {
+            cr = 0;
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = pd;
+
+            ppd.ShowDialog();
+        }
+
+        private void btnConfugurarPajinaPorductoProveedor_Click(object sender, EventArgs e)
+        {
+            PageSetupDialog psd = new PageSetupDialog();
+            psd.Document = pd;
+            psd.ShowDialog();
+        }
+
+        private void btnImprimirProductoProveedor_Click(object sender, EventArgs e)
+        {
+            PrintDialog pdg = new PrintDialog();
+            pdg.Document = pd;
+            pdg.ShowDialog();
+
+        }
+
+        private void pd02_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            int x = e.MarginBounds.Left;
+            int y = e.MarginBounds.Top;
+            Rectangle rec = new Rectangle(x, y - 20, e.MarginBounds.Width, e.MarginBounds.Height);
+            LinearGradientBrush deg = new LinearGradientBrush(rec, Color.Aqua, Color.Blue,
+           LinearGradientMode.BackwardDiagonal);
+            Font fuente = new Font("Arial", 10);
+            Brush brocha = Brushes.Blue;
+            Brush brochaTitulo = Brushes.Red;
+            int tlp = (int)(e.MarginBounds.Height / (fuente.GetHeight() + 20));
+            totPags = (lbeFiltro04.Count / (tlp - 1));
+            if (lbeFiltro04.Count % (tlp - 1) > 0)
+                totPags += 1;
+            numPag += 1;
+            {
+                var withBlock = e.Graphics;
+                x = e.MarginBounds.Left;
+                withBlock.DrawString("Codigo", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("Nombre", fuente, brochaTitulo, x, y);
+                x = x + 300;
+                withBlock.DrawString("Contacto", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("Direccion", fuente, brochaTitulo, x, y);
+                y = (int)(y + fuente.GetHeight() + 20);
+                int I;
+                for (I = 0; I <= tlp - 2; I++)
+                {
+                    if (cr == lbeFiltro04.Count)
+                        break;
+                    x = e.MarginBounds.Left;
+                    withBlock.DrawString(lbeFiltro04[cr].Codigo.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro04[cr].Nombre.ToString(), fuente, brocha, x, y);
+                    x = x + 300;
+                    withBlock.DrawString(lbeFiltro04[cr].Contacto.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro04[cr].Direccion.ToString(), fuente, brocha, x, y);
+                    y = (int)(y + fuente.GetHeight() + 20);
+                    cr += 1;
+                }
+                withBlock.DrawString(string.Format("Pag {0} de {1}", numPag, totPags), fuente,
+               brochaTitulo, 400, e.MarginBounds.Top + e.MarginBounds.Height);
+                e.HasMorePages = (cr < lbeFiltro04.Count - 1);
+            }
+
+        }
+
+        private void BTNreporteProveedorPaiz_Click(object sender, EventArgs e)
+        {
+            cr = 0;
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = pd02;
+
+            ppd.ShowDialog();
+        }
+
+        private void btnconfiggurarPajinaProverdorPorPAIZ_Click(object sender, EventArgs e)
+        {
+            PageSetupDialog psd = new PageSetupDialog();
+            psd.Document = pd02;
+            psd.ShowDialog();
+        }
+
+        private void BTNimprimirPorveedorPorPaiz_Click(object sender, EventArgs e)
+        {
+            PrintDialog pdg = new PrintDialog();
+            pdg.Document = pd02;
+            pdg.ShowDialog();
+        }
     }
 }
