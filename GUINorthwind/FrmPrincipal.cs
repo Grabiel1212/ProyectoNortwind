@@ -13,6 +13,7 @@ using LibBusinessRules;
 using System.Security.Policy;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
+using Microsoft.VisualBasic;
 
 namespace GUINorthwind
 {
@@ -1948,6 +1949,96 @@ namespace GUINorthwind
             PrintDialog pdg = new PrintDialog();
             pdg.Document = pd02;
             pdg.ShowDialog();
+        }
+
+        private void detalleWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvProductos.SelectedRows.Count > 0)
+            {
+                {
+                    //var withBlock = dgvProductosFiltro.CurrentRow;
+                    string DocPlantilla = string.Format("{0}Ficha del Producto.docx", ruta);
+                    string DocFicha = string.Format("{0}Ficha del Producto {1}.docx", ruta, dgvProductos.CurrentRow.Cells[1].Value);
+                    Microsoft.Office.Interop.Word.Application oWord01 = new Microsoft.Office.Interop.Word.Application();
+                    oWord01.Visible = true;
+                    oWord01.Documents.Open(DocPlantilla);
+                    oWord01.ActiveDocument.Fields[1].Result.Text = (string)dgvProductos.CurrentRow.Cells[0].Value.ToString();
+                    oWord01.ActiveDocument.Fields[2].Result.Text = (string)dgvProductos.CurrentRow.Cells[1].Value.ToString();
+                    oWord01.ActiveDocument.Fields[3].Result.Text = (string)dgvProductos.CurrentRow.Cells[4].Value.ToString();
+                    oWord01.ActiveDocument.Fields[4].Result.Text = (string)dgvProductos.CurrentRow.Cells[5].Value.ToString();
+                    oWord01.ActiveDocument.SaveAs(DocFicha);
+                }
+            }
+
+        }
+        String ruta = "D:\\Trabajos Visual Estudio\\EJERCICIOS_solucionesEmpresariales\\documentos\\";
+
+        private void muestraLasLlistaEnWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Word.Application oWord01 = new Microsoft.Office.Interop.Word.Application();
+            oWord01.Visible = true;
+            oWord01.Documents.Add();
+            {
+                var withBlock = oWord01.Selection;
+                withBlock.Font.Size = 16;
+                withBlock.Font.ColorIndex = (Microsoft.Office.Interop.Word.WdColorIndex)2;
+                withBlock.TypeText("Lista de Productos");
+                withBlock.TypeParagraph();
+                object Rango = withBlock.Range;
+                withBlock.Tables.Add((Microsoft.Office.Interop.Word.Range)Rango, dgvProductos.Rows.Count + 1, dgvProductos.Columns.Count);
+                withBlock.Tables[1].ApplyStyleHeadingRows = true;
+                withBlock.Tables[1].ApplyStyleFirstColumn = true;
+                withBlock.Tables[1].ApplyStyleColumnBands = true;
+                for (var I = 0; I <= dgvProductos.ColumnCount - 1; I++)
+                {
+                    withBlock.Tables[1].Rows[1].Cells[I + 1].Select();
+                    withBlock.Font.Size = 12;
+                    withBlock.Font.ColorIndex = (Microsoft.Office.Interop.Word.WdColorIndex)6;
+                    withBlock.TypeText(dgvProductos.Columns[I].HeaderText);
+                }
+                withBlock.Font.ColorIndex = (Microsoft.Office.Interop.Word.WdColorIndex)1;
+                for (var I = 0; I <= dgvProductos.RowCount - 1; I++)
+                {
+                    for (var J = 0; J <= dgvProductos.ColumnCount - 1; J++)
+                    {
+                        withBlock.Tables[1].Rows[I + 2].Cells[J + 1].Select();
+                        withBlock.Font.Size = 12;
+                        withBlock.Font.ColorIndex = (Microsoft.Office.Interop.Word.WdColorIndex)1;
+                        withBlock.TypeText(dgvProductos.Rows[I].Cells[J].Value.ToString());
+                    }
+                }
+            }
+            string DocLista = string.Format("{0}Lista de Productos.docx", ruta);
+            oWord01.ActiveDocument.SaveAs(DocLista);
+        }
+
+        private void listaYGraficaEbExelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Range oRango;
+            oExcel.Visible = true;
+            oExcel.Workbooks.Add();
+            {
+                var withBlock = oExcel;
+                withBlock.Cells[1, 1].Value = "Descripción del Producto";
+                withBlock.Cells[1, 2].Value = "Precio Unitario";
+                for (var I = 0; I <= dgvProductos.Rows.Count - 1; I++)
+                {
+                    withBlock.Cells[I + 2, 1].Value = dgvProductos.Rows[I].Cells[1].Value;
+                    withBlock.Cells[I + 2, 2].Value = dgvProductos.Rows[I].Cells[4].Value;
+                }
+                withBlock.Columns.AutoFit();
+                withBlock.Range["A1"].Select();
+                oRango = withBlock.Selection.CurrentRegion;
+                withBlock.ActiveWorkbook.Charts.Add();
+            }
+            {
+                var withBlock = oExcel.ActiveChart;
+                withBlock.Location((Microsoft.Office.Interop.Excel.XlChartLocation)1);
+                withBlock.SetSourceData(oRango, 2);
+                withBlock.ChartType = (Microsoft.Office.Interop.Excel.XlChartType)(-4100);
+                withBlock.ChartTitle.Text = "Gráfico de Precios de Productos";
+            }
         }
     }
 }
