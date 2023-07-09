@@ -88,7 +88,7 @@ namespace LibDataAccess
         public List<BEProducto> fListarInhab(SqlConnection con)
         {
             List<BEProducto> lobeProducto = new List<BEProducto>();
-            SqlCommand cmd = new SqlCommand("uspProductsInabilitados", con);
+            SqlCommand cmd = new SqlCommand("uspProductsInhab", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 60;
             SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
@@ -124,7 +124,7 @@ namespace LibDataAccess
         public bool fEliminar(SqlConnection con, BEProducto obeProducto) // para desabilitar un produscto
         {
             bool Exito = false;
-            SqlCommand cmd = new SqlCommand("uspDesavilitarProduct", con);
+            SqlCommand cmd = new SqlCommand("uspProductsDel", con);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter par = cmd.Parameters.Add("@ProductId", SqlDbType.Int);
             par.Direction = ParameterDirection.Input;

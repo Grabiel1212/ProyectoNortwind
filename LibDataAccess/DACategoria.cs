@@ -45,7 +45,7 @@ namespace LibDataAccess
         public List<BECategoria> fListarInhabcate(SqlConnection con)
         {
             List<BECategoria> lobeCategoria = new List<BECategoria>();
-            SqlCommand cmd = new SqlCommand("uspCategoriesdesacticados", con);
+            SqlCommand cmd = new SqlCommand("uspCategoriesListadoInhab", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 60;
             SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);

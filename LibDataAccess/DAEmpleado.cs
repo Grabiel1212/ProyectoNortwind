@@ -85,7 +85,7 @@ namespace LibDataAccess
         public List<BEEmpleado> fListarInacticos(SqlConnection con)
         {
             List<BEEmpleado> lobeEmpleado = new List<BEEmpleado>();
-            SqlCommand cmd = new SqlCommand("uspEmployeesListadoInactivo", con);
+            SqlCommand cmd = new SqlCommand("uspEmployeesListadoInhab", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 60;
             SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
@@ -133,7 +133,7 @@ namespace LibDataAccess
         public bool fActivarProduc(SqlConnection con, BEEmpleado obeEmpleado) // para valitar un producto
         {
             bool Exito = false;
-            SqlCommand cmd = new SqlCommand("uspEmployeesAct2", con);
+            SqlCommand cmd = new SqlCommand("uspEmployeesAct", con);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter par = cmd.Parameters.Add("@EmployeeID", SqlDbType.Int);
             par.Direction = ParameterDirection.Input;
@@ -148,7 +148,7 @@ namespace LibDataAccess
         public int fAinsertarEmpleados(SqlConnection con, BEEmpleado obeEmpleado) // para insertar nuevas categorias
         {
             int N = -1;
-            SqlCommand cmd = new SqlCommand("uspEmployeesInsertar", con);
+            SqlCommand cmd = new SqlCommand("uspEmployeesIns", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
 

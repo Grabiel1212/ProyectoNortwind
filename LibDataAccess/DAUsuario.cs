@@ -103,7 +103,7 @@ namespace LibDataAccess
         public List<BEUsuario> fListarUserDesativados(SqlConnection con)// lisatr los usuarios desactivados
         {
             List<BEUsuario> lobeUsuario = new List<BEUsuario>();
-            SqlCommand cmd = new SqlCommand("uspUsuariosDesactivados", con);
+            SqlCommand cmd = new SqlCommand("uspUsuariosListadoInhab", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 60;
             SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);

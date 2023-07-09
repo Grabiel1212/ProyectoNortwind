@@ -14,7 +14,7 @@ namespace LibDataAccess
         public List<BEProveedor> fListarProveedor(SqlConnection con)
         {
             List<BEProveedor> lobeProveedor = new List<BEProveedor>();
-            SqlCommand cmd = new SqlCommand("usplistarProvedores", con);
+            SqlCommand cmd = new SqlCommand("uspSuppliersListado", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 60;
             SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
@@ -51,7 +51,7 @@ namespace LibDataAccess
         public List<BEProveedor> fListarDesabilitados(SqlConnection con)
         {
             List<BEProveedor> lobeProveedor = new List<BEProveedor>();
-            SqlCommand cmd = new SqlCommand("uspSuppliersDesabilitados", con);
+            SqlCommand cmd = new SqlCommand("uspSuppliersListadoInhab", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 60;
             SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
@@ -121,7 +121,7 @@ namespace LibDataAccess
         public int fAdicionarPriveedor(SqlConnection con, BEProveedor obeProveedor) // para insertar productos
         {
             int N = -1;
-            SqlCommand cmd = new SqlCommand("uspSuppliersInsertar", con);
+            SqlCommand cmd = new SqlCommand("uspSuppliersIns", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlParameter par1 = cmd.Parameters.Add("@CompanyName", SqlDbType.NVarChar, 40);
@@ -154,7 +154,7 @@ namespace LibDataAccess
         public bool fActualizarProveedor(SqlConnection con, BEProveedor obeProveedor) // para actualizar los productos 
         {
             bool Exito = false;
-            SqlCommand cmd = new SqlCommand("uspSuppliersModificar", con);
+            SqlCommand cmd = new SqlCommand("uspSuppliersUpd", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlParameter par0 = cmd.Parameters.Add("@SupplierId", SqlDbType.Int);
