@@ -15,7 +15,7 @@ namespace LibDataAccess
         public List<BEPedido> ListarPedidos(SqlConnection con)
         {
             List<BEPedido> listaPedidos = new List<BEPedido>();
-            SqlCommand cmd = new SqlCommand("uspOrdersListado", con);
+            SqlCommand cmd = new SqlCommand("uspOrdersListatepe", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 60;
             SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
@@ -26,7 +26,7 @@ namespace LibDataAccess
                 int posIdEmpleado = drd.GetOrdinal("EmployeeID");
                 int posFechaOrden = drd.GetOrdinal("OrderDate");
                 int posDireccionEnvio = drd.GetOrdinal("ShipAddress");
-                int posTransporte = drd.GetOrdinal("Freight");
+                //int posTransporte = drd.GetOrdinal("Freight");
                 BEPedido pedido;
                 while (drd.Read())
                 {

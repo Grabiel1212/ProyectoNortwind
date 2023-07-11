@@ -43,8 +43,6 @@
             this.lblTituloPrincipal = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Label();
-            this.txttrasporte = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.pnlBarraTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,7 +95,7 @@
             this.btnGrabarpedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
             this.btnGrabarpedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrabarpedido.ForeColor = System.Drawing.Color.LightGray;
-            this.btnGrabarpedido.Location = new System.Drawing.Point(518, 418);
+            this.btnGrabarpedido.Location = new System.Drawing.Point(415, 382);
             this.btnGrabarpedido.Name = "btnGrabarpedido";
             this.btnGrabarpedido.Size = new System.Drawing.Size(181, 40);
             this.btnGrabarpedido.TabIndex = 41;
@@ -226,36 +224,12 @@
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // txttrasporte
-            // 
-            this.txttrasporte.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txttrasporte.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txttrasporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttrasporte.ForeColor = System.Drawing.Color.Black;
-            this.txttrasporte.Location = new System.Drawing.Point(297, 341);
-            this.txttrasporte.Name = "txttrasporte";
-            this.txttrasporte.Size = new System.Drawing.Size(256, 20);
-            this.txttrasporte.TabIndex = 47;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(142, 341);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 20);
-            this.label6.TabIndex = 46;
-            this.label6.Text = "TRASPORTE :";
-            // 
             // FrmCruPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(780, 494);
-            this.Controls.Add(this.txttrasporte);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.dateFechaorden);
             this.Controls.Add(this.txtdirecion);
             this.Controls.Add(this.txtidempleado);
@@ -297,7 +271,5 @@
         private System.Windows.Forms.Label lblTituloPrincipal;
         private System.Windows.Forms.Label btnMinimizar;
         private System.Windows.Forms.Label btnCerrar;
-        private System.Windows.Forms.TextBox txttrasporte;
-        private System.Windows.Forms.Label label6;
     }
 }

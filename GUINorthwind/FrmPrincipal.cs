@@ -417,8 +417,23 @@ namespace GUINorthwind
                 case 9:
                     BRPedido obspedido = new BRPedido();
                     lbepedido = obspedido.ListarPedido();
-
+                    //cbxpedidoEmpleado.DataSource = lbepedido;
                     dtgPedidosssss.DataSource = lbepedido;
+                    //cbxpedidoEmpleado.DisplayMember = "idEmpleado";
+                    //cbxpedidoEmpleado.ValueMember = "codigoOrden";
+
+
+
+                    break;
+                case 10:
+                    BRPedido obspedidoi = new BRPedido();
+                    lbepedido = obspedidoi.ListarPedido();
+                    cbxpedidoEmpleado.DataSource = lbepedido;
+                    dtgpedidoEmpleado.DataSource = lbepedido;
+                    cbxpedidoEmpleado.DisplayMember = "idEmpleado";
+                    cbxpedidoEmpleado.ValueMember = "codigoOrden";
+
+
 
                     break;
 
@@ -574,6 +589,10 @@ namespace GUINorthwind
         List<BEEmpleado> lbeFiltro03;
         List<BEProveedor> lbeFiltro04;
         List<BEUsuario> lbeFiltro05;
+
+        List<BEEClientes> lbeFiltro06;
+        List<BEPedido> lbeFiltro07;
+
         private void filtro(int identificador)
         {
             switch (identificador)
@@ -2288,10 +2307,197 @@ namespace GUINorthwind
             lblTitulo.Text = btnpedidos.Text;
             cargaDatos(9);
           
-            //BRPedido obspedido = new BRPedido();
-            //List<BEPedido> lbepedidopp = obspedido.ListarPedido();
+            
+        }
 
-            //dtgPedidosssss.DataSource = lbepedidopp;
+        private void btnRegistarPedidp_Click(object sender, EventArgs e)
+        {
+            int yoyo = 1;
+          FrmCruPedido abrir = new FrmCruPedido();// enviamos los dtaos 
+            abrir.modoWindow = yoyo;
+            abrir.ShowDialog();
+        }
+
+        private void btneditarpedido_Click(object sender, EventArgs e)
+        {
+
+            if (dtgPedidosssss.SelectedRows.Count > 0)
+            {
+
+        
+                
+                DataGridViewRow filaSeleccionada = dtgPedidosssss.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEPedido pedidoSeleccionado = (BEPedido)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCruPedido abrir = new FrmCruPedido();
+                abrir.modoWindow = 2;
+                abrir.codorden = pedidoSeleccionado.CodigoOrden;
+                abrir.idcliente = pedidoSeleccionado.IdCliente;
+                abrir.idempleado = pedidoSeleccionado.IdEmpleado;
+                abrir.FechaOrden = pedidoSeleccionado.FechaOrden;
+                abrir.Direccion = pedidoSeleccionado.DireccionEnvio;
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+
+
+
+
+        }
+        BRPedido obrpedidos = new BRPedido();
+        private void btneliminarpedido_Click(object sender, EventArgs e)
+        {
+
+
+            if (btneliminarpedido.Text.Equals("ELIMINAR pedido"))
+            {
+                if (MessageBox.Show("¿Seguro que desea eliminar el pedido " +
+              dtgPedidosssss.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) //AKI LE PREGUNTAMOS SI DESE ALIMINAR UNM PRODUCTO Y SI DOSE L SI ARA LO SIGUINTE
+                {
+                    BEPedido obepedido = new BEPedido();
+                    {
+
+
+                        var tomarvalorTabla = obepedido;
+                        // en esta fila le desimoos la psocion de nuestra columna y de nustra cela en este caso sera 0 donde esta el id , y tomara esevalor , y convertilo en entero
+                        tomarvalorTabla.CodigoOrden = Convert.ToInt32(dtgPedidosssss.SelectedRows[0].Cells[0].Value.ToString());
+                    }
+                    bool exito = obrpedidos.EliminarPedidos(obepedido);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Elimino el pedido", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Eliminar el pedido ", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                    }
+                    btnRegistarPedidp_Click(sender, e);
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("¿Seguro que desea activar el pedido " +  // ESTO SIRVE PARA ctivar
+               dtgPedidosssss.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    BEPedido obePedidos = new BEPedido();
+                    {
+                        var withBlock = obePedidos;
+                        withBlock.CodigoOrden = Convert.ToInt32(dtgPedidosssss.SelectedRows[0].Cells[0].Value.ToString());
+                    }
+                    bool exito = obrpedidos.ActivarPedidos(obePedidos); 
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Activo el pedido", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("No se pudo Activar el pedido", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                        //btnpoductDesacticadoss(sender, e);
+                    }
+                    this.btnmostarpedidosdesactivados_Click(sender, e);
+
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+        private void btnmostarpedidosdesactivados_Click(object sender, EventArgs e)
+        {
+
+
+            if (btnmostarpedidosdesactivados.Text.Equals("MOSTRAR PEDIDOS DESACTIVADOS"))
+            {
+                BRPedido obrpedido = new BRPedido();
+                lbepedido = obrpedido.ListarPedidosInhabi();
+                dtgPedidosssss.DataSource = lbepedido;
+
+                btnmostarpedidosdesactivados.Text = "MOSTRAR PEDIDOS ACTIVOS";
+                btnMostarinformacionPedido.Enabled = false;
+                btnRegistarPedidp.Enabled = false;
+                btneditarpedido.Enabled = false;
+                btneliminarpedido.Text = "HABILITAR PEDIDOS";
+            }
+            else
+            {
+                btnmostarpedidosdesactivados.Text = "MOSTRAR PEDIDOS DESACTIVADOS";
+                BRPedido obrpedido = new BRPedido();
+                lbepedido = obrpedido.ListarPedido();
+                dtgPedidosssss.DataSource = lbepedido;
+
+                btnMostarinformacionPedido.Enabled = true;
+                btnRegistarPedidp.Enabled = true;
+                btneditarpedido.Enabled = true;
+                btneliminarpedido.Text = "ELIMINAR Cliente";
+
+
+
+            }
+
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tcVentanas.SelectedIndex = 10;
+            //activaSeleccion(7);
+            lblTitulo.Text =bTNPEDIDOSPOREMPLEADO.Text;
+            cargaDatos(10);
+        }
+
+        private void bTNFILTRApedidoempleado_Click(object sender, EventArgs e)
+        {
+
+            lbeFiltro07 = new List<BEPedido>();
+            BEPedido obePedido;
+            for (int I = 0; I <= lbepedido.Count - 1; I++)
+            {
+                if (lbepedido[I].CodigoOrden.Equals(cbxpedidoEmpleado.SelectedValue))
+                {
+                    obePedido = new BEPedido();
+                    obePedido.CodigoOrden = lbepedido[I].CodigoOrden;
+                    obePedido.IdCliente = lbepedido[I].IdCliente;
+                    obePedido.IdEmpleado = lbepedido[I].IdEmpleado;
+                    obePedido.FechaOrden = lbepedido[I].FechaOrden;
+                    obePedido.DireccionEnvio = lbepedido[I].DireccionEnvio;
+                   
+
+                    lbeFiltro07.Add(obePedido);
+                }
+            }
+            dtgpedidoEmpleado.DataSource = lbeFiltro07;
+        }
+
+        private void btnreportepedidoempleado_Click(object sender, EventArgs e)
+        {
+            cr = 0;
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = pd02;
+
+            ppd.ShowDialog();
         }
     }
 }

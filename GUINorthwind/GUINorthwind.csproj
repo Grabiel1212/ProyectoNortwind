@@ -33,17 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LibBusinessEntities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LibBusinessEntities\bin\Debug\LibBusinessEntities.dll</HintPath>
+    <Reference Include="LibBusinessEntities">
+      <HintPath>..\LibBusinessRules\bin\Debug\LibBusinessEntities.dll</HintPath>
     </Reference>
-    <Reference Include="LibBusinessRules, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="LibBusinessRules">
       <HintPath>..\LibBusinessRules\bin\Debug\LibBusinessRules.dll</HintPath>
     </Reference>
-    <Reference Include="LibDataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LibDataAccess\bin\Debug\LibDataAccess.dll</HintPath>
+    <Reference Include="LibDataAccess">
+      <HintPath>..\LibBusinessRules\bin\Debug\LibDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -53,7 +53,7 @@ namespace GUINorthwind
             txtidempleado.Clear();
             //dateFechaorden.Clear();
             txtdirecion.Clear();
-            txttrasporte.Clear();
+            //txttrasporte.Clear();
 
         }
 
