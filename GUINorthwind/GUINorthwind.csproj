@@ -33,14 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LibBusinessEntities">
-      <HintPath>..\LibBusinessRules\bin\Debug\LibBusinessEntities.dll</HintPath>
+    <Reference Include="LibBusinessEntities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LibBusinessEntities\bin\Debug\LibBusinessEntities.dll</HintPath>
     </Reference>
-    <Reference Include="LibBusinessRules">
+    <Reference Include="LibBusinessRules, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\LibBusinessRules\bin\Debug\LibBusinessRules.dll</HintPath>
     </Reference>
-    <Reference Include="LibDataAccess">
-      <HintPath>..\LibBusinessRules\bin\Debug\LibDataAccess.dll</HintPath>
+    <Reference Include="LibDataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LibDataAccess\bin\Debug\LibDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,11 +64,23 @@
     <Compile Include="FrmCRUCategoria.Designer.cs">
       <DependentUpon>FrmCRUCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCruCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCruCliente.Designer.cs">
+      <DependentUpon>FrmCruCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCRUEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCRUEmpleado.Designer.cs">
       <DependentUpon>FrmCRUEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCruPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCruPedido.Designer.cs">
+      <DependentUpon>FrmCruPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCRUProducto.cs">
       <SubType>Form</SubType>
@@ -102,8 +117,14 @@
     <EmbeddedResource Include="FrmCRUCategoria.resx">
       <DependentUpon>FrmCRUCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCruCliente.resx">
+      <DependentUpon>FrmCruCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCRUEmpleado.resx">
       <DependentUpon>FrmCRUEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCruPedido.resx">
+      <DependentUpon>FrmCruPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCRUProducto.resx">
       <DependentUpon>FrmCRUProducto.cs</DependentUpon>

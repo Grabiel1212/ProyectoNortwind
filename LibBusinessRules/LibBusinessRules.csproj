@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LibBusinessEntities">
-      <HintPath>..\LibDataAccess\bin\Debug\LibBusinessEntities.dll</HintPath>
+      <HintPath>..\LibBusinessEntities\bin\Debug\LibBusinessEntities.dll</HintPath>
     </Reference>
     <Reference Include="LibDataAccess">
       <HintPath>..\LibDataAccess\bin\Debug\LibDataAccess.dll</HintPath>
@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BRCategoria.cs" />
+    <Compile Include="BRCliente.cs" />
     <Compile Include="BREmpleado.cs" />
+    <Compile Include="BRPedido.cs" />
     <Compile Include="BRProducto.cs" />
     <Compile Include="BRProveedor.cs" />
     <Compile Include="BRUsuario.cs" />

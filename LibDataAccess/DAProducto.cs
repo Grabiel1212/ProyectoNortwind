@@ -49,41 +49,7 @@ namespace LibDataAccess
             return (lobeProducto);
         }
 
-        //public List<BEProducto> fValidarProductoAc(SqlConnection con, int val)// PARA VER SI ESTA ABILITADO O DESABILITADO
-        //{
-        //    List<BEProducto> objProducto = new List<BEProducto>();
-        //    SqlCommand cmd = new SqlCommand("ProductoDesactivadosActivados", con);
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.Parameters.Add("@activado", SqlDbType.VarChar, 20).Value = val;
-        //    cmd.CommandTimeout = 60;
-        //    SqlDataReader leer = cmd.ExecuteReader(CommandBehavior.SingleResult);
-        //    if (leer != null)
-        //    {
-        //        int posCodigo = leer.GetOrdinal("ProductId");
-        //        int posNombre = leer.GetOrdinal("ProductName");
-        //        int posIdProveedor = leer.GetOrdinal("SupplierId");
-        //        int posIdCategoria = leer.GetOrdinal("CategoryId");
-        //        int posPrecioUni = leer.GetOrdinal("UnitPrice");
-        //        int posStock = leer.GetOrdinal("UnitsInStock");
-        //        BEProducto obeProducto;
-        //        while (leer.Read())
-        //        {
-        //            obeProducto = new BEProducto();
-        //            {
-        //                var withBlock = obeProducto;
-        //                withBlock.Codigo = leer.GetInt32(posCodigo);
-        //                withBlock.Nombre = leer.GetString(posNombre);
-        //                withBlock.IdProveedor = leer.GetInt32(posIdProveedor);
-        //                withBlock.IdCategoria = leer.GetInt32(posIdCategoria);
-        //                withBlock.PrecioUni = leer.GetDecimal(posPrecioUni);
-        //                withBlock.Stock = leer.GetInt16(posStock);
-        //            }
-        //            objProducto.Add(obeProducto);
-        //        }
-        //        leer.Close();
-        //    }
-        //    return (objProducto);
-        //}
+      
 
         public List<BEProducto> fListarInhab(SqlConnection con)
         {

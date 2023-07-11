@@ -350,6 +350,9 @@ namespace GUINorthwind
         private List<BEProveedor> lbeProveedor;
         private List<BEUsuario> lbeUsuario;
 
+        private List<BEEClientes> lbeclientes;
+        private List<BEPedido> lbepedido;
+
         private void cargaDatos(int identificador) // el indentificador viene de tcventana cada ventana tiene su rango de inicio
         {
             personalizaGrilla(); // llamo ami metodo de personalizar los data griew 
@@ -404,7 +407,20 @@ namespace GUINorthwind
                     cbopaizFiltro.DisplayMember = "Paiz";
                     cbopaizFiltro.ValueMember = "Codigo";
                     break;
+                case 8:
+                    BRCliente obscliente = new BRCliente();
+                    lbeclientes = obscliente.Listar();
+                   
+                    dtgClientes.DataSource = lbeclientes;
 
+                    break;
+                case 9:
+                    BRPedido obspedido = new BRPedido();
+                    lbepedido = obspedido.ListarPedido();
+
+                    dtgPedidosssss.DataSource = lbepedido;
+
+                    break;
 
 
             }
@@ -2039,6 +2055,243 @@ namespace GUINorthwind
                 withBlock.ChartType = (Microsoft.Office.Interop.Excel.XlChartType)(-4100);
                 withBlock.ChartTitle.Text = "Gráfico de Precios de Productos";
             }
+        }
+
+        private void tpCliente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            tcVentanas.SelectedIndex = 9;
+            //activaSeleccion(2);
+            lblTitulo.Text = btnClientes.Text;
+            cargaDatos(8);
+        }
+
+        private void btnMostrarInftpmacionCliente_Click(object sender, EventArgs e)
+        {
+
+            if (dtgClientes.SelectedRows.Count > 0)
+            {
+
+
+
+                DataGridViewRow filaSeleccionada = dtgClientes.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEEClientes clienteSeleccionado = (BEEClientes)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCruCliente abrir = new FrmCruCliente();
+                abrir.modoWindow = 0;
+                abrir.codigoCliente = clienteSeleccionado.IdCliente;
+                abrir.pcompania = clienteSeleccionado.Compania;
+                abrir.pcontacto = clienteSeleccionado.Contacto;
+                abrir.pdireccion = clienteSeleccionado.Direccion;
+                abrir.cciudad = clienteSeleccionado.Ciudad;
+                abrir.ppaiz = clienteSeleccionado.Paiz;
+
+
+
+   
+
+        abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+
+        }
+
+        private void btnRegistarCliente_Click(object sender, EventArgs e)
+        {
+            int yoyo = 1;
+            FrmCruCliente abrir = new FrmCruCliente();// enviamos los dtaos 
+            abrir.modoWindow = yoyo;
+            abrir.ShowDialog();
+
+        }
+
+        private void bTNEDITARcliente_Click(object sender, EventArgs e)
+        {
+            if (dtgClientes.SelectedRows.Count > 0)
+            {
+
+                DataGridViewRow filaSeleccionada = dtgClientes.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEEClientes clienteSeleccionado = (BEEClientes)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCruCliente abrir = new FrmCruCliente();
+                abrir.modoWindow = 2;
+                abrir.codigoCliente = clienteSeleccionado.IdCliente;
+                abrir.pcompania = clienteSeleccionado.Compania;
+                abrir.pcontacto = clienteSeleccionado.Contacto;
+                abrir.pdireccion = clienteSeleccionado.Direccion;
+                abrir.cciudad = clienteSeleccionado.Ciudad;
+                abrir.ppaiz = clienteSeleccionado.Paiz;
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+        }
+
+
+       BRCliente obrCliente = new BRCliente();
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
+        {
+
+            if (btnEliminarCliente.Text.Equals("ELIMINAR Cliente"))
+            {
+                if (MessageBox.Show("¿Seguro que desea eliminar el cliente " +
+               dtgClientes.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) //AKI LE PREGUNTAMOS SI DESE ALIMINAR UNM PRODUCTO Y SI DOSE L SI ARA LO SIGUINTE
+                {
+                    BEEClientes obeClientes = new BEEClientes();
+                    {
+
+
+                        var tomarvalorTabla = obeClientes;
+                        // en esta fila le desimoos la psocion de nuestra columna y de nustra cela en este caso sera 0 donde esta el id , y tomara esevalor , y convertilo en entero
+                        tomarvalorTabla.IdCliente = dtgClientes.SelectedRows[0].Cells[0].Value.ToString();
+                    }
+                    bool exito = obrCliente.EliminarClientes(obeClientes);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Elimino el cliente", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Eliminar el cliente ", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                    }
+                    btnClientes_Click(sender, e);
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("¿Seguro que desea activar el cliente " +  // ESTO SIRVE PARA ctivar
+               dtgClientes.SelectedRows[0].Cells[1].Value.ToString() + "?", "Aviso",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    BEEClientes obeClientes = new BEEClientes();
+                    {
+                        var withBlock = obeClientes;
+                        withBlock.IdCliente =dtgClientes.SelectedRows[0].Cells[0].Value.ToString(); 
+                    }
+                    bool exito =  obrCliente.ActivarCliente(obeClientes);
+                    if (exito)
+                    {
+                        MessageBox.Show("Se Activo el cliente", "Aviso", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("No se pudo Activar el cliente", "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Exclamation);
+                        //btnpoductDesacticadoss(sender, e);
+                    }
+                    this.btnmostarclintesdesactivados_Click(sender, e);
+
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnmostarclintesdesactivados_Click(object sender, EventArgs e)
+        {
+            if (btnmostarclintesdesactivados.Text.Equals("MOSTRAR CLIENTES DESACTIVADOS"))
+            {
+                BRCliente obrCliente = new BRCliente();
+                lbeclientes = obrCliente.ListarCLientesInhabi();
+                dtgClientes.DataSource = lbeclientes;
+                btnmostarclintesdesactivados.Text = "MOSTRAR CLIENTES ACTIVOS";
+
+                btnMostrarInftpmacionCliente.Enabled = false;
+                btnRegistarCliente.Enabled = false;
+                bTNEDITARcliente.Enabled = false;
+                btnEliminarCliente.Text = "HABILITAR CLIENTE";
+            }
+            else
+            {
+                btnmostarclintesdesactivados.Text = "MOSTRAR CLIENTES DESACTIVADOS";
+                BRCliente obrCliente = new BRCliente();
+                lbeclientes = obrCliente.Listar();
+                dtgClientes.DataSource = lbeclientes;
+
+                btnMostrarInftpmacionCliente.Enabled = true;
+                btnRegistarCliente.Enabled = true;
+                bTNEDITARcliente.Enabled = true;
+                btnEliminarCliente.Text = "ELIMINAR Cliente";
+
+
+
+            }
+        }
+
+        private void btnMostarinformacionPedido_Click(object sender, EventArgs e)
+        {
+
+            if (dtgPedidosssss.SelectedRows.Count > 0)
+            {
+
+
+
+                DataGridViewRow filaSeleccionada = dtgPedidosssss.SelectedRows[0];// esto nos dira la posion en fila se a seleccionado
+                BEPedido pedidoSeleccionado = (BEPedido)filaSeleccionada.DataBoundItem;// obtenemos la informacion de nuestra fila
+
+                FrmCruPedido abrir = new FrmCruPedido();
+                abrir.modoWindow = 0;
+                abrir.codorden = pedidoSeleccionado.CodigoOrden;
+                abrir.idcliente = pedidoSeleccionado.IdCliente;
+                abrir.idempleado = pedidoSeleccionado.IdEmpleado;
+                abrir.FechaOrden = pedidoSeleccionado.FechaOrden;
+                abrir.Direccion= pedidoSeleccionado.DireccionEnvio;
+                //abrir.trasporte= pedidoSeleccionado.Transporte;
+
+
+
+                abrir.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila por favor");
+            }
+        }
+
+        private void btnpedidos_Click(object sender, EventArgs e)
+        {
+            tcVentanas.SelectedIndex = 8;
+            //activaSeleccion(2);
+            lblTitulo.Text = btnpedidos.Text;
+            cargaDatos(9);
+          
+            //BRPedido obspedido = new BRPedido();
+            //List<BEPedido> lbepedidopp = obspedido.ListarPedido();
+
+            //dtgPedidosssss.DataSource = lbepedidopp;
         }
     }
 }

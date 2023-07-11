@@ -1,80 +1,82 @@
-﻿using System;
+﻿using LibDataAccess;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibBusinessEntities;
-using LibDataAccess;
-using System.Data.SqlClient;
-using System.Reflection;
-using System.Security.Cryptography;
+
 
 namespace LibBusinessRules
 {
-    public class BRProducto
+    public class BRPedido
     {
+
         private string strConexion;
 
-        public BRProducto()
+        public BRPedido()
         {
             System.Configuration.AppSettingsReader asr = new
             System.Configuration.AppSettingsReader();
             strConexion = (string)asr.GetValue("conNW", Type.GetType("System.String"));
         }
 
-        public List<BEProducto> Listar()
+
+
+        public List<BEPedido> ListarPedido()
         {
-            List<BEProducto> lobeProducto = new List<BEProducto>();
+            List<BEPedido> lobePedido = new List<BEPedido>();
             using (SqlConnection con = new SqlConnection(strConexion))
             {
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    lobeProducto = odaProducto.fListar(con);
+                    DAPedido odaPedido = new DAPedido();
+                    lobePedido= odaPedido.ListarPedidos(con);
                 }
                 catch (Exception ex)
                 {
                     // Grabar el Log de error
-                    lobeProducto = null;
+                    lobePedido= null;
                 }
                 finally
                 {
                     con.Close();
                 }
             }
-            return (lobeProducto);
+            return (lobePedido);
         }
 
 
 
-       
 
-        public List<BEProducto> ListarProductosInhabi()
+
+        public List<BEPedido> ListarPedidosInhabi()
         {
-            List<BEProducto> lobeProducto = new List<BEProducto>();
+            List<BEPedido> lobePedido = new List<BEPedido>();
             using (SqlConnection con = new SqlConnection(strConexion))
             {
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    lobeProducto = odaProducto.fListarInhab(con);
+                    DAPedido odaPedido = new DAPedido();
+                    lobePedido = odaPedido.ListarPedidosInhabilitados(con);
                 }
                 catch (Exception ex)
                 {
                     //Grabar el Log de error
-                   lobeProducto = null;
+                    lobePedido = null;
                 }
                 finally
                 {
                     con.Close();
                 }
             }
-            return (lobeProducto);
+            return (lobePedido);
         }
 
-        public bool EliminarProd(BEProducto obeProducto) // PARA DESABLITAR UN PRODUCTO
+        public bool EliminarPedidos(BEPedido obePedido) // PARA DESABLITAR UN PRODUCTO
         {
             bool exito = false;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -82,8 +84,8 @@ namespace LibBusinessRules
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    exito = odaProducto.fEliminar(con, obeProducto);
+                    DAPedido odaPedido = new DAPedido();
+                    exito = odaPedido.EliminarPedido(con, obePedido);
                 }
                 catch (Exception ex)
                 {
@@ -96,7 +98,7 @@ namespace LibBusinessRules
             return (exito);
         }
 
-        public bool ActivarProduc(BEProducto obeProducto) // para activar el producto desabilitado 
+        public bool ActivarPedidos(BEPedido obePedido) // para activar el producto desabilitado 
         {
             bool exito = false;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -104,8 +106,8 @@ namespace LibBusinessRules
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    exito = odaProducto.fActivarProduc(con, obeProducto);
+                    DAPedido odaPedido = new DAPedido();
+                    exito = odaPedido.ActivarPedido(con, obePedido);
                 }
                 catch (Exception ex)
                 {
@@ -124,7 +126,7 @@ namespace LibBusinessRules
 
 
 
-        public int Adicionar(BEProducto obeProducto) // para inserta productos 
+        public int AdicionarPedido(BEPedido obePedido) // para inserta productos 
         {
             int N = -1;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -132,8 +134,8 @@ namespace LibBusinessRules
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    N = odaProducto.fAdicionar(con, obeProducto);
+                    DAPedido odaPedido = new DAPedido();
+                    N = odaPedido.InsertarPedido(con, obePedido);
                 }
                 catch (Exception ex)
                 {
@@ -149,7 +151,7 @@ namespace LibBusinessRules
         }
 
 
-        public bool Actualizar(BEProducto obeProducto) // para actialuzar produscto
+        public bool ActualizarPedido(BEPedido obePedido) // para actialuzar produscto
         {
             bool exito = false;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -157,9 +159,9 @@ namespace LibBusinessRules
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    exito = odaProducto.fActualizar(con, obeProducto);
-                 
+                    DAPedido odaPedido = new DAPedido();
+                    exito = odaPedido.ActualizarPedido(con, obePedido);
+
                 }
                 catch (Exception ex)
                 {
@@ -173,8 +175,8 @@ namespace LibBusinessRules
         }
 
 
-       
-       
+
+
 
 
 

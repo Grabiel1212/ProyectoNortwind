@@ -1,80 +1,82 @@
-﻿using System;
+﻿using LibBusinessEntities;
+using LibDataAccess;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LibBusinessEntities;
-using LibDataAccess;
-using System.Data.SqlClient;
-using System.Reflection;
-using System.Security.Cryptography;
 
 namespace LibBusinessRules
 {
-    public class BRProducto
+    public  class BRCliente
     {
+
+
         private string strConexion;
 
-        public BRProducto()
+        public BRCliente()
         {
             System.Configuration.AppSettingsReader asr = new
             System.Configuration.AppSettingsReader();
             strConexion = (string)asr.GetValue("conNW", Type.GetType("System.String"));
         }
 
-        public List<BEProducto> Listar()
+
+
+        public List<BEEClientes> Listar()
         {
-            List<BEProducto> lobeProducto = new List<BEProducto>();
+            List<BEEClientes> lobeclientes = new List<BEEClientes>();
             using (SqlConnection con = new SqlConnection(strConexion))
             {
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    lobeProducto = odaProducto.fListar(con);
+                    DACliente odaCliente = new DACliente();
+                    lobeclientes = odaCliente.ListarClientes(con);
                 }
                 catch (Exception ex)
                 {
                     // Grabar el Log de error
-                    lobeProducto = null;
+                    lobeclientes = null;
                 }
                 finally
                 {
                     con.Close();
                 }
             }
-            return (lobeProducto);
+            return (lobeclientes);
         }
 
 
 
-       
 
-        public List<BEProducto> ListarProductosInhabi()
+
+        public List<BEEClientes> ListarCLientesInhabi()
         {
-            List<BEProducto> lobeProducto = new List<BEProducto>();
+            List<BEEClientes> lobeclientes = new List<BEEClientes>();
             using (SqlConnection con = new SqlConnection(strConexion))
             {
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    lobeProducto = odaProducto.fListarInhab(con);
+                    DACliente odaCliente = new DACliente();
+                    lobeclientes = odaCliente.ListarClientesInhab(con);
                 }
                 catch (Exception ex)
                 {
                     //Grabar el Log de error
-                   lobeProducto = null;
+                    lobeclientes = null;
                 }
                 finally
                 {
                     con.Close();
                 }
             }
-            return (lobeProducto);
+            return (lobeclientes);
         }
 
-        public bool EliminarProd(BEProducto obeProducto) // PARA DESABLITAR UN PRODUCTO
+        public bool EliminarClientes(BEEClientes obeClientes) // PARA DESABLITAR UN PRODUCTO
         {
             bool exito = false;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -82,8 +84,8 @@ namespace LibBusinessRules
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    exito = odaProducto.fEliminar(con, obeProducto);
+                    DACliente odaCliente = new DACliente();
+                    exito = odaCliente.EliminarCliente(con, obeClientes);
                 }
                 catch (Exception ex)
                 {
@@ -96,7 +98,7 @@ namespace LibBusinessRules
             return (exito);
         }
 
-        public bool ActivarProduc(BEProducto obeProducto) // para activar el producto desabilitado 
+        public bool ActivarCliente(BEEClientes obeClientes) // para activar el producto desabilitado 
         {
             bool exito = false;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -104,8 +106,8 @@ namespace LibBusinessRules
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    exito = odaProducto.fActivarProduc(con, obeProducto);
+                    DACliente odaCliente = new DACliente();
+                    exito = odaCliente.ActivarCliente(con, obeClientes);
                 }
                 catch (Exception ex)
                 {
@@ -124,7 +126,7 @@ namespace LibBusinessRules
 
 
 
-        public int Adicionar(BEProducto obeProducto) // para inserta productos 
+        public int AdicionarCliente(BEEClientes obeClientes) // para inserta productos 
         {
             int N = -1;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -132,13 +134,12 @@ namespace LibBusinessRules
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    N = odaProducto.fAdicionar(con, obeProducto);
+                    DACliente odaCliente = new DACliente();
+                  odaCliente.InsertarCliente(con, obeClientes);
                 }
                 catch (Exception ex)
                 {
-                    // Grabar el Log de error
-                    N = -1;
+                
                 }
                 finally
                 {
@@ -149,7 +150,7 @@ namespace LibBusinessRules
         }
 
 
-        public bool Actualizar(BEProducto obeProducto) // para actialuzar produscto
+        public bool ActualizarCliente(BEEClientes obeClientes) // para actialuzar produscto
         {
             bool exito = false;
             using (SqlConnection con = new SqlConnection(strConexion))
@@ -157,9 +158,9 @@ namespace LibBusinessRules
                 try
                 {
                     con.Open();
-                    DAProducto odaProducto = new DAProducto();
-                    exito = odaProducto.fActualizar(con, obeProducto);
-                 
+                    DACliente odaCliente = new DACliente();
+                    exito = odaCliente.ActualizarCliente(con, obeClientes);
+
                 }
                 catch (Exception ex)
                 {
@@ -173,8 +174,6 @@ namespace LibBusinessRules
         }
 
 
-       
-       
 
 
 

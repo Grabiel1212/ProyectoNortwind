@@ -45,11 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DACategoria.cs" />
+    <Compile Include="DACliente.cs" />
     <Compile Include="DAEmpleado.cs" />
+    <Compile Include="DAPedido.cs" />
     <Compile Include="DAProducto.cs" />
     <Compile Include="DAProveedor.cs" />
     <Compile Include="DAUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\LibBusinessEntities\bin\Debug\LibBusinessEntities.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

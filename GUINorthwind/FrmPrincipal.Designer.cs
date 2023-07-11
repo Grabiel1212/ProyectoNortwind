@@ -39,12 +39,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBarraTitulo = new System.Windows.Forms.Panel();
             this.lblTituloPrincipal = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnpedidos = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.btnProveedoresPorPaiz = new System.Windows.Forms.Button();
             this.btnproductoPorProveedores = new System.Windows.Forms.Button();
             this.btnproductoPorCategoria = new System.Windows.Forms.Button();
@@ -72,6 +79,10 @@
             this.txtFiltroProducto = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.cmnuOffice = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detalleWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.muestraLasLlistaEnWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaYGraficaEbExelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tpCategorias = new System.Windows.Forms.TabPage();
             this.btnelimanarCategoria = new System.Windows.Forms.Button();
             this.btneditarCategoria = new System.Windows.Forms.Button();
@@ -143,12 +154,30 @@
             this.btnProveedorPorPaiz = new System.Windows.Forms.Button();
             this.cbopaizFiltro = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.tpPedido = new System.Windows.Forms.TabPage();
+            this.btneliminarpedido = new System.Windows.Forms.Button();
+            this.btneditarpedido = new System.Windows.Forms.Button();
+            this.btnRegistarPedidp = new System.Windows.Forms.Button();
+            this.btnmostarpedidosdesactivados = new System.Windows.Forms.Button();
+            this.btnMostarinformacionPedido = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.tpCliente = new System.Windows.Forms.TabPage();
+            this.btnEliminarCliente = new System.Windows.Forms.Button();
+            this.bTNEDITARcliente = new System.Windows.Forms.Button();
+            this.btnRegistarCliente = new System.Windows.Forms.Button();
+            this.btnmostarclintesdesactivados = new System.Windows.Forms.Button();
+            this.btnMostrarInftpmacionCliente = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.dtgClientes = new System.Windows.Forms.DataGridView();
             this.pd = new System.Drawing.Printing.PrintDocument();
             this.pd02 = new System.Drawing.Printing.PrintDocument();
-            this.cmnuOffice = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.detalleWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.muestraLasLlistaEnWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaYGraficaEbExelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dtgPedidosssss = new System.Windows.Forms.DataGridView();
             this.pnlBarraTitulo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -160,6 +189,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            this.cmnuOffice.SuspendLayout();
             this.tpCategorias.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -182,7 +212,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductoPorproveedor)).BeginInit();
             this.tpProveedorPorPaiz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPorveedorPorPaiz)).BeginInit();
-            this.cmnuOffice.SuspendLayout();
+            this.tpPedido.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.tpCliente.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPedidosssss)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBarraTitulo
@@ -251,6 +288,9 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnpedidos);
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.btnClientes);
             this.panel4.Controls.Add(this.btnProveedoresPorPaiz);
             this.panel4.Controls.Add(this.btnproductoPorProveedores);
             this.panel4.Controls.Add(this.btnproductoPorCategoria);
@@ -265,17 +305,66 @@
             this.panel4.Size = new System.Drawing.Size(291, 681);
             this.panel4.TabIndex = 1;
             // 
+            // btnpedidos
+            // 
+            this.btnpedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnpedidos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnpedidos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnpedidos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnpedidos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnpedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnpedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnpedidos.ForeColor = System.Drawing.Color.LightGray;
+            this.btnpedidos.Location = new System.Drawing.Point(0, 240);
+            this.btnpedidos.Name = "btnpedidos";
+            this.btnpedidos.Size = new System.Drawing.Size(291, 40);
+            this.btnpedidos.TabIndex = 13;
+            this.btnpedidos.Text = "PEDIDO";
+            this.btnpedidos.UseVisualStyleBackColor = false;
+            this.btnpedidos.Click += new System.EventHandler(this.btnpedidos_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 522);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(291, 39);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "REPORTES";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.ForeColor = System.Drawing.Color.LightGray;
+            this.btnClientes.Location = new System.Drawing.Point(0, 200);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(291, 40);
+            this.btnClientes.TabIndex = 11;
+            this.btnClientes.Text = "CLIENTES";
+            this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
             // btnProveedoresPorPaiz
             // 
             this.btnProveedoresPorPaiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
             this.btnProveedoresPorPaiz.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProveedoresPorPaiz.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedoresPorPaiz.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnProveedoresPorPaiz.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
             this.btnProveedoresPorPaiz.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnProveedoresPorPaiz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
             this.btnProveedoresPorPaiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedoresPorPaiz.ForeColor = System.Drawing.Color.LightGray;
-            this.btnProveedoresPorPaiz.Location = new System.Drawing.Point(0, 280);
+            this.btnProveedoresPorPaiz.Location = new System.Drawing.Point(0, 561);
             this.btnProveedoresPorPaiz.Name = "btnProveedoresPorPaiz";
             this.btnProveedoresPorPaiz.Size = new System.Drawing.Size(291, 40);
             this.btnProveedoresPorPaiz.TabIndex = 10;
@@ -287,13 +376,13 @@
             // 
             this.btnproductoPorProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
             this.btnproductoPorProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnproductoPorProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnproductoPorProveedores.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnproductoPorProveedores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
             this.btnproductoPorProveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnproductoPorProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
             this.btnproductoPorProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnproductoPorProveedores.ForeColor = System.Drawing.Color.LightGray;
-            this.btnproductoPorProveedores.Location = new System.Drawing.Point(0, 240);
+            this.btnproductoPorProveedores.Location = new System.Drawing.Point(0, 601);
             this.btnproductoPorProveedores.Name = "btnproductoPorProveedores";
             this.btnproductoPorProveedores.Size = new System.Drawing.Size(291, 40);
             this.btnproductoPorProveedores.TabIndex = 9;
@@ -305,13 +394,13 @@
             // 
             this.btnproductoPorCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
             this.btnproductoPorCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnproductoPorCategoria.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnproductoPorCategoria.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnproductoPorCategoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
             this.btnproductoPorCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnproductoPorCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
             this.btnproductoPorCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnproductoPorCategoria.ForeColor = System.Drawing.Color.LightGray;
-            this.btnproductoPorCategoria.Location = new System.Drawing.Point(0, 200);
+            this.btnproductoPorCategoria.Location = new System.Drawing.Point(0, 641);
             this.btnproductoPorCategoria.Name = "btnproductoPorCategoria";
             this.btnproductoPorCategoria.Size = new System.Drawing.Size(291, 40);
             this.btnproductoPorCategoria.TabIndex = 8;
@@ -321,7 +410,7 @@
             // 
             // btnUsuarios
             // 
-            this.btnUsuarios.BackColor = System.Drawing.Color.Black;
+            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
             this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUsuarios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
@@ -474,6 +563,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1014, 56);
             this.panel5.TabIndex = 2;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // lblTitulo
             // 
@@ -496,6 +586,8 @@
             this.tcVentanas.Controls.Add(this.tpProductoPorCategoria);
             this.tcVentanas.Controls.Add(this.tpProductoPorProveedor);
             this.tcVentanas.Controls.Add(this.tpProveedorPorPaiz);
+            this.tcVentanas.Controls.Add(this.tpPedido);
+            this.tcVentanas.Controls.Add(this.tpCliente);
             this.tcVentanas.Location = new System.Drawing.Point(290, 66);
             this.tcVentanas.Name = "tcVentanas";
             this.tcVentanas.SelectedIndex = 0;
@@ -682,6 +774,36 @@
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(976, 453);
             this.dgvProductos.TabIndex = 0;
+            // 
+            // cmnuOffice
+            // 
+            this.cmnuOffice.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detalleWordToolStripMenuItem,
+            this.muestraLasLlistaEnWordToolStripMenuItem,
+            this.listaYGraficaEbExelToolStripMenuItem});
+            this.cmnuOffice.Name = "cmnuOffice";
+            this.cmnuOffice.Size = new System.Drawing.Size(205, 70);
+            // 
+            // detalleWordToolStripMenuItem
+            // 
+            this.detalleWordToolStripMenuItem.Name = "detalleWordToolStripMenuItem";
+            this.detalleWordToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.detalleWordToolStripMenuItem.Text = "detalle en word";
+            this.detalleWordToolStripMenuItem.Click += new System.EventHandler(this.detalleWordToolStripMenuItem_Click);
+            // 
+            // muestraLasLlistaEnWordToolStripMenuItem
+            // 
+            this.muestraLasLlistaEnWordToolStripMenuItem.Name = "muestraLasLlistaEnWordToolStripMenuItem";
+            this.muestraLasLlistaEnWordToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.muestraLasLlistaEnWordToolStripMenuItem.Text = "muestra las lista en word";
+            this.muestraLasLlistaEnWordToolStripMenuItem.Click += new System.EventHandler(this.muestraLasLlistaEnWordToolStripMenuItem_Click);
+            // 
+            // listaYGraficaEbExelToolStripMenuItem
+            // 
+            this.listaYGraficaEbExelToolStripMenuItem.Name = "listaYGraficaEbExelToolStripMenuItem";
+            this.listaYGraficaEbExelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.listaYGraficaEbExelToolStripMenuItem.Text = "lista y grafica  exel";
+            this.listaYGraficaEbExelToolStripMenuItem.Click += new System.EventHandler(this.listaYGraficaEbExelToolStripMenuItem_Click);
             // 
             // tpCategorias
             // 
@@ -889,7 +1011,7 @@
             this.btmactivardesativarempleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
             this.btmactivardesativarempleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btmactivardesativarempleados.ForeColor = System.Drawing.Color.LightGray;
-            this.btmactivardesativarempleados.Location = new System.Drawing.Point(653, 50);
+            this.btmactivardesativarempleados.Location = new System.Drawing.Point(646, 50);
             this.btmactivardesativarempleados.Name = "btmactivardesativarempleados";
             this.btmactivardesativarempleados.Size = new System.Drawing.Size(346, 40);
             this.btmactivardesativarempleados.TabIndex = 22;
@@ -1765,6 +1887,322 @@
             this.label11.TabIndex = 8;
             this.label11.Text = "SLECCIONAR EL PAIZ";
             // 
+            // tpPedido
+            // 
+            this.tpPedido.Controls.Add(this.dtgPedidosssss);
+            this.tpPedido.Controls.Add(this.btneliminarpedido);
+            this.tpPedido.Controls.Add(this.btneditarpedido);
+            this.tpPedido.Controls.Add(this.btnRegistarPedidp);
+            this.tpPedido.Controls.Add(this.btnmostarpedidosdesactivados);
+            this.tpPedido.Controls.Add(this.btnMostarinformacionPedido);
+            this.tpPedido.Controls.Add(this.groupBox7);
+            this.tpPedido.Location = new System.Drawing.Point(4, 22);
+            this.tpPedido.Name = "tpPedido";
+            this.tpPedido.Size = new System.Drawing.Size(1008, 728);
+            this.tpPedido.TabIndex = 9;
+            this.tpPedido.Text = "tabPage1";
+            this.tpPedido.UseVisualStyleBackColor = true;
+            // 
+            // btneliminarpedido
+            // 
+            this.btneliminarpedido.BackColor = System.Drawing.Color.Teal;
+            this.btneliminarpedido.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btneliminarpedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btneliminarpedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btneliminarpedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btneliminarpedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneliminarpedido.ForeColor = System.Drawing.Color.LightGray;
+            this.btneliminarpedido.Location = new System.Drawing.Point(757, 627);
+            this.btneliminarpedido.Name = "btneliminarpedido";
+            this.btneliminarpedido.Size = new System.Drawing.Size(235, 40);
+            this.btneliminarpedido.TabIndex = 12;
+            this.btneliminarpedido.Text = "ELIMINAR pedido";
+            this.btneliminarpedido.UseVisualStyleBackColor = false;
+            // 
+            // btneditarpedido
+            // 
+            this.btneditarpedido.BackColor = System.Drawing.Color.DarkOrange;
+            this.btneditarpedido.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btneditarpedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btneditarpedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btneditarpedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btneditarpedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneditarpedido.ForeColor = System.Drawing.Color.LightGray;
+            this.btneditarpedido.Location = new System.Drawing.Point(516, 627);
+            this.btneditarpedido.Name = "btneditarpedido";
+            this.btneditarpedido.Size = new System.Drawing.Size(235, 40);
+            this.btneditarpedido.TabIndex = 13;
+            this.btneditarpedido.Text = "EDITAR PEDIDO";
+            this.btneditarpedido.UseVisualStyleBackColor = false;
+            // 
+            // btnRegistarPedidp
+            // 
+            this.btnRegistarPedidp.BackColor = System.Drawing.Color.Green;
+            this.btnRegistarPedidp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistarPedidp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnRegistarPedidp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnRegistarPedidp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnRegistarPedidp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistarPedidp.ForeColor = System.Drawing.Color.LightGray;
+            this.btnRegistarPedidp.Location = new System.Drawing.Point(275, 627);
+            this.btnRegistarPedidp.Name = "btnRegistarPedidp";
+            this.btnRegistarPedidp.Size = new System.Drawing.Size(235, 40);
+            this.btnRegistarPedidp.TabIndex = 14;
+            this.btnRegistarPedidp.Text = "REGISTAR PEDIDO";
+            this.btnRegistarPedidp.UseVisualStyleBackColor = false;
+            // 
+            // btnmostarpedidosdesactivados
+            // 
+            this.btnmostarpedidosdesactivados.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnmostarpedidosdesactivados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnmostarpedidosdesactivados.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnmostarpedidosdesactivados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnmostarpedidosdesactivados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnmostarpedidosdesactivados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmostarpedidosdesactivados.ForeColor = System.Drawing.Color.LightGray;
+            this.btnmostarpedidosdesactivados.Location = new System.Drawing.Point(646, 117);
+            this.btnmostarpedidosdesactivados.Name = "btnmostarpedidosdesactivados";
+            this.btnmostarpedidosdesactivados.Size = new System.Drawing.Size(346, 40);
+            this.btnmostarpedidosdesactivados.TabIndex = 15;
+            this.btnmostarpedidosdesactivados.Text = "MOSTRAR PEDIDOS DESACTIVADOS";
+            this.btnmostarpedidosdesactivados.UseVisualStyleBackColor = false;
+            // 
+            // btnMostarinformacionPedido
+            // 
+            this.btnMostarinformacionPedido.BackColor = System.Drawing.Color.IndianRed;
+            this.btnMostarinformacionPedido.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostarinformacionPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnMostarinformacionPedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnMostarinformacionPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnMostarinformacionPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostarinformacionPedido.ForeColor = System.Drawing.Color.LightGray;
+            this.btnMostarinformacionPedido.Location = new System.Drawing.Point(16, 627);
+            this.btnMostarinformacionPedido.Name = "btnMostarinformacionPedido";
+            this.btnMostarinformacionPedido.Size = new System.Drawing.Size(253, 40);
+            this.btnMostarinformacionPedido.TabIndex = 16;
+            this.btnMostarinformacionPedido.Text = "MOSTRAR INFORMACIÓN";
+            this.btnMostarinformacionPedido.UseVisualStyleBackColor = false;
+            this.btnMostarinformacionPedido.Click += new System.EventHandler(this.btnMostarinformacionPedido_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label13);
+            this.groupBox7.Controls.Add(this.textBox2);
+            this.groupBox7.Controls.Add(this.pictureBox8);
+            this.groupBox7.Location = new System.Drawing.Point(16, 61);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(613, 96);
+            this.groupBox7.TabIndex = 11;
+            this.groupBox7.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(81, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(127, 16);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Nombre a Buscar";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(84, 47);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(509, 29);
+            this.textBox2.TabIndex = 2;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::GUINorthwind.Properties.Resources.search01;
+            this.pictureBox8.Location = new System.Drawing.Point(18, 19);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(60, 57);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 1;
+            this.pictureBox8.TabStop = false;
+            // 
+            // tpCliente
+            // 
+            this.tpCliente.Controls.Add(this.btnEliminarCliente);
+            this.tpCliente.Controls.Add(this.bTNEDITARcliente);
+            this.tpCliente.Controls.Add(this.btnRegistarCliente);
+            this.tpCliente.Controls.Add(this.btnmostarclintesdesactivados);
+            this.tpCliente.Controls.Add(this.btnMostrarInftpmacionCliente);
+            this.tpCliente.Controls.Add(this.groupBox6);
+            this.tpCliente.Controls.Add(this.dtgClientes);
+            this.tpCliente.Location = new System.Drawing.Point(4, 22);
+            this.tpCliente.Name = "tpCliente";
+            this.tpCliente.Size = new System.Drawing.Size(1008, 728);
+            this.tpCliente.TabIndex = 10;
+            this.tpCliente.Text = "tabPage1";
+            this.tpCliente.UseVisualStyleBackColor = true;
+            this.tpCliente.Click += new System.EventHandler(this.tpCliente_Click);
+            // 
+            // btnEliminarCliente
+            // 
+            this.btnEliminarCliente.BackColor = System.Drawing.Color.Teal;
+            this.btnEliminarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnEliminarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnEliminarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCliente.ForeColor = System.Drawing.Color.LightGray;
+            this.btnEliminarCliente.Location = new System.Drawing.Point(757, 627);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(235, 40);
+            this.btnEliminarCliente.TabIndex = 5;
+            this.btnEliminarCliente.Text = "ELIMINAR Cliente";
+            this.btnEliminarCliente.UseVisualStyleBackColor = false;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
+            // 
+            // bTNEDITARcliente
+            // 
+            this.bTNEDITARcliente.BackColor = System.Drawing.Color.DarkOrange;
+            this.bTNEDITARcliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bTNEDITARcliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.bTNEDITARcliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.bTNEDITARcliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.bTNEDITARcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bTNEDITARcliente.ForeColor = System.Drawing.Color.LightGray;
+            this.bTNEDITARcliente.Location = new System.Drawing.Point(516, 627);
+            this.bTNEDITARcliente.Name = "bTNEDITARcliente";
+            this.bTNEDITARcliente.Size = new System.Drawing.Size(235, 40);
+            this.bTNEDITARcliente.TabIndex = 6;
+            this.bTNEDITARcliente.Text = "EDITAR CLIENTE";
+            this.bTNEDITARcliente.UseVisualStyleBackColor = false;
+            this.bTNEDITARcliente.Click += new System.EventHandler(this.bTNEDITARcliente_Click);
+            // 
+            // btnRegistarCliente
+            // 
+            this.btnRegistarCliente.BackColor = System.Drawing.Color.Green;
+            this.btnRegistarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnRegistarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnRegistarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnRegistarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistarCliente.ForeColor = System.Drawing.Color.LightGray;
+            this.btnRegistarCliente.Location = new System.Drawing.Point(275, 627);
+            this.btnRegistarCliente.Name = "btnRegistarCliente";
+            this.btnRegistarCliente.Size = new System.Drawing.Size(235, 40);
+            this.btnRegistarCliente.TabIndex = 7;
+            this.btnRegistarCliente.Text = "REGISTAR CLIENTE";
+            this.btnRegistarCliente.UseVisualStyleBackColor = false;
+            this.btnRegistarCliente.Click += new System.EventHandler(this.btnRegistarCliente_Click);
+            // 
+            // btnmostarclintesdesactivados
+            // 
+            this.btnmostarclintesdesactivados.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnmostarclintesdesactivados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnmostarclintesdesactivados.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnmostarclintesdesactivados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnmostarclintesdesactivados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnmostarclintesdesactivados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmostarclintesdesactivados.ForeColor = System.Drawing.Color.LightGray;
+            this.btnmostarclintesdesactivados.Location = new System.Drawing.Point(646, 117);
+            this.btnmostarclintesdesactivados.Name = "btnmostarclintesdesactivados";
+            this.btnmostarclintesdesactivados.Size = new System.Drawing.Size(346, 40);
+            this.btnmostarclintesdesactivados.TabIndex = 8;
+            this.btnmostarclintesdesactivados.Text = "MOSTRAR CLIENTES DESACTIVADOS";
+            this.btnmostarclintesdesactivados.UseVisualStyleBackColor = false;
+            this.btnmostarclintesdesactivados.Click += new System.EventHandler(this.btnmostarclintesdesactivados_Click);
+            // 
+            // btnMostrarInftpmacionCliente
+            // 
+            this.btnMostrarInftpmacionCliente.BackColor = System.Drawing.Color.IndianRed;
+            this.btnMostrarInftpmacionCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarInftpmacionCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnMostrarInftpmacionCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnMostrarInftpmacionCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnMostrarInftpmacionCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarInftpmacionCliente.ForeColor = System.Drawing.Color.LightGray;
+            this.btnMostrarInftpmacionCliente.Location = new System.Drawing.Point(16, 627);
+            this.btnMostrarInftpmacionCliente.Name = "btnMostrarInftpmacionCliente";
+            this.btnMostrarInftpmacionCliente.Size = new System.Drawing.Size(253, 40);
+            this.btnMostrarInftpmacionCliente.TabIndex = 9;
+            this.btnMostrarInftpmacionCliente.Text = "MOSTRAR INFORMACIÓN";
+            this.btnMostrarInftpmacionCliente.UseVisualStyleBackColor = false;
+            this.btnMostrarInftpmacionCliente.Click += new System.EventHandler(this.btnMostrarInftpmacionCliente_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.textBox1);
+            this.groupBox6.Controls.Add(this.pictureBox7);
+            this.groupBox6.Location = new System.Drawing.Point(16, 61);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(613, 96);
+            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(81, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(127, 16);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Nombre a Buscar";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(84, 47);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(509, 29);
+            this.textBox1.TabIndex = 2;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::GUINorthwind.Properties.Resources.search01;
+            this.pictureBox7.Location = new System.Drawing.Point(18, 19);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(60, 57);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 1;
+            this.pictureBox7.TabStop = false;
+            // 
+            // dtgClientes
+            // 
+            this.dtgClientes.AllowUserToAddRows = false;
+            this.dtgClientes.AllowUserToDeleteRows = false;
+            this.dtgClientes.AllowUserToOrderColumns = true;
+            this.dtgClientes.AllowUserToResizeColumns = false;
+            this.dtgClientes.AllowUserToResizeRows = false;
+            this.dtgClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgClientes.BackgroundColor = System.Drawing.Color.White;
+            this.dtgClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dtgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgClientes.ContextMenuStrip = this.cmnuOffice;
+            this.dtgClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtgClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgClientes.EnableHeadersVisualStyles = false;
+            this.dtgClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.dtgClientes.Location = new System.Drawing.Point(16, 163);
+            this.dtgClientes.MultiSelect = false;
+            this.dtgClientes.Name = "dtgClientes";
+            this.dtgClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.dtgClientes.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dtgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgClientes.Size = new System.Drawing.Size(976, 453);
+            this.dtgClientes.TabIndex = 3;
+            // 
             // pd
             // 
             this.pd.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimirPagina);
@@ -1773,35 +2211,44 @@
             // 
             this.pd02.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pd02_PrintPage);
             // 
-            // cmnuOffice
+            // dtgPedidosssss
             // 
-            this.cmnuOffice.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.detalleWordToolStripMenuItem,
-            this.muestraLasLlistaEnWordToolStripMenuItem,
-            this.listaYGraficaEbExelToolStripMenuItem});
-            this.cmnuOffice.Name = "cmnuOffice";
-            this.cmnuOffice.Size = new System.Drawing.Size(205, 92);
-            // 
-            // detalleWordToolStripMenuItem
-            // 
-            this.detalleWordToolStripMenuItem.Name = "detalleWordToolStripMenuItem";
-            this.detalleWordToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.detalleWordToolStripMenuItem.Text = "detalle en word";
-            this.detalleWordToolStripMenuItem.Click += new System.EventHandler(this.detalleWordToolStripMenuItem_Click);
-            // 
-            // muestraLasLlistaEnWordToolStripMenuItem
-            // 
-            this.muestraLasLlistaEnWordToolStripMenuItem.Name = "muestraLasLlistaEnWordToolStripMenuItem";
-            this.muestraLasLlistaEnWordToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.muestraLasLlistaEnWordToolStripMenuItem.Text = "muestra las lista en word";
-            this.muestraLasLlistaEnWordToolStripMenuItem.Click += new System.EventHandler(this.muestraLasLlistaEnWordToolStripMenuItem_Click);
-            // 
-            // listaYGraficaEbExelToolStripMenuItem
-            // 
-            this.listaYGraficaEbExelToolStripMenuItem.Name = "listaYGraficaEbExelToolStripMenuItem";
-            this.listaYGraficaEbExelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.listaYGraficaEbExelToolStripMenuItem.Text = "lista y grafica  exel";
-            this.listaYGraficaEbExelToolStripMenuItem.Click += new System.EventHandler(this.listaYGraficaEbExelToolStripMenuItem_Click);
+            this.dtgPedidosssss.AllowUserToAddRows = false;
+            this.dtgPedidosssss.AllowUserToDeleteRows = false;
+            this.dtgPedidosssss.AllowUserToOrderColumns = true;
+            this.dtgPedidosssss.AllowUserToResizeColumns = false;
+            this.dtgPedidosssss.AllowUserToResizeRows = false;
+            this.dtgPedidosssss.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgPedidosssss.BackgroundColor = System.Drawing.Color.White;
+            this.dtgPedidosssss.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgPedidosssss.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dtgPedidosssss.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgPedidosssss.ContextMenuStrip = this.cmnuOffice;
+            this.dtgPedidosssss.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtgPedidosssss.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgPedidosssss.EnableHeadersVisualStyles = false;
+            this.dtgPedidosssss.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.dtgPedidosssss.Location = new System.Drawing.Point(16, 168);
+            this.dtgPedidosssss.MultiSelect = false;
+            this.dtgPedidosssss.Name = "dtgPedidosssss";
+            this.dtgPedidosssss.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgPedidosssss.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dtgPedidosssss.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dtgPedidosssss.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgPedidosssss.Size = new System.Drawing.Size(976, 453);
+            this.dtgPedidosssss.TabIndex = 17;
             // 
             // FrmPrincipal
             // 
@@ -1833,6 +2280,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            this.cmnuOffice.ResumeLayout(false);
             this.tpCategorias.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -1862,7 +2310,16 @@
             this.tpProveedorPorPaiz.ResumeLayout(false);
             this.tpProveedorPorPaiz.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPorveedorPorPaiz)).EndInit();
-            this.cmnuOffice.ResumeLayout(false);
+            this.tpPedido.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.tpCliente.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPedidosssss)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1980,5 +2437,30 @@
         private System.Windows.Forms.ToolStripMenuItem detalleWordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem muestraLasLlistaEnWordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaYGraficaEbExelToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnpedidos;
+        private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.TabPage tpPedido;
+        private System.Windows.Forms.TabPage tpCliente;
+        private System.Windows.Forms.Button btnEliminarCliente;
+        private System.Windows.Forms.Button bTNEDITARcliente;
+        private System.Windows.Forms.Button btnRegistarCliente;
+        private System.Windows.Forms.Button btnmostarclintesdesactivados;
+        private System.Windows.Forms.Button btnMostrarInftpmacionCliente;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.DataGridView dtgClientes;
+        private System.Windows.Forms.Button btneliminarpedido;
+        private System.Windows.Forms.Button btneditarpedido;
+        private System.Windows.Forms.Button btnRegistarPedidp;
+        private System.Windows.Forms.Button btnmostarpedidosdesactivados;
+        private System.Windows.Forms.Button btnMostarinformacionPedido;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.DataGridView dtgPedidosssss;
     }
 }
