@@ -15,6 +15,11 @@ using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using Microsoft.VisualBasic;
 
+using System.IO;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using iText.Layout;
+
 namespace GUINorthwind
 {
     public partial class FrmPrincipal : Form
@@ -428,11 +433,28 @@ namespace GUINorthwind
                 case 10:
                     BRPedido obspedidoi = new BRPedido();
                     lbepedido = obspedidoi.ListarPedido();
-                    cbxpedidoEmpleado.DataSource = lbepedido;
+                    //cbxpedidoEmpleado.DataSource = lbepedido;
                     dtgpedidoEmpleado.DataSource = lbepedido;
-                    cbxpedidoEmpleado.DisplayMember = "idEmpleado";
-                    cbxpedidoEmpleado.ValueMember = "codigoOrden";
+                 ////   cbxpedidoEmpleado.DisplayMember = "idEmpleado";
+                 //   cbxpedidoEmpleado.ValueMember = "codigoOrden";
 
+
+
+                    break;
+                case 11:
+                    BRPedido obspedidoss = new BRPedido();
+                    lbepedido = obspedidoss.ListarPedido();
+                  
+                    dtgpedidoCliente.DataSource = lbepedido;
+                
+
+                    break;
+
+                case 12:
+                    BRPedido obspedi = new BRPedido();
+                    lbepedido = obspedi.ListarPedido();
+
+                    dtgLISTARiDxPEDIDO.DataSource = lbepedido;
 
 
                     break;
@@ -2471,33 +2493,389 @@ namespace GUINorthwind
         private void bTNFILTRApedidoempleado_Click(object sender, EventArgs e)
         {
 
+            //lbeFiltro07 = new List<BEPedido>();
+            //BEPedido obePedido;
+            //for (int I = 0; I <= lbepedido.Count - 1; I++)
+            //{
+            //    if (lbepedido[I].CodigoOrden.Equals(cbxpedidoEmpleado.SelectedValue))
+            //    {
+            //        obePedido = new BEPedido();
+            //        obePedido.CodigoOrden = lbepedido[I].CodigoOrden;
+            //        obePedido.IdCliente = lbepedido[I].IdCliente;
+            //        obePedido.IdEmpleado = lbepedido[I].IdEmpleado;
+            //        obePedido.FechaOrden = lbepedido[I].FechaOrden;
+            //        obePedido.DireccionEnvio = lbepedido[I].DireccionEnvio;
+
+
+            //        lbeFiltro07.Add(obePedido);
+            //    }
+            //}
+            //dtgpedidoEmpleado.DataSource = lbeFiltro07;
+            int filtroEmpleado = Convert.ToInt32(txtEmpleado.Text);
+
+
             lbeFiltro07 = new List<BEPedido>();
             BEPedido obePedido;
-            for (int I = 0; I <= lbepedido.Count - 1; I++)
+
+            foreach (BEPedido pedido in lbepedido)
             {
-                if (lbepedido[I].CodigoOrden.Equals(cbxpedidoEmpleado.SelectedValue))
+                if (pedido.IdEmpleado==filtroEmpleado)
                 {
                     obePedido = new BEPedido();
-                    obePedido.CodigoOrden = lbepedido[I].CodigoOrden;
-                    obePedido.IdCliente = lbepedido[I].IdCliente;
-                    obePedido.IdEmpleado = lbepedido[I].IdEmpleado;
-                    obePedido.FechaOrden = lbepedido[I].FechaOrden;
-                    obePedido.DireccionEnvio = lbepedido[I].DireccionEnvio;
-                   
-
+                    obePedido.CodigoOrden = pedido.CodigoOrden;
+                    //obePedido.IdCliente = pedido.IdCliente;
+                    obePedido.IdEmpleado = pedido.IdEmpleado;
+                    obePedido.FechaOrden = pedido.FechaOrden;
+                    obePedido.DireccionEnvio = pedido.DireccionEnvio;
                     lbeFiltro07.Add(obePedido);
                 }
             }
+
             dtgpedidoEmpleado.DataSource = lbeFiltro07;
+
+
         }
 
         private void btnreportepedidoempleado_Click(object sender, EventArgs e)
         {
             cr = 0;
             PrintPreviewDialog ppd = new PrintPreviewDialog();
-            ppd.Document = pd02;
+            ppd.Document = pd03;
 
             ppd.ShowDialog();
         }
+
+        private void imprimirPedidoPorEmpleado(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            int x = e.MarginBounds.Left;
+            int y = e.MarginBounds.Top;
+            Rectangle rec = new Rectangle(x, y - 20, e.MarginBounds.Width, e.MarginBounds.Height);
+            LinearGradientBrush deg = new LinearGradientBrush(rec, Color.Aqua, Color.Blue,
+           LinearGradientMode.BackwardDiagonal);
+            Font fuente = new Font("Arial", 10);
+            Brush brocha = Brushes.Blue;
+            Brush brochaTitulo = Brushes.Red;
+            int tlp = (int)(e.MarginBounds.Height / (fuente.GetHeight() + 20));
+            totPags = (lbeFiltro07.Count / (tlp - 1));
+            if (lbeFiltro07.Count % (tlp - 1) > 0)
+                totPags += 1;
+            numPag += 1;
+            {
+                var withBlock = e.Graphics;
+                x = e.MarginBounds.Left;
+                withBlock.DrawString("CodigoOrden", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("IdEmpleado", fuente, brochaTitulo, x, y);
+                x = x + 300;
+                withBlock.DrawString("FechaOrden", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("DireccionEnvio", fuente, brochaTitulo, x, y);
+                y = (int)(y + fuente.GetHeight() + 20);
+                int I;
+                for (I = 0; I <= tlp - 2; I++)
+                {
+                    if (cr == lbeFiltro07.Count)
+                        break;
+                    x = e.MarginBounds.Left;
+                    withBlock.DrawString(lbeFiltro07[cr].CodigoOrden.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro07[cr].IdEmpleado.ToString(), fuente, brocha, x, y);
+                    x = x + 300;
+                    withBlock.DrawString(lbeFiltro07[cr].FechaOrden.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro07[cr].DireccionEnvio.ToString(), fuente, brocha, x, y);
+                    y = (int)(y + fuente.GetHeight() + 20);
+                    cr += 1;
+                }
+                withBlock.DrawString(string.Format("Pag {0} de {1}", numPag, totPags), fuente,
+               brochaTitulo, 400, e.MarginBounds.Top + e.MarginBounds.Height);
+                e.HasMorePages = (cr < lbeFiltro07.Count - 1);
+            }
+
+
+
+        }
+
+        private void btnconfigurarPajinapedodoempleado_Click(object sender, EventArgs e)
+        {
+            PageSetupDialog psd = new PageSetupDialog();
+            psd.Document = pd03;
+            psd.ShowDialog();
+        }
+
+        private void btnimplrimirpedidoempleado_Click(object sender, EventArgs e)
+        {
+            PrintDialog pdg = new PrintDialog();
+            pdg.Document = pd03;
+            pdg.ShowDialog();
+        }
+
+        private void btnfiltrarPedidoClinte_Click(object sender, EventArgs e)
+        {
+
+            //dtgpedidoEmpleado.DataSource = lbeFiltro07;
+            string filtroCliente = txtpedidoCliente.Text;
+
+
+            lbeFiltro07 = new List<BEPedido>();
+            BEPedido obePedido;
+
+            foreach (BEPedido pedido in lbepedido)
+            {
+                if (pedido.IdCliente.Equals(filtroCliente))
+                {
+                    obePedido = new BEPedido();
+                    obePedido.CodigoOrden = pedido.CodigoOrden;
+                    obePedido.IdCliente = pedido.IdCliente;
+                    //obePedido.IdEmpleado = pedido.IdEmpleado;
+                    obePedido.FechaOrden = pedido.FechaOrden;
+                    obePedido.DireccionEnvio = pedido.DireccionEnvio;
+                    lbeFiltro07.Add(obePedido);
+                }
+            }
+
+           dtgpedidoCliente.DataSource = lbeFiltro07;
+
+
+
+
+
+
+        }
+
+        private void BTNPEDIDOSXCLIENTE_Click(object sender, EventArgs e)
+        {
+
+            tcVentanas.SelectedIndex = 11;
+            //activaSeleccion(7);
+            lblTitulo.Text = BTNPEDIDOSXCLIENTE.Text;
+            cargaDatos(11);
+
+
+        }
+
+        private void imprimirPedidoPorCliente(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            int x = e.MarginBounds.Left;
+            int y = e.MarginBounds.Top;
+            Rectangle rec = new Rectangle(x, y - 20, e.MarginBounds.Width, e.MarginBounds.Height);
+            LinearGradientBrush deg = new LinearGradientBrush(rec, Color.Aqua, Color.Blue,
+           LinearGradientMode.BackwardDiagonal);
+            Font fuente = new Font("Arial", 10);
+            Brush brocha = Brushes.Blue;
+            Brush brochaTitulo = Brushes.Red;
+            int tlp = (int)(e.MarginBounds.Height / (fuente.GetHeight() + 20));
+            totPags = (lbeFiltro07.Count / (tlp - 1));
+            if (lbeFiltro07.Count % (tlp - 1) > 0)
+                totPags += 1;
+            numPag += 1;
+            {
+                var withBlock = e.Graphics;
+                x = e.MarginBounds.Left;
+                withBlock.DrawString("CodigoOrden", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("IdCliente", fuente, brochaTitulo, x, y);
+                x = x + 300;
+                withBlock.DrawString("FechaOrden", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("DireccionEnvio", fuente, brochaTitulo, x, y);
+                y = (int)(y + fuente.GetHeight() + 20);
+                int I;
+                for (I = 0; I <= tlp - 2; I++)
+                {
+                    if (cr == lbeFiltro07.Count)
+                        break;
+                    x = e.MarginBounds.Left;
+                    withBlock.DrawString(lbeFiltro07[cr].CodigoOrden.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro07[cr].IdCliente.ToString(), fuente, brocha, x, y);
+                    x = x + 300;
+                    withBlock.DrawString(lbeFiltro07[cr].FechaOrden.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro07[cr].DireccionEnvio.ToString(), fuente, brocha, x, y);
+                    y = (int)(y + fuente.GetHeight() + 20);
+                    cr += 1;
+                }
+                withBlock.DrawString(string.Format("Pag {0} de {1}", numPag, totPags), fuente,
+               brochaTitulo, 400, e.MarginBounds.Top + e.MarginBounds.Height);
+                e.HasMorePages = (cr < lbeFiltro07.Count - 1);
+            }
+
+
+        }
+
+        private void btnConfigurarcapjinapedidoCliente_Click(object sender, EventArgs e)
+        {
+            PageSetupDialog psd = new PageSetupDialog();
+            psd.Document = pd04;
+            psd.ShowDialog();
+        }
+
+        private void imprimirpajinapedidovliente_Click(object sender, EventArgs e)
+        {
+            PrintDialog pdg = new PrintDialog();
+            pdg.Document = pd04;
+            pdg.ShowDialog();
+        }
+
+        private void btnreporteClientepedido_Click(object sender, EventArgs e)
+        {
+            cr = 0;
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = pd04;
+
+            ppd.ShowDialog();
+        }
+
+        private void BRNDETALLEPEDIDOXcodigo_Click(object sender, EventArgs e)
+        {
+            tcVentanas.SelectedIndex = 12;
+            //activaSeleccion(7);
+            lblTitulo.Text = BRNDETALLEPEDIDOXcodigo.Text;
+            cargaDatos(12);
+
+        }
+
+        private void FILTARIDPEDIDO_Click(object sender, EventArgs e)
+        {
+
+            int filtro = Convert.ToInt32(tXTIDPEDIDO.Text);
+
+
+            lbeFiltro07 = new List<BEPedido>();
+            BEPedido obePedido;
+
+            foreach (BEPedido pedido in lbepedido)
+            {
+                if (pedido.CodigoOrden == filtro)
+                {
+                    obePedido = new BEPedido();
+                    obePedido.CodigoOrden = pedido.CodigoOrden;
+                    obePedido.IdCliente = pedido.IdCliente;
+                    obePedido.IdEmpleado = pedido.IdEmpleado;
+                    obePedido.FechaOrden = pedido.FechaOrden;
+                    obePedido.DireccionEnvio = pedido.DireccionEnvio;
+                    lbeFiltro07.Add(obePedido);
+                }
+            }
+
+            dtgLISTARiDxPEDIDO.DataSource = lbeFiltro07;
+
+        }
+
+        private void BTNREPORDEIDxPedido_Click(object sender, EventArgs e)
+        {
+            cr = 0;
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = pd05;
+
+            ppd.ShowDialog();
+        }
+
+        private void pd05_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int x = e.MarginBounds.Left;
+            int y = e.MarginBounds.Top;
+            Rectangle rec = new Rectangle(x, y - 20, e.MarginBounds.Width, e.MarginBounds.Height);
+            LinearGradientBrush deg = new LinearGradientBrush(rec, Color.Aqua, Color.Blue,
+           LinearGradientMode.BackwardDiagonal);
+            Font fuente = new Font("Arial", 10);
+            Brush brocha = Brushes.Blue;
+            Brush brochaTitulo = Brushes.Red;
+            int tlp = (int)(e.MarginBounds.Height / (fuente.GetHeight() + 20));
+            totPags = (lbeFiltro07.Count / (tlp - 1));
+            if (lbeFiltro07.Count % (tlp - 1) > 0)
+                totPags += 1;
+            numPag += 1;
+            {
+                var withBlock = e.Graphics;
+                x = e.MarginBounds.Left;
+                withBlock.DrawString("CodigoOrden", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("IdCliente", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("IdEmpleado", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("FechaOrden", fuente, brochaTitulo, x, y);
+                x = x + 100;
+                withBlock.DrawString("DireccionEnvio", fuente, brochaTitulo, x, y);
+                y = (int)(y + fuente.GetHeight() + 20);
+                int I;
+                for (I = 0; I <= tlp - 2; I++)
+                {
+                    if (cr == lbeFiltro07.Count)
+                        break;
+                    x = e.MarginBounds.Left;
+                    withBlock.DrawString(lbeFiltro07[cr].CodigoOrden.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro07[cr].IdCliente.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro07[cr].IdEmpleado.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro07[cr].FechaOrden.ToString(), fuente, brocha, x, y);
+                    x = x + 100;
+                    withBlock.DrawString(lbeFiltro07[cr].DireccionEnvio.ToString(), fuente, brocha, x, y);
+                    y = (int)(y + fuente.GetHeight() + 20);
+                    cr += 1;
+                }
+                withBlock.DrawString(string.Format("Pag {0} de {1}", numPag, totPags), fuente,
+               brochaTitulo, 400, e.MarginBounds.Top + e.MarginBounds.Height);
+                e.HasMorePages = (cr < lbeFiltro07.Count - 1);
+            }
+
+        }
+
+        private void btnCONFIGURTARIDPorpedido_Click(object sender, EventArgs e)
+        {
+            PageSetupDialog psd = new PageSetupDialog();
+            psd.Document = pd05;
+            psd.ShowDialog();
+        }
+
+        private void btnImpromitIDPORpedido_Click(object sender, EventArgs e)
+        {
+            PrintDialog pdg = new PrintDialog();
+            pdg.Document = pd05;
+            pdg.ShowDialog();
+        }
+
+        private void mostrarPdfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string rutaPDF = Path.Combine(ruta, "D:\\Trabajos Visual Estudio\\EJERCICIOS_solucionesEmpresariales\\documentos\\");
+
+
+     
+
+
+
+
+        }
+
+        //public void ImprimirRegistroEnPDF(Registro registro, string nombreArchivo)
+        //{
+        //    // Crear documento PDF
+        //    Document document = new Document();
+
+        //    // Crear instancia de escritura PDF
+        //    PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(nombreArchivo, FileMode.Create));
+
+        //    // Abrir documento para escritura
+        //    document.Open();
+
+        //    // Agregar contenido al documento
+        //    document.Add(new Paragraph("Nombre: " + registro.Nombre));
+        //    document.Add(new Paragraph("Edad: " + registro.Edad));
+        //    document.Add(new Paragraph("Correo electrónico: " + registro.CorreoElectronico));
+        //    document.Add(new Paragraph("Teléfono: " + registro.Telefono));
+
+        //    // Cerrar documento
+        //    document.Close();
+
+        //    // Mostrar mensaje de éxito
+        //    Console.WriteLine("El registro se ha guardado correctamente en el archivo PDF.");
+        //}
+
     }
 }

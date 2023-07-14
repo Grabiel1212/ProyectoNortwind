@@ -131,6 +131,8 @@ namespace GUINorthwind
             cbxproovedor.DataSource = lbeProveedor;
             cbxproovedor.DisplayMember = "Nombre";
             cbxproovedor.ValueMember = "Codigo";
+
+
             BRCategoria obrCategoria = new BRCategoria();
             List<BECategoria> lbeCategoria = obrCategoria.Listar();
             cbxcategoria.DataSource = lbeCategoria;
